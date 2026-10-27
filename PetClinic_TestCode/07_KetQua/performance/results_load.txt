@@ -1,0 +1,19 @@
+
+
+  Kiểm thử tải – 200 người dùng đồng thời, 30s/kịch bản
+Trang Tổng quan – GET /api/dashboard/stats conn= 200  req=  71419  rps= 2381  p50=   83ms  p99=  106ms  max=  303ms  lỗi=0%
+    ✔ LOAD-TC001: Trang Tổng quan – GET /api/dashboard/stats (30189ms)
+Danh sách khách hàng – GET /api/customers  conn= 200  req=  69616  rps= 2321  p50=   84ms  p99=  118ms  max=  265ms  lỗi=0%
+    ✔ LOAD-TC002: Danh sách khách hàng – GET /api/customers (30171ms)
+Danh sách lịch hẹn – GET /api/appointments conn= 200  req=  62641  rps= 2088  p50=   90ms  p99=  148ms  max=  273ms  lỗi=0%
+    ✔ LOAD-TC003: Danh sách lịch hẹn – GET /api/appointments (30111ms)
+Kho thuốc – GET /api/inventory             conn= 200  req=  70986  rps= 2367  p50=   83ms  p99=  124ms  max=  281ms  lỗi=0%
+    ✔ LOAD-TC004: Kho thuốc – GET /api/inventory (30064ms)
+Kịch bản hỗn hợp (đọc nhiều màn hình)      conn= 200  req=  15558  rps=  519  p50=  381ms  p99=  637ms  max=  726ms  lỗi=0%
+    ✔ LOAD-TC005: Kịch bản hỗn hợp (đọc nhiều màn hình) (30111ms)
+Tải ghi – POST /api/customers (lễ tân tạo hồ sơ) conn= 200  req=  21135  rps=  705  p50=  276ms  p99=  346ms  max=  753ms  lỗi=0%
+    ✔ LOAD-TC006: Tải ghi – POST /api/customers (lễ tân tạo hồ sơ) (30073ms)
+
+
+  6 passing (3m)
+

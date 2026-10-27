@@ -1,0 +1,246 @@
+﻿"Test Case ID","Nhóm","Use Case","Mô tả","Các bước","Dữ liệu đầu vào","Kết quả mong đợi","Kết quả thực tế","Status"
+"SYS-TC001","Chức năng của HỆ THỐNG","Truy cập hệ thống & trang Tổng quan","Truy cập trang chủ của hệ thống","1. Mở trình duyệt, truy cập địa chỉ hệ thống
+2. Quan sát trang Tổng quan","http://localhost:5000","Trang ""Tổng quan vận hành phòng khám"" hiển thị đủ 6 thẻ thống kê","Trang Tổng quan hiển thị đầy đủ 6 thẻ thống kê","Pass"
+"SYS-TC002","Chức năng của HỆ THỐNG","Truy cập hệ thống & trang Tổng quan","Điều hướng tới các chức năng qua thanh menu bên trái","1. Truy cập trang chủ
+2. Lần lượt chọn từng mục trên menu","Bác sĩ, Khách hàng, Lịch hẹn, Hồ sơ khám, Ca bác sĩ, Kho thuốc, Hóa đơn, Camera giám sát","Mỗi mục menu mở đúng trang chức năng tương ứng","Cả 8 mục menu mở đúng trang","Pass"
+"SYS-TC003","Chức năng của HỆ THỐNG","Truy cập hệ thống & trang Tổng quan","Truy cập đường dẫn không tồn tại","1. Nhập đường dẫn không tồn tại trên thanh địa chỉ","/trang-khong-ton-tai","Hiển thị trang ""404 - Không tìm thấy trang""","Hiển thị trang 404","Pass"
+"SYS-TC004","Chức năng của HỆ THỐNG","Đăng nhập & phân quyền (RBAC – R6.2)","Truy cập chức năng quản lý khi chưa đăng nhập","1. Mở trình duyệt mới (chưa đăng nhập)
+2. Truy cập trực tiếp trang Khách hàng","/customers","Hệ thống yêu cầu đăng nhập, không cho xem dữ liệu khách hàng","Không có trang đăng nhập – truy cập thẳng được danh sách khách hàng","Fail"
+"SYS-TC005","Chức năng của HỆ THỐNG","Truy cập hệ thống & trang Tổng quan","Chuyển đổi giao diện sáng/tối","1. Truy cập trang chủ
+2. Nhấn nút đổi giao diện ở góc phải
+3. Nhấn lại nút","","Giao diện chuyển đổi qua lại giữa sáng và tối","Giao diện đổi sáng ↔ tối đúng","Pass"
+"UC1.1-TC001","Chức năng của LỄ TÂN","UC1.1 Tạo mới hồ sơ khách hàng","Bỏ trống tất cả các trường và nhấn ""Lưu khách hàng""","1. Chọn ""Thêm khách hàng""
+2. Bỏ trống Họ tên, Email, SĐT
+3. Nhấn ""Lưu khách hàng""","","Hiển thị lỗi ""Họ tên là bắt buộc"", ""Email không hợp lệ"", ""Số điện thoại phải gồm đúng 10 chữ số""","Hiển thị đủ 3 thông báo lỗi, không lưu dữ liệu","Pass"
+"UC1.1-TC002","Chức năng của LỄ TÂN","UC1.1 Tạo mới hồ sơ khách hàng","Bỏ trống Họ tên, các trường khác hợp lệ","1. Chọn ""Thêm khách hàng""
+2. Bỏ trống Họ tên
+3. Nhập Email, SĐT hợp lệ
+4. Nhấn ""Lưu khách hàng""","a@test.vn / 0987654321","Hiển thị lỗi ""Họ tên là bắt buộc""","Hiển thị ""Họ tên là bắt buộc""","Pass"
+"UC1.1-TC003","Chức năng của LỄ TÂN","UC1.1 Tạo mới hồ sơ khách hàng","Email sai định dạng","1. Chọn ""Thêm khách hàng""
+2. Nhập Họ tên, SĐT hợp lệ
+3. Nhập Email sai định dạng
+4. Nhấn ""Lưu khách hàng""","Lê Minh / 0987654321
+leminh.gmail.com","Hiển thị thông báo email không hợp lệ, không lưu khách hàng","Form không được gửi, trình duyệt báo: ""Vui lòng bao gồm '@' trong địa chỉ email. 'leminh.gmail.com' đang thiếu một '@'.""","Pass"
+"UC1.1-TC004","Chức năng của LỄ TÂN","UC1.1 Tạo mới hồ sơ khách hàng","Kiểm thử giá trị biên: SĐT 9 chữ số","1. Chọn ""Thêm khách hàng""
+2. Nhập Họ tên, Email hợp lệ
+3. Nhập SĐT 9 chữ số
+4. Nhấn ""Lưu khách hàng""","Lê Minh / leminh@test.vn
+098765432","Hiển thị lỗi ""Số điện thoại phải gồm đúng 10 chữ số""","Hiển thị lỗi SĐT","Pass"
+"UC1.1-TC005","Chức năng của LỄ TÂN","UC1.1 Tạo mới hồ sơ khách hàng","Kiểm thử giá trị biên: SĐT 11 chữ số","1. Chọn ""Thêm khách hàng""
+2. Nhập Họ tên, Email hợp lệ
+3. Nhập SĐT 11 chữ số
+4. Nhấn ""Lưu khách hàng""","Lê Minh / leminh@test.vn
+09876543210","Hiển thị lỗi ""Số điện thoại phải gồm đúng 10 chữ số""","Hiển thị lỗi SĐT","Pass"
+"UC1.1-TC006","Chức năng của LỄ TÂN","UC1.1 Tạo mới hồ sơ khách hàng","SĐT chứa ký tự chữ","1. Chọn ""Thêm khách hàng""
+2. Nhập Họ tên, Email hợp lệ
+3. Nhập SĐT có chữ
+4. Nhấn ""Lưu khách hàng""","Lê Minh / leminh@test.vn
+09ab123456","Hiển thị lỗi ""Số điện thoại phải gồm đúng 10 chữ số""","Hiển thị lỗi SĐT","Pass"
+"UC1.1-TC007","Chức năng của LỄ TÂN","UC1.1 Tạo mới hồ sơ khách hàng","Tất cả các trường nhập hợp lệ","1. Chọn ""Thêm khách hàng""
+2. Nhập Họ tên
+3. Nhập Email
+4. Nhập SĐT
+5. Nhập Địa chỉ
+6. Nhấn ""Lưu khách hàng""","Khách Kiểm Thử 016767
+kt016767@test.vn
+0901676711
+Hà Đông, Hà Nội","Hiển thị ""Thêm khách hàng thành công"", khách hàng xuất hiện trong danh sách","Thông báo thành công, khách hàng có trong danh sách","Pass"
+"UC1.1-TC008","Chức năng của LỄ TÂN","UC1.1 Tạo mới hồ sơ khách hàng","SĐT trùng với khách hàng đã có","1. Chọn ""Thêm khách hàng""
+2. Nhập Họ tên, Email mới, Địa chỉ
+3. Nhập SĐT đã tồn tại (của Nguyễn Huy)
+4. Nhấn ""Lưu khách hàng""","Khách Trùng SĐT / trungsdt@test.vn / Hà Nội
+0911000001","Hiển thị lỗi số điện thoại đã tồn tại, không tạo khách hàng (quy tắc nghiệp vụ UC1.1)","Hệ thống vẫn lưu khách hàng có SĐT trùng 0911000001","Fail"
+"UC1.1-TC009","Chức năng của LỄ TÂN","UC1.1 Tạo mới hồ sơ khách hàng","Email trùng với khách hàng đã có","1. Chọn ""Thêm khách hàng""
+2. Nhập Họ tên, SĐT mới, Địa chỉ
+3. Nhập Email đã tồn tại
+4. Nhấn ""Lưu khách hàng""","Khách Trùng Email / 0977000999 / Hà Nội
+owner.huy@example.com","Hiển thị lỗi email đã tồn tại, không tạo khách hàng","Hệ thống vẫn lưu khách hàng có email trùng","Fail"
+"UC1.1-TC010","Chức năng của LỄ TÂN","UC1.1 Tạo mới hồ sơ khách hàng","Bỏ trống Địa chỉ (trường không bắt buộc), các trường khác hợp lệ","1. Chọn ""Thêm khách hàng""
+2. Nhập Họ tên, Email, SĐT hợp lệ
+3. Bỏ trống Địa chỉ
+4. Nhấn ""Lưu khách hàng""","Khách Không Địa Chỉ / kdc016767@test.vn / 0901676722","Hiển thị ""Thêm khách hàng thành công"" (Địa chỉ không có dấu * nên không bắt buộc)","Hiển thị ""Không thể thêm khách hàng"" kèm lỗi JSON: ""String must contain at least 1 character(s)"", path [""address""]","Fail"
+"UC1.3-TC001","Chức năng của LỄ TÂN","UC1.3 Chỉnh sửa hồ sơ khách hàng","Cập nhật địa chỉ khách hàng hợp lệ","1. Chọn ""Chỉnh sửa"" tại khách hàng vừa tạo
+2. Sửa Địa chỉ
+3. Nhấn ""Lưu""","Cầu Giấy, Hà Nội","Hiển thị ""Cập nhật khách hàng thành công"", địa chỉ mới hiển thị trong danh sách","Cập nhật thành công, địa chỉ mới hiển thị","Pass"
+"UC1.3-TC002","Chức năng của LỄ TÂN","UC1.3 Chỉnh sửa hồ sơ khách hàng","Cập nhật SĐT không hợp lệ","1. Chọn ""Chỉnh sửa"" tại khách hàng
+2. Sửa SĐT thành 3 chữ số
+3. Nhấn ""Lưu""","123","Hiển thị lỗi ""Số điện thoại phải gồm đúng 10 chữ số"", không lưu","Hiển thị lỗi SĐT, không lưu","Pass"
+"UC1.4-TC001","Chức năng của LỄ TÂN","UC1.4 Tạm khóa / Duyệt hồ sơ khách hàng","Tạm khóa khách hàng đang hoạt động","1. Truy cập Quản lý khách hàng
+2. Nhấn ""Tạm khóa"" tại khách hàng vừa tạo","Khách Kiểm Thử 016767","Hiển thị ""Đã cập nhật trạng thái khách hàng"", trạng thái đổi thành ""Chờ duyệt""","Trạng thái chuyển sang ""Chờ duyệt""","Pass"
+"UC1.4-TC002","Chức năng của LỄ TÂN","UC1.4 Tạm khóa / Duyệt hồ sơ khách hàng","Duyệt lại khách hàng đang bị khóa","1. Nhấn ""Duyệt"" tại khách hàng đang ""Chờ duyệt""","Khách Kiểm Thử 016767","Hiển thị ""Đã duyệt khách hàng"", trạng thái đổi thành ""Đang hoạt động""","Khách hàng được duyệt","Pass"
+"UC1.5-TC001","Chức năng của LỄ TÂN","UC1.5 Tìm kiếm khách hàng / thú cưng","Tìm khách hàng theo tên","1. Nhập tên vào ô tìm kiếm","Trần Lan","Chỉ hiển thị khách hàng ""Trần Lan""","Ô tìm kiếm mất focus sau ký tự đầu – chỉ nhận ""T"", danh sách lọc sai","Fail"
+"UC1.5-TC002","Chức năng của LỄ TÂN","UC1.5 Tìm kiếm khách hàng / thú cưng","Tìm khách hàng theo số điện thoại","1. Nhập SĐT vào ô tìm kiếm","0911000003","Hiển thị khách hàng ""Phạm Tuấn""","Ô tìm kiếm mất focus sau ký tự đầu – chỉ nhận ""0"", danh sách lọc sai","Fail"
+"UC1.5-TC003","Chức năng của LỄ TÂN","UC1.5 Tìm kiếm khách hàng / thú cưng","Tìm với từ khóa không tồn tại","1. Nhập từ khóa không có trong dữ liệu","zzzkhongco","Hiển thị ""Không có khách hàng phù hợp.""","Hiển thị ""Không có khách hàng phù hợp."" (ô tìm kiếm chỉ nhận ""z"")","Pass"
+"UC1.5-TC004","Chức năng của LỄ TÂN","UC1.5 Tìm kiếm khách hàng / thú cưng","Tìm thú cưng theo tên chủ nuôi","1. Nhập tên khách hàng vào ô ""Tìm thú cưng theo tên khách hàng""","Phạm Tuấn","Hiển thị đúng 2 thú cưng của khách hàng Phạm Tuấn (Bun, Nau)","Hiển thị Nau, Bun","Pass"
+"UC1.5-TC005","Chức năng của LỄ TÂN","UC1.5 Tìm kiếm khách hàng / thú cưng","Lọc khách hàng theo trạng thái ""Chờ duyệt""","1. Truy cập Quản lý khách hàng
+2. Chọn bộ lọc trạng thái ""Chờ duyệt""","Chờ duyệt","Hiển thị đúng 3 khách hàng chờ duyệt: Huỳnh Hoàng Nam, Ngô Mỹ Duyên, Huỳnh Bích Ngọc","Hiển thị đúng 3 khách hàng chờ duyệt","Pass"
+"UC1.5-TC006","Chức năng của LỄ TÂN","UC1.5 Tìm kiếm khách hàng / thú cưng","Lọc khách hàng theo trạng thái ""Đang hoạt động""","1. Truy cập Quản lý khách hàng
+2. Chọn bộ lọc trạng thái ""Đang hoạt động""","Đang hoạt động","Hiển thị toàn bộ khách hàng đang hoạt động (tổng số khách hàng trừ 3 khách chờ duyệt), không có khách chờ duyệt","Hiển thị 30 khách hàng đang hoạt động","Pass"
+"UC1.2-TC001","Chức năng của LỄ TÂN","UC1.2 Tạo mới hồ sơ thú cưng","Bỏ trống Tên và Loài thú cưng","1. Nhấn ""Thêm thú cưng"" tại khách hàng Nguyễn Huy
+2. Bỏ trống Tên, Loài
+3. Nhấn ""Lưu thú cưng""","","Hiển thị lỗi ""Tên thú cưng là bắt buộc"", ""Loài là bắt buộc""","Hiển thị 2 thông báo lỗi","Pass"
+"UC1.2-TC002","Chức năng của LỄ TÂN","UC1.2 Tạo mới hồ sơ thú cưng","Nhập Tên, bỏ trống Loài","1. Nhấn ""Thêm thú cưng""
+2. Nhập Tên thú cưng
+3. Bỏ trống Loài, nhấn ""Lưu thú cưng""","Mướp","Hiển thị lỗi ""Loài là bắt buộc""","Hiển thị lỗi Loài","Pass"
+"UC1.2-TC003","Chức năng của LỄ TÂN","UC1.2 Tạo mới hồ sơ thú cưng","Thông tin thú cưng hợp lệ","1. Nhấn ""Thêm thú cưng"" tại Nguyễn Huy
+2. Nhập Tên
+3. Chọn Loài
+4. Nhập Tuổi, Cân nặng, Microchip
+5. Nhấn ""Lưu thú cưng""","Bông 016767
+Mèo
+2 / 3.5 / MC-016767","Hiển thị ""Thêm thú cưng thành công"", số thú cưng của khách hàng tăng 1","Thêm thú cưng thành công","Pass"
+"UC1.2-TC004","Chức năng của LỄ TÂN","UC1.2 Tạo mới hồ sơ thú cưng","Mã microchip trùng với thú cưng đã có","1. Nhấn ""Thêm thú cưng""
+2. Nhập Tên, chọn Loài
+3. Nhập microchip đã dùng ở TC003
+4. Nhấn ""Lưu thú cưng""","Mực / Chó
+MC-016767","Hiển thị ""Microchip đã tồn tại, vui lòng kiểm tra lại."" (luồng thay thế UC1.2)","Hệ thống vẫn lưu thú cưng có microchip trùng","Fail"
+"UC1.2-TC005","Chức năng của LỄ TÂN","UC1.2 Tạo mới hồ sơ thú cưng","Kiểm thử giá trị biên: Tuổi âm","1. Nhấn ""Thêm thú cưng""
+2. Nhập Tên, chọn Loài
+3. Nhập Tuổi âm
+4. Nhấn ""Lưu thú cưng""","Na / Thỏ
+-1","Không lưu thú cưng, hiển thị thông báo lỗi","Hiển thị ""Không thể thêm thú cưng""","Pass"
+"UC2.1-TC001","Chức năng của LỄ TÂN","UC2.1 Đặt lịch khám","Bỏ trống tất cả các trường và nhấn ""Lưu""","1. Chọn ""Tạo lịch hẹn""
+2. Không chọn khách hàng, thú cưng, ngày, dịch vụ
+3. Nhấn nút lưu","","Hiển thị thông báo ""Vui lòng chọn khách hàng"", ""Vui lòng chọn thú cưng""...","Form không gửi nhưng không hiển thị thông báo lỗi nào cho người dùng","Fail"
+"UC2.1-TC002","Chức năng của LỄ TÂN","UC2.1 Đặt lịch khám","Đặt lịch hợp lệ","1. Chọn ""Tạo lịch hẹn""
+2. Chọn Khách hàng, Thú cưng
+3. Chọn Bác sĩ
+4. Chọn Ngày, Giờ khám
+5. Chọn Dịch vụ
+6. Nhấn nút lưu","Nguyễn Huy / Bông 016767
+Bác sĩ đầu tiên trong danh sách
+2026-10-04 15:00
+Khám tổng quát","Hiển thị ""Đặt lịch thành công""","Đặt lịch thành công","Pass"
+"UC2.1-TC003","Chức năng của LỄ TÂN","UC2.1 Đặt lịch khám","Đặt lịch trùng khung giờ của bác sĩ","1. Chọn ""Tạo lịch hẹn""
+2. Chọn khách hàng, thú cưng khác
+3. Chọn cùng Bác sĩ, Ngày, Giờ với TC002
+4. Chọn dịch vụ, nhấn lưu","Trần Lan
+2026-10-04 15:00
+Tiêm phòng","Hiển thị ""Không thể đặt lịch"" – bác sĩ đã có lịch trong khung giờ","Hiển thị ""Không thể đặt lịch"" (Veterinarian already has an appointment in this timeslot)","Pass"
+"UC2.1-TC004","Chức năng của LỄ TÂN","UC2.1 Đặt lịch khám","Đặt lịch trùng khung giờ của thú cưng","1. Chọn ""Tạo lịch hẹn""
+2. Chọn cùng khách hàng, thú cưng với TC002, không chọn bác sĩ
+3. Chọn cùng Ngày, Giờ
+4. Chọn dịch vụ, nhấn lưu","Bông 016767
+2026-10-04 15:00
+Tái khám","Hiển thị ""Không thể đặt lịch"" – thú cưng đã có lịch trong khung giờ","Hiển thị ""Không thể đặt lịch"" (Pet already has an appointment in this timeslot)","Pass"
+"UC2.1-TC005","Chức năng của LỄ TÂN","UC2.1 Đặt lịch khám","Đặt lịch vào ngày trong quá khứ","1. Chọn ""Tạo lịch hẹn""
+2. Chọn khách hàng, thú cưng, dịch vụ hợp lệ
+3. Chọn ngày hôm qua
+4. Nhấn lưu","Nguyễn Huy / Bông 016767
+2026-10-02 10:00","Hệ thống từ chối lịch hẹn trong quá khứ","Hệ thống vẫn tạo lịch hẹn ngày 2026-10-02","Fail"
+"UC2.2-TC001","Chức năng của LỄ TÂN","UC2.2 Xác nhận / Hủy / Hoàn thành lịch hẹn","Xác nhận lịch hẹn đang chờ","1. Có lịch hẹn ""Chờ xác nhận"" ngày mai
+2. Nhấn ""Xác nhận"" tại lịch hẹn","Cún Xác Nhận / 2026-10-04 11:00","Hiển thị ""Đã cập nhật lịch hẹn"", lịch hẹn chuyển trạng thái ""Đã xác nhận""","Lịch hẹn chuyển ""Đã xác nhận"" (confirmed)","Pass"
+"UC2.2-TC002","Chức năng của LỄ TÂN","UC2.2 Xác nhận / Hủy / Hoàn thành lịch hẹn","Hoàn thành lịch hẹn đã xác nhận","1. Nhấn ""Hoàn thành"" tại lịch hẹn đã xác nhận ở TC001","Cún Xác Nhận","Hiển thị ""Đã cập nhật lịch hẹn"", nút ""Hủy lịch"" bị vô hiệu","Lịch hẹn hoàn thành, nút Hủy lịch bị khóa","Pass"
+"UC2.2-TC003","Chức năng của LỄ TÂN","UC2.2 Xác nhận / Hủy / Hoàn thành lịch hẹn","Hủy lịch hẹn còn trên 1 tiếng","1. Tạo lịch hẹn ngày mai cho thú cưng mới
+2. Nhấn ""Hủy lịch""","2026-10-04 09:00","Hiển thị ""Đã hủy lịch hẹn""","Lịch hẹn đã hủy","Pass"
+"UC2.2-TC004","Chức năng của LỄ TÂN","UC2.2 Xác nhận / Hủy / Hoàn thành lịch hẹn","Hủy lịch hẹn khi còn dưới 1 tiếng","1. Có lịch hẹn bắt đầu sau 30 phút
+2. Nhấn ""Hủy lịch""","Giờ hiện tại + 30 phút","Hệ thống từ chối – chỉ được hủy trước giờ hẹn ít nhất 1 tiếng (R2.2)","Lịch hẹn vẫn bị hủy dù chỉ còn 30 phút","Fail"
+"UC3.1-TC001","Chức năng của BÁC SĨ","UC3.1 Tạo hồ sơ khám bệnh","Bỏ trống tất cả các trường và nhấn ""Lưu hồ sơ""","1. Mở tab ""Tạo hồ sơ mới""
+2. Không nhập dữ liệu, nhấn ""Lưu hồ sơ""","","Hiển thị lỗi ""Vui lòng chọn thú cưng"", ""Vui lòng chọn bác sĩ"", ""Triệu chứng là bắt buộc"", ""Chẩn đoán là bắt buộc"", ""Phác đồ điều trị là bắt buộc""","Hiển thị đủ 5 thông báo lỗi","Pass"
+"UC3.1-TC002","Chức năng của BÁC SĨ","UC3.1 Tạo hồ sơ khám bệnh","Bỏ trống Chẩn đoán","1. Mở tab ""Tạo hồ sơ mới""
+2. Chọn Thú cưng, Bác sĩ
+3. Nhập Triệu chứng, Điều trị; bỏ trống Chẩn đoán
+4. Nhấn ""Lưu hồ sơ""","Bông 016767
+Bỏ ăn 2 ngày / Truyền dịch","Hiển thị lỗi ""Chẩn đoán là bắt buộc""","Hiển thị lỗi chẩn đoán","Pass"
+"UC3.1-TC003","Chức năng của BÁC SĨ","UC3.1 Tạo hồ sơ khám bệnh","Nhập đầy đủ thông tin hồ sơ khám hợp lệ","1. Mở tab ""Tạo hồ sơ mới""
+2. Chọn Thú cưng, Bác sĩ
+3. Nhập Triệu chứng
+4. Nhập Chẩn đoán
+5. Nhập Phác đồ điều trị
+6. Nhấn ""Lưu hồ sơ""","Bông 016767
+Bỏ ăn 2 ngày, nôn
+Viêm dạ dày 016767
+Truyền dịch, kháng sinh 5 ngày","Hiển thị ""Lưu hồ sơ khám thành công"", hồ sơ xuất hiện trong danh sách","Lưu hồ sơ khám thành công","Pass"
+"UC3.3-TC001","Chức năng của BÁC SĨ","UC3.3 Tra cứu lịch sử khám","Tìm hồ sơ theo chẩn đoán","1. Mở tab ""Danh sách hồ sơ""
+2. Nhập chẩn đoán vào ô tìm kiếm","Viêm dạ dày 016767","Hiển thị ""1 hồ sơ"" có chẩn đoán tương ứng","Hiển thị 1 hồ sơ đúng chẩn đoán","Pass"
+"UC3.3-TC002","Chức năng của BÁC SĨ","UC3.3 Tra cứu lịch sử khám","Tìm hồ sơ với từ khóa không tồn tại","1. Nhập từ khóa không có trong dữ liệu","zzzkhongco","Hiển thị ""Không tìm thấy hồ sơ theo điều kiện tìm kiếm.""","Hiển thị thông báo không tìm thấy","Pass"
+"UC3.3-TC003","Chức năng của BÁC SĨ","UC3.3 Tra cứu lịch sử khám","Tìm hồ sơ theo chẩn đoán có nhiều kết quả","1. Mở tab ""Danh sách hồ sơ""
+2. Nhập chẩn đoán vào ô tìm kiếm","Viêm da dị ứng","Hiển thị ""4 hồ sơ"", tất cả có chẩn đoán ""Viêm da dị ứng""","Hiển thị 4 hồ sơ ""Viêm da dị ứng""","Pass"
+"UC3.3-TC004","Chức năng của BÁC SĨ","UC3.3 Tra cứu lịch sử khám","Hiển thị toàn bộ lịch sử khám","1. Mở tab ""Danh sách hồ sơ"", không nhập từ khóa","","Số hồ sơ hiển thị bằng tổng số hồ sơ trong CSDL (43 hồ sơ mẫu + hồ sơ tạo ở UC3.1-TC003)","Hiển thị đủ 44 hồ sơ","Pass"
+"UC2.4-TC001","Chức năng của BÁC SĨ","UC2.4 Quản lý ca làm việc bác sĩ","Không chọn bác sĩ và ngày trực","1. Chọn ""Tạo ca trực""
+2. Không chọn bác sĩ, ngày; nhấn ""Lưu ca trực""","","Hiển thị ""Vui lòng chọn bác sĩ và ngày trực""","Hiển thị thông báo lỗi","Pass"
+"UC2.4-TC002","Chức năng của BÁC SĨ","UC2.4 Quản lý ca làm việc bác sĩ","Tạo ca trực hợp lệ","1. Chọn ""Tạo ca trực""
+2. Chọn Bác sĩ, Ngày trực
+3. Nhập giờ bắt đầu – kết thúc
+4. Nhấn ""Lưu ca trực""","Bác sĩ đầu tiên / 2026-10-06
+08:00 – 12:00","Hiển thị ""Đã tạo ca trực""","Tạo ca trực thành công","Pass"
+"UC2.4-TC003","Chức năng của BÁC SĨ","UC2.4 Quản lý ca làm việc bác sĩ","Giờ kết thúc sớm hơn giờ bắt đầu","1. Chọn ""Tạo ca trực""
+2. Chọn Bác sĩ, Ngày trực
+3. Nhập giờ bắt đầu 17:00, kết thúc 13:00
+4. Nhấn ""Lưu ca trực""","2026-10-06
+17:00 – 13:00","Hệ thống từ chối ca trực có giờ kết thúc trước giờ bắt đầu","Ca trực 17:00 – 13:00 vẫn được tạo","Fail"
+"UC2.4-TC004","Chức năng của BÁC SĨ","UC2.4 Quản lý ca làm việc bác sĩ","Tạo ca trực trùng với ca đã có của bác sĩ","1. Chọn ""Tạo ca trực""
+2. Chọn cùng Bác sĩ, Ngày với TC002
+3. Nhập giờ 09:00 – 11:00 (giao với 08:00 – 12:00)
+4. Nhấn ""Lưu ca trực""","2026-10-06
+09:00 – 11:00","Hệ thống báo trùng ca, không tạo ca trực (R2.4 – tránh trùng lịch)","Ca trực trùng giờ vẫn được tạo","Fail"
+"UC2.4-TC005","Chức năng của BÁC SĨ","UC2.4 Quản lý ca làm việc bác sĩ","Xóa ca trực","1. Nhấn ""Xóa ca"" tại một ca trực","","Hiển thị ""Đã xóa ca trực""","Xóa ca trực thành công","Pass"
+"UC8.2-TC001","Chức năng của BÁC SĨ","UC8.2 Theo dõi thú cưng qua camera","Xem danh sách camera đang trực tuyến","1. Chọn menu ""Camera giám sát""","","Hiển thị 12 camera trực tuyến (Phòng 01–03, 05–08, 10–12, 14, 15); không hiển thị 3 camera tắt (04, 09, 13)","Hiển thị đủ 12 camera trực tuyến","Pass"
+"UC8.2-TC002","Chức năng của BÁC SĨ","UC8.2 Theo dõi thú cưng qua camera","Lọc camera theo trạng thái ""Ngoại tuyến""","1. Chọn menu ""Camera giám sát""
+2. Chọn bộ lọc trạng thái ""Ngoại tuyến""","Phòng 04, 09, 13 (camera đang tắt)","Hiển thị 3 camera Phòng 04, 09, 13 với nhãn ""Ngoại tuyến""","Danh sách trống – API /api/camera-streams chỉ trả về camera đang hoạt động nên bộ lọc ""Ngoại tuyến"" không bao giờ có kết quả","Fail"
+"UC8.2-TC003","Chức năng của BÁC SĨ","UC8.2 Theo dõi thú cưng qua camera","Tìm camera theo số phòng","1. Chọn menu ""Camera giám sát""
+2. Nhập số phòng vào ô tìm kiếm","Phòng 12","Chỉ hiển thị camera Phòng 12","Chỉ hiển thị camera Phòng 12","Pass"
+"UC6.1-TC001","Chức năng của QUẢN TRỊ VIÊN / KẾ TOÁN","UC6.1 Quản lý thông tin bác sĩ","Bỏ trống tất cả các trường và nhấn ""Tạo bác sĩ""","1. Chọn ""Thêm bác sĩ""
+2. Không nhập dữ liệu, nhấn ""Tạo bác sĩ""","","Hiển thị thông báo lỗi rõ ràng cho từng trường bắt buộc","Hiển thị ""Không thể thêm bác sĩ"" kèm chuỗi lỗi kỹ thuật (JSON của Zod), khó hiểu với người dùng","Fail"
+"UC6.1-TC002","Chức năng của QUẢN TRỊ VIÊN / KẾ TOÁN","UC6.1 Quản lý thông tin bác sĩ","Email bác sĩ sai định dạng","1. Chọn ""Thêm bác sĩ""
+2. Nhập Họ tên, Chuyên khoa, Mã hành nghề hợp lệ
+3. Nhập Email sai
+4. Nhấn ""Tạo bác sĩ""","BS. Hà An / Nội khoa / VET-016767
+haan.vet","Hiển thị ""Không thể thêm bác sĩ"", không tạo bác sĩ","Hiển thị ""Không thể thêm bác sĩ""","Pass"
+"UC6.1-TC003","Chức năng của QUẢN TRỊ VIÊN / KẾ TOÁN","UC6.1 Quản lý thông tin bác sĩ","Thêm bác sĩ hợp lệ","1. Chọn ""Thêm bác sĩ""
+2. Nhập Họ tên, Email
+3. Nhập SĐT, Chuyên khoa, Mã hành nghề
+4. Nhấn ""Tạo bác sĩ""","BS. Kiểm Thử 016767 / bs016767@petclinic.vn
+0901234567 / Da liễu / VET-016767","Hiển thị ""Đã thêm bác sĩ mới"", bác sĩ xuất hiện trong danh sách","Đã thêm bác sĩ mới","Pass"
+"UC6.1-TC004","Chức năng của QUẢN TRỊ VIÊN / KẾ TOÁN","UC6.1 Quản lý thông tin bác sĩ","Cập nhật chuyên khoa của bác sĩ","1. Nhấn ""Chỉnh sửa"" tại bác sĩ vừa tạo
+2. Sửa Chuyên khoa
+3. Nhấn ""Lưu cập nhật""","BS. Kiểm Thử 016767
+Ngoại khoa","Hiển thị ""Đã cập nhật bác sĩ""","Cập nhật thành công","Pass"
+"UC6.1-TC005","Chức năng của QUẢN TRỊ VIÊN / KẾ TOÁN","UC6.1 Quản lý thông tin bác sĩ","Đổi trạng thái nhận lịch của bác sĩ","1. Nhấn ""Đặt bận"" tại bác sĩ vừa tạo","BS. Kiểm Thử 016767","Hiển thị ""Đã cập nhật trạng thái nhận lịch"", nút đổi thành ""Đặt sẵn sàng""","Trạng thái đổi thành bận","Pass"
+"UC6.1-TC006","Chức năng của QUẢN TRỊ VIÊN / KẾ TOÁN","UC6.1 Quản lý thông tin bác sĩ","Tìm bác sĩ theo chuyên khoa","1. Nhập chuyên khoa vào ô tìm kiếm","Ngoại khoa","Danh sách chỉ gồm bác sĩ có chuyên khoa ""Ngoại khoa""","Hiển thị BS. Kiểm Thử 085746","Pass"
+"UC4.1-TC001","Chức năng của QUẢN TRỊ VIÊN / KẾ TOÁN","UC4.1 Nhập kho thuốc / vật tư","Bỏ trống các trường bắt buộc","1. Chọn ""Thêm vật tư""
+2. Không nhập dữ liệu, nhấn ""Lưu vật tư""","","Hiển thị lỗi ""Mã vật tư là bắt buộc"", ""Tên vật tư là bắt buộc"", ""Danh mục là bắt buộc"", ""Đơn vị là bắt buộc"", ""Giá là bắt buộc""","Form không lưu, nhưng thiếu thông báo: ""Giá là bắt buộc""","Fail"
+"UC4.1-TC002","Chức năng của QUẢN TRỊ VIÊN / KẾ TOÁN","UC4.1 Nhập kho thuốc / vật tư","Kiểm thử giá trị biên: Tồn kho âm","1. Chọn ""Thêm vật tư""
+2. Nhập thông tin hợp lệ
+3. Nhập Tồn kho âm
+4. Nhấn ""Lưu vật tư""","TEST-NEG / Thuốc thử / Thuốc / Hộp / 50000
+-5","Hiển thị lỗi ""Tồn kho không hợp lệ""","Trình duyệt chặn: ""Giá trị phải lớn hơn hoặc bằng 0.""","Pass"
+"UC4.1-TC003","Chức năng của QUẢN TRỊ VIÊN / KẾ TOÁN","UC4.1 Nhập kho thuốc / vật tư","Thêm vật tư hợp lệ kèm hạn sử dụng","1. Chọn ""Thêm vật tư""
+2. Nhập Mã, Tên
+3. Chọn Danh mục, nhập Đơn vị
+4. Nhập Tồn kho, Tồn tối thiểu, Giá
+5. Nhập Hạn sử dụng
+6. Nhấn ""Lưu vật tư""","MED-016767 / Amoxicillin KT 016767
+Thuốc / Hộp
+20 / 5 / 45000
+2027-04-01","Hiển thị ""Thêm vật tư thành công"", lô hàng được tạo kèm hạn dùng","Thêm vật tư thành công, 1 lô hàng được tạo","Pass"
+"UC4.1-TC004","Chức năng của QUẢN TRỊ VIÊN / KẾ TOÁN","UC4.1 Nhập kho thuốc / vật tư","Mã vật tư trùng với vật tư đã có","1. Chọn ""Thêm vật tư""
+2. Nhập Mã vật tư đã dùng ở TC003
+3. Nhập các trường còn lại hợp lệ, nhấn ""Lưu vật tư""","MED-016767
+Thuốc trùng mã / Thuốc / Hộp / 10 / 1000","Hệ thống báo mã vật tư đã tồn tại, không tạo vật tư mới","Vẫn tạo vật tư thứ hai có mã MED-085746","Fail"
+"UC4.3-TC001","Chức năng của QUẢN TRỊ VIÊN / KẾ TOÁN","UC4.3 Cảnh báo tồn kho thấp","Vật tư có tồn kho dưới mức tối thiểu","1. Thêm vật tư có Tồn kho 3, Tồn tối thiểu 10
+2. Quan sát trang Kho thuốc","LOW-016767","Số mặt hàng trong khung ""Cảnh báo tồn kho thấp"" tăng thêm 1 so với trước khi thêm","Cảnh báo tăng từ 5 lên 6 mặt hàng","Pass"
+"UC4.3-TC002","Chức năng của QUẢN TRỊ VIÊN / KẾ TOÁN","UC4.3 Cảnh báo tồn kho thấp","Xem danh sách mặt hàng sắp hết","1. Truy cập Kho thuốc
+2. Nhấn ""Xem mặt hàng sắp hết""","","Danh sách gồm 4 mặt hàng mẫu sắp hết (Doxycycline, Thuốc nhỏ mắt, Vaccine mèo 4 bệnh, Ống truyền dịch) và vật tư thêm ở TC001; không có mặt hàng đủ tồn (Rabies Vaccine)","Hiển thị đúng các mặt hàng sắp hết","Pass"
+"UC5.1-TC001","Chức năng của QUẢN TRỊ VIÊN / KẾ TOÁN","UC5.1 Tạo hóa đơn bán thuốc","Không chọn khách hàng và thuốc","1. Chọn ""Tạo hóa đơn""
+2. Không chọn khách hàng, thuốc; nhấn ""Tạo hóa đơn""","","Hiển thị ""Vui lòng chọn khách hàng, thuốc và số lượng hợp lệ""","Hiển thị thông báo lỗi","Pass"
+"UC5.1-TC002","Chức năng của QUẢN TRỊ VIÊN / KẾ TOÁN","UC5.1 Tạo hóa đơn bán thuốc","Tạo hóa đơn hợp lệ – tồn kho tự động trừ","1. Chọn ""Tạo hóa đơn""
+2. Chọn Khách hàng
+3. Chọn Thuốc
+4. Nhập Số lượng
+5. Nhấn ""Tạo hóa đơn""","Nguyễn Huy
+Amoxicillin KT 016767
+4","Hiển thị ""Tạo hóa đơn thành công"", tồn kho giảm từ 20 xuống 16, tổng tiền 180.000 VND","Tạo hóa đơn thành công, tồn kho còn 16, tổng 180.000 VND","Pass"
+"UC5.1-TC003","Chức năng của QUẢN TRỊ VIÊN / KẾ TOÁN","UC5.1 Tạo hóa đơn bán thuốc","Số lượng bán lớn hơn tồn kho","1. Chọn ""Tạo hóa đơn""
+2. Chọn Khách hàng, Thuốc
+3. Nhập Số lượng lớn hơn tồn (16)
+4. Nhấn ""Tạo hóa đơn""","Trần Lan / Amoxicillin KT 016767
+100","Hiển thị ""Không thể tạo hóa đơn"", không phát sinh hóa đơn nào","Có báo lỗi nhưng vẫn phát sinh 1 hóa đơn rỗng 0 VND ở trạng thái chờ thanh toán","Fail"
+"UC5.2-TC001","Chức năng của QUẢN TRỊ VIÊN / KẾ TOÁN","UC5.2 Thanh toán hóa đơn","Xác nhận đã thu tiền cho hóa đơn chờ thanh toán","1. Truy cập Hóa đơn
+2. Nhấn ""Xác nhận đã thu tiền"" tại hóa đơn ở TC002","180.000 VND","Hiển thị ""Thanh toán thành công"", hóa đơn chuyển trạng thái đã thanh toán","Thanh toán thành công, trạng thái paid","Pass"
+"UC5.2-TC002","Chức năng của QUẢN TRỊ VIÊN / KẾ TOÁN","UC5.2 Thanh toán hóa đơn","Tìm hóa đơn theo mã hóa đơn","1. Nhập mã hóa đơn vào ô tìm kiếm","INV-2026-0020","Chỉ hiển thị 1 hóa đơn INV-2026-0020","Hiển thị đúng 1 hóa đơn","Pass"
+"UC5.2-TC003","Chức năng của QUẢN TRỊ VIÊN / KẾ TOÁN","UC5.2 Thanh toán hóa đơn","Tìm hóa đơn theo trạng thái ""Quá hạn""","1. Nhập trạng thái hiển thị trên giao diện vào ô tìm kiếm","Quá hạn","Hiển thị 5 hóa đơn mẫu có trạng thái ""Quá hạn"" (ô tìm kiếm ghi ""Tìm theo mã, khách hàng, trạng thái"")","Hiển thị 0 hóa đơn – bộ lọc chỉ so khớp mã trạng thái tiếng Anh (overdue), không khớp nhãn tiếng Việt","Fail"
+"UC7.2-TC001","Chức năng của QUẢN TRỊ VIÊN / KẾ TOÁN","UC7.2 Báo cáo doanh thu","Doanh thu trên Tổng quan khớp dữ liệu hóa đơn","1. Truy cập trang Tổng quan
+2. So sánh với tổng hóa đơn đã thanh toán","","Tổng doanh thu hiển thị bằng tổng tiền các hóa đơn đã thanh toán","Tổng doanh thu 12.905.500 VND khớp dữ liệu","Pass"
+"UC7.2-TC002","Chức năng của QUẢN TRỊ VIÊN / KẾ TOÁN","UC7.2 Báo cáo doanh thu","Thẻ ""Số đơn hàng"" và ""Mặt hàng thuốc"" khớp dữ liệu","1. Truy cập trang Tổng quan
+2. So sánh với số hóa đơn và số vật tư trong CSDL","≥ 60 hóa đơn, ≥ 30 vật tư","""Số đơn hàng"" = tổng số hóa đơn; ""Mặt hàng thuốc"" = tổng số vật tư trong kho","Số đơn hàng 62, mặt hàng thuốc 33 – khớp dữ liệu","Pass"

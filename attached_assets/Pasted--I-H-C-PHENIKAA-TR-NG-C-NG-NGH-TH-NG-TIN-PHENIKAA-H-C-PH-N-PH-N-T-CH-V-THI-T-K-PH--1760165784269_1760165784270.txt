@@ -1,0 +1,1793 @@
+ĐẠI HỌC PHENIKAA
+TRƯỜNG CÔNG NGHỆ THÔNG TIN PHENIKAA
+
+
+
+
+
+
+
+
+
+
+
+
+HỌC PHẦN: PHÂN TÍCH VÀ THIẾT KẾ PHẦN MỀM
+ĐỀ TÀI: Phát triển phần mềm quản lý phòng khám thú cưng
+
+   Giảng viên hướng dẫn: Mai Thúy Nga
+   Nhóm 11 : Nguyễn Thị Minh Hằng (23010520 – K17-PT&TKPM)
+                     Đỗ Quỳnh Chi (23010618 – K17-PT&TKPM)
+                     Đỗ Vân Khánh (23013929 – K17-PT&TKPM)
+                     Bùi Văn Khoa (23012842 – K17-PT&TKPM)
+                     Phạm Đức Hùng (23010893 – K17-PT&TKPM)
+   Lớp tín chỉ: CSE703048-1-1-25(N02)
+
+
+                                   
+
+Hà Nội, tháng 10 năm 2025
+
+Mục Lục
+Mục Lục	2
+1. YÊU CẦU (REQUIREMENTS)	4
+1.1 Đặt vấn đề (Problem statement)	4
+1.1.1 Bối cảnh	4
+1.1.2 Mục tiêu	4
+1.1.4 Lợi ích khi sử dụng phần mềm	5
+1.1.5 Phạm vi dự án	4
+1.2 Thuật ngữ (Glossary)	5
+1.3 Thông số kỹ thuật bổ sung (Non-functional requirements)	5
+1.4 Mô hình hóa chức năng	6
+1.4.1 Các yêu cầu chức năng (Functional Requirements)	7
+1.4.2 Sơ đồ Use-case (Tổng quan)	9
+1.5 Đặc tả các Use-case	10
+2. PHÂN TÍCH TRƯỜNG HỢP SỬ DỤNG (USE-CASE ANALYSIS)	48
+2.1   Phân tích kiến trúc hệ thống	48
+2.1.1   Kiến trúc mức cao (High-level architecture)	48
+2.1.2  Các đối tượng trừu tượng chính của hệ thống (Key abstractions)	48
+2.2  Thực thi trường hợp sử dụng (Use-case relizations)	48
+2.2.1  Các biểu đồ tuần tự (Sequence diagrams)	48
+2.2.2  Góc nhìn của các lớp trong hệ thống (Views of participating classes)	48
+3. THIẾT KẾ (USE-CASE DESGIN)	49
+3.1  Xác định các thành phần thiết kế (Identify design elements)	49
+3.1.1  Xác định các lớp (Identify classes)	49
+3.1.2  Xác định các hệ thống con và giao diện (Identify subsystems and interfaces)	49
+3.1.3  Xác định các gói (Identify packages)	49
+3.2  Thiết kế trường hợp sử dụng (Use-case design)	49
+3.2.1  Thiết kế các biểu đồ tuần tự (Design sequence diagrams)	49
+3.2.2  Thiết kế biểu đồ lớp (Class diagrams)	49
+3.3  Thiết kế cơ sở dữ liệu (Database design)	49
+3.3.1  Lược đồ cơ sở dữ liệu	49
+3.3.2 Chi tiết các bảng	49
+4.  CÀI ĐẶT (IMPLEMENTATION)	50
+4.1  Lựa chọn công nghệ	50
+
+4.2  Cấu trúc mã nguồn	50
+5.  KẾT LUẬN	51
+TÀI LIỆU THAM KHẢO	51
+
+
+
+1. YÊU CẦU (REQUIREMENTS)
+1.1 Đặt vấn đề (Problem statement)
+1.1.1 Bối cảnh
+Trong nhiều thành phố hiện nay, số lượng hộ gia đình nuôi thú cưng ngày càng tăng nhanh.
+Tuy nhiên, nhiều phòng khám thú y vẫn quản lý theo phương thức thủ công như sổ sách hoặc Excel, dẫn đến trùng lặp lịch hẹn, chậm trễ trong tiếp nhận; hồ sơ khám, đơn thuốc và lịch sử điều trị rời rạc, khó truy xuất; quản lý kho kém hiệu quả, dễ thất thoát và khó kiểm soát hạn dùng, lô thuốc; hóa đơn và báo cáo doanh thu thực hiện thủ công, làm chậm quá trình quyết toán; việc giám sát thú cưng qua camera chưa được tích hợp vào hệ thống, khách hàng phải xin link thủ công, gây bất tiện và tiềm ẩn rủi ro bảo mật.
+Vì vậy, cần xây dựng một hệ thống số hóa giúp quản lý khách hàng và thú cưng, đặt lịch hẹn, lưu trữ hồ sơ khám, quản lý kho thuốc, đồng thời phát sinh hóa đơn và báo cáo tự động.
+1.1.2 Mục tiêu
+Xây dựng hệ thống quản lý toàn diện cho phòng khám và cửa hàng thú cưng (từ tiếp nhận đến thanh toán).
+Cho phép đặt lịch khám/chăm sóc online, nhắc lịch tự động.
+Quản lý hồ sơ khám, đơn thuốc, lịch sử điều trị tập trung, dễ truy xuất.
+Tối ưu quản lý kho thuốc, hạn chế thất thoát, kiểm soát hạn dùng/lô thuốc.
+Tích hợp theo dõi thú cưng qua camera an toàn, thuận tiện cho khách hàng.
+Hỗ trợ báo cáo, thống kê chính xác, nhanh chóng.
+Đảm bảo bảo mật hệ thống và khả năng mở rộng lâu dài.
+
+
+1.1.3 Người dùng mục tiêu
+Quản trị viên (Admin)
+Bác sĩ thú y (Veterinarian)
+Nhân viên lễ tân (Receptionist)
+Khách hàng (Customer/Owner)
+Kế toán / Quản lý tài chính (Accounting / Financial Management)
+1.1.4 Lợi ích khi sử dụng phần mềm
+Tự động hóa quy trình, giảm thao tác thủ công.
+Theo dõi được lịch sử khám, xử lý nhanh hơn.
+Giảm lãng phí từ tồn kho, theo dõi hạn dùng/lô thuốc.
+Tích hợp camera, giúp khách hàng dễ dàng giám sát thú cưng từ xa.
+Báo cáo chính xác, hỗ trợ quản lý và ra quyết định.
+1.1.5 Phạm vi dự án
+Trong phạm vi:
+Quản lý khách hàng, thú cưng, lịch khám, hồ sơ khám.
+Quản lý thuốc & kho (tồn kho, hạn dùng, lô thuốc).
+Quản lý thanh toán, hóa đơn.
+Phân quyền người dùng (admin, bác sĩ, nhân viên).
+Báo cáo, thống kê.
+Tích hợp camera để khách hàng giám sát thú cưng từ xa.
+Ngoài phạm vi (không triển khai trong lần này):
+Liên thông dữ liệu với hệ thống y tế quốc gia hoặc các phòng khám khác.
+Chatbot chăm sóc khách hàng phức tạp.
+Tính năng khám từ xa (telemedicine).
+1.2 Thuật ngữ (Glossary)
+
+
+Customer (Khách hàng)
+Chủ sở hữu thú cưng.
+Pet (Thú cưng)
+Đối tượng khám chữa
+Appointment (Lịch hẹn)
+Thời gian đặt khám.
+Medical Record (Hồ sơ khám)
+Tập tin lưu thông tin khám & điều trị.
+
+
+Prescription (Đơn thuốc)
+Danh sách thuốc, liều lượng.
+Inventory (Kho thuốc)
+Danh sách thuốc, vật tư.
+Stock Batch (Lô hàng)
+Lô nhập thuốc với hạn dùng.
+Invoice (Hóa đơn)
+Biên lai dịch vụ & thuốc.
+Payment (Thanh toán)
+ Giao dịch thanh toán.
+User (Người dùng)
+Tài khoản hệ thống (Admin, Vet, Receptionist, Customer).
+Role (Vai trò)
+Quyền hạn người dùng (RBAC).
+Audit Log (Nhật ký)
+Ghi nhận thao tác quan trọng.
+Uptime (Tỉ lệ hoạt động)
+Thời gian hệ thống sẵn sàng.
+Backup (Sao lưu)
+Bản sao dữ liệu để khôi phục.
+API (Giao diện lập trình ứng dụng)
+Endpoint phục vụ client.
+
+1.3 Thông số kỹ thuật bổ sung (Non-functional requirements)
+Hiệu năng (Performance):
+Thời gian phản hồi cho các thao tác thông thường ≤ 3s (dưới tải 200 user đồng thời).
+Tìm kiếm khách hàng/thú cưng trong dataset ~10k bản ghi trả về ≤ 2s.
+Bảo mật (Security):
+Mật khẩu lưu bằng bcrypt/argon2 kèm salt.
+Giao tiếp qua HTTPS/TLS (TLS 1.2+).
+JWT hoặc OAuth2 cho API authentication.
+RBAC cho phép quản lý chi tiết quyền câu lệnh.
+Ghi log toàn bộ hành động quan trọng; mã hóa dữ liệu nhạy cảm khi lưu trữ.
+Khả năng chịu lỗi & sao lưu:
+Sao lưu full database hàng ngày; incremental hourly logs.
+Thử khôi phục ít nhất mỗi 6 tháng.
+Khả năng mở rộng (Scalability):
+Thiết kế theo mô-đun (microservices / modular monolith) để dễ scale.
+Dùng DB hỗ trợ vertical/horizontal scaling (PostgreSQL + Read replicas nếu cần).
+Khả năng sử dụng (Usability):
+Giao diện desktop cho lễ tân, giao diện responsive/mobile cho khách hàng.
+Hướng dẫn trực quan, validation, thông báo rõ ràng.
+Độ tin cậy (Reliability):
+Mục tiêu uptime ≥ 99% (loại trừ bảo trì có thông báo).
+1.4 Mô hình hóa chức năng
+1.4.1 Các yêu cầu chức năng (Functional Requirements) 
+R1 – Quản lý khách hàng & thú cưng
+R1.1 Tạo hồ sơ khách hàng (UC1.1)
+Hệ thống tạo mã khách hàng (CustomerID) tự động, kiểm tra trùng số điện thoại hoặc email, và gửi thông báo xác nhận (nếu được cấu hình).
+
+
+R1.2 Tạo hồ sơ thú cưng và liên kết (UC1.2)
+Mỗi thú cưng được cấp mã định danh (PetID) và liên kết với mã khách hàng tương ứng. Hệ thống kiểm tra microchip để đảm bảo không trùng lặp.
+
+
+R1.3 Chỉnh sửa hồ sơ (UC1.3)
+Khi chỉnh sửa thông tin khách hàng hoặc thú cưng, hệ thống lưu lại lịch sử thay đổi (log) và cho phép khôi phục dữ liệu (rollback) nếu cần.
+
+
+R1.4 Vô hiệu hóa / Xóa hồ sơ (UC1.4)
+Thực hiện xóa mềm (soft delete), cho phép khôi phục trong vòng 30 ngày. Sau thời gian này, dữ liệu sẽ bị xóa vĩnh viễn theo chính sách của hệ thống.
+
+
+R1.5 Tìm kiếm & lọc khách hàng/thú cưng (UC1.5)
+Hệ thống cho phép tìm kiếm, lọc theo tiêu chí cụ thể, hỗ trợ phân trang (paging) và sắp xếp (sorting).
+
+
+R1.6 Upload ảnh / tài liệu y tế (UC1.6)
+Hỗ trợ tải file dung lượng tối đa 10MB, định dạng jpg, png hoặc pdf, và gắn với hồ sơ khách hàng hoặc thú cưng tương ứng.
+R2 – Quản lý lịch khám
+R2.1 Đặt lịch online (UC2.1)
+Hệ thống kiểm tra lịch trống của bác sĩ, tạo lịch hẹn và gửi thông báo xác nhận cho khách hàng.
+
+
+R2.2 Xác nhận / Hủy / Thay đổi lịch (UC2.2)
+Khách hàng chỉ có thể thay đổi hoặc hủy lịch trước giờ hẹn ít nhất 1 tiếng.
+
+
+R2.3 Nhắc lịch tự động (SMS/Email)
+Hệ thống tự động gửi thông báo nhắc lịch trước 24h, 2h hoặc 30 phút tùy cấu hình.
+
+
+R2.4 Quản lý ca làm việc bác sĩ.
+Quản lý và sắp xếp ca làm việc của từng bác sĩ để tránh trùng lịch.
+R3 – Quản lý hồ sơ khám bệnh
+R3.1 Tạo hồ sơ khám (UC3.1).
+Ghi nhận thông tin chi tiết buổi khám, bao gồm triệu chứng, chẩn đoán và chỉ định điều trị.
+R3.2 Kê đơn thuốc (UC3.2).
+Bác sĩ nhập đơn thuốc, hệ thống tự động liên kết với kho thuốc để trừ tồn.
+
+
+R3.3 Lưu & tra cứu lịch sử khám (UC3.3).
+Lưu trữ hồ sơ khám theo từng thú cưng, hỗ trợ tra cứu nhanh theo thời gian hoặc loại bệnh.
+
+
+R4 – Quản lý kho & thuốc
+R4.1 Nhập kho theo lô (UC4.1).
+Ghi nhận thông tin lô hàng nhập, bao gồm số lượng, hạn dùng và nhà cung cấp.
+
+
+R4.2 Trừ tồn khi kê đơn hoặc bán (UC4.2).
+Hệ thống tự động giảm số lượng tồn khi bác sĩ kê đơn hoặc khi nhân viên bán thuốc.
+
+
+R4.3 Cảnh báo tồn kho thấp/hết hạn (UC4.3).
+Gửi cảnh báo khi số lượng thuốc xuống thấp hoặc gần đến hạn sử dụng.
+
+
+R5 – Thanh toán & tài chính
+R5.1 Tạo hóa đơn (UC5.1).
+Hệ thống tạo hóa đơn tự động sau khi hoàn tất dịch vụ hoặc bán hàng.
+
+
+R5.2 Thanh toán nhiều hình thức (tiền mặt, thẻ, ví điện tử) (UC5.2).
+Cho phép thanh toán bằng tiền mặt, thẻ hoặc ví điện tử.
+
+
+R5.3 Lưu lịch sử & báo cáo doanh thu (UC5.3).
+Lưu trữ thông tin giao dịch và tổng hợp báo cáo doanh thu theo thời gian.
+R6 – Quản lý nhân sự & phân quyền
+R6.1 Quản lý thông tin nhân viên (UC6.1).
+Lưu thông tin cá nhân, vị trí, ca làm việc và trạng thái hoạt động.
+R6.2 Phân quyền RBAC Role-Based Access Control (Kiểm soát truy cập dựa trên vai trò) (UC6.2).
+Áp dụng mô hình RBAC (Role-Based Access Control) để kiểm soát quyền truy cập theo vai trò.
+
+
+R6.3 Quản lý lịch làm việc nhân viên (UC6.3).
+Sắp xếp và điều phối lịch làm việc hợp lý giữa các nhân viên.
+
+
+R7 – Báo cáo & thống kê
+R7.1 Báo cáo số ca khám (UC7.1).
+Thống kê số lượng ca khám theo ngày, tuần, tháng hoặc bác sĩ.
+
+
+R7.2 Báo cáo doanh thu (UC7.2).
+Tổng hợp doanh thu theo thời gian, loại dịch vụ hoặc nhân viên phụ trách.
+
+
+R7.3 Thống kê thuốc/dịch vụ sử dụng (UC7.3).
+Theo dõi số lượng thuốc, vật tư và dịch vụ được sử dụng trong từng giai đoạn.
+R8 – Quản lý camera và giám sát thú cưng
+R8.1 Quản lý kết nối camera (UC8.1)
+Mỗi thú cưng lưu trú được gán một đường dẫn camera duy nhất. Hệ thống đảm bảo bảo mật, chỉ chủ nhân, nhân viên và quản lý được phép truy cập. Dữ liệu lưu tối thiểu 24–48 giờ và có thể tải xuống nếu được cấp quyền.
+R8.2 Theo dõi trực tuyến (UC8.2).
+Hỗ trợ xem trực tiếp qua hệ thống, đảm bảo đường truyền ổn định và giới hạn thời gian truy cập tùy theo gói dịch vụ.
+1.4.2 Sơ đồ Use-case (Tổng quan) 
+
+
+
+
+Hình 1.1 Sơ đồ use case tổng quát
+
+
+
+
+
+1.5 Đặc tả các Use-case 
+1.5.1.1 Tạo mới hồ sơ khách hàng
+
+Số và tên UC
+ UC1.1 — Tạo mới hồ sơ khách hàng 
+Người tạo UC
+ 
+Ngày tạo UC
+ 
+Mô tả
+Cho phép lễ tân hoặc khách hàng tự đăng ký (self-signup) tạo mới hồ sơ khách hàng với thông tin cơ bản, sau đó chuyển thông tin đến quản trị viên để xác nhận và phân quyền ban đầu.
+Tác nhân chính
+Receptionist, Customer (self-signup)
+Tác nhân phụ
+Admin (xác nhận và phân quyền)
+Sự kiện kích hoạt
+Khách hàng mới đến phòng khám hoặc đăng ký trực tuyến.
+Tiền điều kiện
+Người dùng đã đăng nhập với quyền hợp lệ (Receptionist) hoặc truy cập trang đăng ký công khai (Customer).
+Hậu điều kiện
+Hồ sơ khách hàng được lưu trong hệ thống với CustomerID duy nhất, thông tin được chuyển đến Admin để phân quyền, và khách hàng nhận thông báo xác nhận.
+
+Luồng chính
+Tác nhân (Receptionist/Customer) chọn chức năng “Tạo mới khách hàng” trên giao diện.
+Hệ thống hiển thị form nhập thông tin (họ tên, số điện thoại, email, địa chỉ).
+Tác nhân nhập đầy đủ thông tin và nhấn “Lưu”.
+Hệ thống kiểm tra tính hợp lệ (định dạng email, số điện thoại duy nhất).
+Nếu hợp lệ, hệ thống lưu dữ liệu, tạo CustomerID, và gửi thông báo xác nhận qua email/SMS.
+Hệ thống chuyển thông tin khách hàng mới đến Admin để xác nhận và gán vai trò ban đầu.
+Admin xác nhận và thông tin được cập nhật vào danh sách khách hàng.
+Tác nhân nhận thông báo thành công và có tùy chọn “Thêm thú cưng” hoặc quay lại danh sách.
+Luồng thay thế
+- Nếu số điện thoại/email đã tồn tại, hệ thống hiển thị thông báo lỗi và yêu cầu nhập lại.
+- Nếu thông tin bắt buộc bị bỏ trống, hệ thống báo lỗi và yêu cầu hoàn thiện.
+Các ngoại lệ
+Lỗi kết nối cơ sở dữ liệu khiến thông tin không được lưu; Admin từ chối xác nhận do thông tin không hợp lệ.
+Độ ưu tiên
+Cao
+Các quy tắc
+nghiệp vụ
+- Số điện thoại phải duy nhất và đúng định dạng (10 chữ số).
+- Email phải hợp lệ theo chuẩn RFC 5322.
+- Hồ sơ mới phải được Admin phê duyệt trước khi kích hoạt đầy đủ chức năng.
+Các giả thuyết
+Khách hàng cung cấp thông tin chính xác và đồng ý nhận thông báo qua email/SMS.
+
+Acceptance Criteria
+- Hệ thống tạo CustomerID tự động khi thông tin hợp lệ.
+- Hiển thị thông báo lỗi nếu email/số điện thoại trùng lặp.
+- Gửi thông báo xác nhận qua email/SMS nếu được cấu hình.
+
+
+Test cases
+- TC1: Nhập thông tin hợp lệ → Hệ thống tạo CustomerID, gửi thông báo thành công.
+- TC2: Nhập email sai định dạng → Hệ thống hiển thị thông báo lỗi.
+- TC3: Nhập số điện thoại trùng → Hệ thống hiển thị thông báo lỗi.
+
+
+Giao diện minh họa 
+
+
+Hình 1.3 Giao diện tạo hồ sơ khách hàng
+	1.5.1.2 Tạo mới hồ sơ thú cưng
+
+
+Số và tên UC
+ UC1.2 — Tạo mới hồ sơ thú cưng
+Người tạo UC
+ 
+Ngày tạo UC
+ 
+Mô tả
+Cho phép lễ tân hoặc Admin tạo hồ sơ thú cưng mới, liên kết với khách hàng đã tồn tại, và chuyển thông tin đến bác sĩ để kiểm tra microchip (nếu có).
+Tác nhân chính
+ Receptionist, Admin 
+Tác nhân phụ
+Veterinarian (kiểm tra microchip), Customer (cung cấp thông tin)
+Sự kiện kích hoạt
+Khách hàng mang thú cưng đến khám lần đầu hoặc đăng ký thú cưng mới.
+Tiền điều kiện
+CustomerID đã được tạo từ UC1.1 và hệ thống sẵn sàng cấp PetID.
+Hậu điều kiện
+PetID được tạo, liên kết với CustomerID, và thông tin được chuyển đến bác sĩ để xác minh microchip
+
+
+
+Luồng chính
+Sau khi tạo khách hàng (UC1.1), tác nhân chọn “Thêm thú cưng”.
+Hệ thống hiển thị form nhập thông tin (tên, loài, giống, tuổi, microchip) với CustomerID tự động điền.
+Tác nhân nhập thông tin và nhấn “Lưu”.
+Hệ thống kiểm tra tính hợp lệ (microchip duy nhất nếu có).
+Nếu hợp lệ, hệ thống tạo PetID, lưu dữ liệu, và gửi thông tin đến bác sĩ để xác minh microchip.
+Bác sĩ xác nhận microchip (nếu có) và thông tin được cập nhật.
+Hệ thống hiển thị hồ sơ thú cưng và thông báo “Thành công”, cho phép thêm thú cưng khác hoặc quay lại.
+Luồng thay thế
+- Nếu microchip đã tồn tại trong hệ thống, hiển thị thông báo “Microchip đã tồn tại, vui lòng kiểm tra lại.”
+- Nếu thông tin bắt buộc bị bỏ trống, hệ thống báo lỗi và yêu cầu người dùng nhập lại.
+Các ngoại lệ
+Không tìm thấy CustomerID tương ứng; lỗi kết nối khi gửi thông tin đến bác sĩ.
+Độ ưu tiên
+ Cao
+Các quy tắc
+nghiệp vụ
+- Mỗi thú cưng chỉ liên kết với một CustomerID.
+- Microchip phải duy nhất trong hệ thống.
+Các giả thuyết
+ Khách hàng cung cấp thông tin thú cưng chính xác và microchip (nếu có) hợp lệ.
+
+Acceptance Criteria
+PetID được tạo và liên kết đúng với CustomerID.
+Hiển thị thông báo lỗi nếu microchip trùng lặp.
+Hồ sơ thú cưng hiển thị đầy đủ sau khi lưu.
+
+
+Test cases
+- TC1: Nhập thông tin hợp lệ → Hệ thống tạo PetID thành công.
+- TC2: Nhập microchip trùng → Hệ thống hiển thị thông báo lỗi.
+- TC3: Bỏ trống tên thú cưng → Hệ thống hiển thị thông báo lỗi.
+
+                                        Giao diện minh họa
+
+
+
+			  Hình 1.4 Giao diện tạo hồ sơ thú cưng
+
+1.5.1.3 Chỉnh sửa hồ sơ khách hàng/thú cưng
+ 
+Số và tên UC
+UC1.3 — Chỉnh sửa hồ sơ khách hàng/thú cưng
+Người tạo UC
+ 
+Ngày tạo UC
+ 
+Mô tả
+Cho phép lễ tân hoặc Admin chỉnh sửa thông tin khách hàng/thú cưng, ghi log thay đổi, và thông báo cho khách hàng/bác sĩ (nếu liên quan).
+Tác nhân chính
+Receptionist, Admin 
+Tác nhân phụ
+Customer (nhận thông báo), Veterinarian (nếu liên quan hồ sơ khám)
+Sự kiện kích hoạt
+Khách hàng yêu cầu cập nhật thông tin hoặc Admin phát hiện sai sót.
+Tiền điều kiện
+Hồ sơ khách hàng/thú cưng đã tồn tại trong hệ thống.
+Hậu điều kiện
+Thông tin được cập nhật, audit log ghi lại, và thông báo được gửi đến các bên liên quan.
+
+
+Luồng chính
+Tác nhân chọn hồ sơ cần chỉnh sửa từ danh sách.
+Hệ thống hiển thị form với thông tin hiện tại.
+Tác nhân chỉnh sửa các trường và nhấn “Cập nhật”.
+Hệ thống kiểm tra tính hợp lệ (email, số điện thoại duy nhất).
+Nếu hợp lệ, hệ thống lưu thay đổi, ghi log, và gửi thông báo đến khách hàng/bác sĩ (nếu liên quan).
+Hệ thống hiển thị thông báo “Cập nhật thành công”.
+Luồng thay thế
+Nếu email/số điện thoại trùng, hệ thống báo lỗi và yêu cầu kiểm tra lại.
+Nếu thông tin không hợp lệ, hệ thống yêu cầu nhập lại.
+Các ngoại lệ
+Hồ sơ không tồn tại hoặc đang bị khóa nên không thể chỉnh sửa.
+Lỗi kết nối cơ sở dữ liệu khiến hệ thống không thể lưu thay đổi.
+Độ ưu tiên
+Trung bình
+Các quy tắc
+nghiệp vụ
+Mọi thay đổi đều phải được ghi vào audit log.
+Hệ thống cho phép rollback (phục hồi) từ audit log nếu cần..
+
+Acceptance Criteria
+Thông tin được cập nhật chính xác.
+Audit log ghi lại chi tiết thay đổi.
+Hệ thống phục hồi dữ liệu từ log khi cần.
+
+
+Test cases
+TC1: Chỉnh sửa thông tin hợp lệ, hệ thống lưu thay đổi thành công.
+TC2: Nhập email sai định dạng, hệ thống hiển thị thông báo lỗi.
+TC3: Thực hiện rollback từ audit log, hệ thống phục hồi dữ liệu thành công..
+
+                                         Giao diện minh họa 
+
+                                       Hình 1.5 Giao diện chỉnh sửa hồ sơ
+
+	1.5.1.4 Vô hiệu hóa / Xóa hồ sơ
+
+
+Số và tên UC
+UC1.4 — Vô hiệu hóa / Xóa hồ sơ 
+Người tạo UC
+ 
+Ngày tạo UC
+ 
+Mô tả
+Cho phép Admin vô hiệu hóa hoặc xóa vĩnh viễn hồ sơ khách hàng/thú cưng, thông báo cho lễ tân và khách hàng (nếu cần).
+Tác nhân chính
+Admin
+Tác nhân phụ
+Receptionist (cập nhật danh sách), Customer (nhận thông báo)
+Sự kiện kích hoạt
+Admin nhận yêu cầu xóa từ khách hàng hoặc phát hiện hồ sơ không còn sử dụng.
+Tiền điều kiện
+Hồ sơ tồn tại trong hệ thống.
+Hậu điều kiện
+Hồ sơ được ẩn (inactive) hoặc xóa vĩnh viễn sau 30 ngày, thông báo được gửi.
+
+
+Luồng chính
+Admin chọn hồ sơ từ danh sách và chọn “Vô hiệu hóa” hoặc “Xóa”.
+Hệ thống hiển thị thông báo xác nhận.
+Admin xác nhận, hệ thống cập nhật trạng thái “inactive” hoặc lên lịch xóa sau 30 ngày.
+Hệ thống gửi thông báo đến lễ tân và khách hàng (nếu có).
+Luồng thay thế
+Nếu Admin chọn “Khôi phục” trong 30 ngày, hồ sơ được kích hoạt lại.
+Các ngoại lệ
+Hồ sơ liên quan hồ sơ khám không được xóa, chỉ vô hiệu hóa.
+Độ ưu tiên
+Trung bình
+Các quy tắc
+nghiệp vụ
+Áp dụng chính sách lưu trữ 30 ngày trước khi xóa vĩnh viễn.
+
+Acceptance Criteria
+Vô hiệu hóa/xóa thành công.
+Hồ sơ được khôi phục nếu thao tác trong 30 ngày.
+
+
+Test cases
+TC1: Vô hiệu hóa hồ sơ thành công.
+TC2: Xóa vĩnh viễn sau 30 ngày.
+TC3: Hồ sơ có ràng buộc → chỉ được vô hiệu hóa.
+
+ 
+					Giao diện minh họa
+
+				Hình 1.6 Giao diện vô hiệu hóa/ xóa hồ sơ
+
+	1.5.1.5 Tìm kiếm & Hiển thị danh sách thú cưng theo khách hàng
+Số và tên UC
+ UC1.5 — Tìm kiếm & Hiển thị danh sách thú cưng theo khách hàng 
+Người tạo UC
+ 
+Ngày tạo UC
+ 
+Mô tả
+Cho phép lễ tân hoặc Admin tìm kiếm khách hàng/thú cưng và hiển thị danh sách thú cưng liên kết, hỗ trợ bác sĩ tra cứu trước khi khám.
+Tác nhân chính
+Receptionist, Admin 
+Tác nhân phụ
+Tác nhân phụ: Veterinarian (tra cứu trước khám)
+Sự kiện kích hoạt
+Người dùng cần tra cứu thông tin khách hàng/thú cưng.
+Tiền điều kiện
+Hệ thống có dữ liệu khách hàng/thú cưng.
+Hậu điều kiện
+Danh sách hiển thị theo bộ lọc và phân trang, thông tin được gửi đến bác sĩ nếu cần.
+
+
+Luồng chính
+Tác nhân nhập tiêu chí (tên, số điện thoại, email) vào thanh tìm kiếm.
+Hệ thống tìm kiếm và hiển thị danh sách khách hàng/thú cưng.
+Tác nhân chọn khách hàng → Hệ thống hiển thị danh sách thú cưng liên kết.
+Thông tin được gửi đến bác sĩ nếu có lịch hẹn sắp tới.
+Luồng thay thế
+Nếu không có kết quả, hệ thống hiển thị thông báo “Không tìm thấy”.
+Các ngoại lệ
+Lỗi kết nối cơ sở dữ liệu.
+Độ ưu tiên
+Cao
+Các quy tắc
+nghiệp vụ
+Hỗ trợ phân trang và sắp xếp theo tên/thời gian.
+
+Acceptance Criteria
+– Kết quả tìm kiếm hiển thị chính xác, đầy đủ.
+– Danh sách thú cưng hiển thị đúng theo khách hàng được chọn.
+
+
+Test cases
+– TC1: Tìm theo tên chính xác → hiển thị kết quả đúng.
+– TC2: Tìm theo số điện thoại → hiển thị kết quả đúng.
+– TC3: Không tìm thấy → hiển thị thông báo lỗi.
+
+
+	1.5.1.6 Xuất danh sách khách hàng/thú cưng
+Số và tên UC
+UC1.6 – Xuất danh sách khách hàng/thú cưng 
+Người tạo UC
+ 
+Ngày tạo UC
+ 
+Mô tả
+Cho phép Admin xuất danh sách khách hàng/thú cưng ra file Excel/PDF để gửi cho kế toán hoặc lưu trữ.
+Tác nhân chính
+Admin
+Tác nhân phụ
+Kế toán (nhận file)
+Sự kiện kích hoạt
+Admin cần báo cáo hoặc lưu trữ dữ liệu.
+Tiền điều kiện
+Có dữ liệu khách hàng/thú cưng trong hệ thống.
+Hậu điều kiện
+File được xuất và gửi đến kế toán (nếu cần).
+
+
+Luồng chính
+Admin chọn “Xuất danh sách”.
+Hệ thống hiển thị lựa chọn định dạng (Excel, PDF).
+Admin chọn định dạng và nhấn “Xuất”.
+Hệ thống sinh file và cho phép tải xuống, gửi email đến kế toán.
+Các ngoại lệ
+– Lỗi khi xuất file.
+– File bị hỏng hoặc định dạng không đọc được.
+
+Acceptance Criteria
+– File xuất đúng định dạng và có thể mở.
+– Dữ liệu hiển thị đầy đủ, chính xác.
+
+Test cases
+– TC1: Xuất Excel thành công.
+– TC2: Xuất PDF thành công.
+–TC3: Lỗi xuất → Hệ thống báo lỗi.
+
+	1.5.2.1 Đặt lịch khám online
+
+
+Số và tên UC
+UC2.1 – Đặt lịch khám online
+Người tạo UC
+ 
+Ngày tạo UC
+ 
+Mô tả
+Cho phép khách hàng hoặc lễ tân đặt lịch khám cho thú cưng với bác sĩ trong các khung thời gian còn trống của hệ thống.
+Tác nhân chính
+Khách hàng (Customer) hoặc Lễ tân (Receptionist)
+Tác nhân phụ
+Bác sĩ (Vet) - nhận lịch hẹn để chuẩn bị khám.
+Admin - giám sát, quản lý toàn bộ lịch hẹn.
+Sự kiện kích hoạt
+Khách hàng muốn đặt lịch khám.
+Tiền điều kiện
+– Khách hàng đã có hồ sơ trong hệ thống (đã có CustomerID và PetID).
+– Hệ thống đang hoạt động và có dữ liệu về bác sĩ và thời gian rảnh (available slots).
+Hậu điều kiện
+– Lịch hẹn (Appointment) được lưu thành công và sinh ra AppointmentID duy nhất.
+– Bác sĩ và khách hàng nhận được thông báo xác nhận lịch hẹn (qua email/SMS hoặc giao diện hệ thống).
+
+
+ Luồng chính
+Tác nhân chọn “Đặt lịch khám”.
+Hệ thống hiển thị:
+– Danh sách bác sĩ khả dụng (theo chuyên khoa, ca làm việc, hoặc trạng thái rảnh).
+– Danh sách thú cưng thuộc hồ sơ khách hàng.
+– Các khung thời gian trống (available slots).
+Tác nhân chọn:
+– Bác sĩ
+– Thú cưng cần khám
+– Thời gian hẹn mong muốn
+Tác nhân nhập thêm thông tin bổ sung (lý do khám, ghi chú, v.v.).
+Hệ thống kiểm tra tính hợp lệ của dữ liệu:
+– Thông tin bắt buộc đã nhập đầy đủ.
+– Slot thời gian còn trống.
+Nếu hợp lệ, hệ thống:
+– Lưu thông tin lịch hẹn vào cơ sở dữ liệu.
+– Sinh AppointmentID mới.
+– Gửi thông báo xác nhận đến khách hàng và bác sĩ (qua Email/SMS hoặc giao diện).
+Hệ thống hiển thị thông báo:“Đặt lịch khám thành công.”
+Luồng thay thế
+Nếu slot (thời gian hẹn) đã được đặt trước đó, hệ thống hiển thị thông báo lỗi và yêu cầu chọn slot khác.
+Các ngoại lệ
+Lỗi kết nối cơ sở dữ liệu hoặc lỗi dịch vụ gửi thông báo (SMS/Email).
+Các quy tắc
+nghiệp vụ
+– Một slot chỉ dành cho 1 khách hàng.
+– Không cho phép đặt lịch trùng thời gian.
+– Lịch hẹn chỉ có hiệu lực sau khi được hệ thống xác nhận thành công.
+ Acceptance Criteria
+– AppointmentID được tạo thành công.
+– Khách hàng nhận được thông báo xác nhận.
+
+ Test cases
+– TC1: Đặt lịch hợp lệ, hệ thống tạo thành công.
+– TC2: Slot trùng, hệ thống hiển thị thông báo lỗi.
+– TC3: Thông tin thiếu, hệ thống báo lỗi.
+
+
+	1.5.2.2 Quản lý lịch hẹn (Xác nhận/Hủy/Thay đổi)
+
+
+Số và tên UC
+UC2.2 – Quản lý lịch hẹn (Xác nhận/Hủy/Thay đổi)
+Người tạo UC
+ 
+Ngày tạo UC
+ 
+Mô tả
+Cho phép lễ tân (Receptionist) quản lý các lịch hẹn đã tồn tại trong hệ thống, bao gồm xác nhận, hủy, hoặc thay đổi thời gian khám theo yêu cầu khách hàng hoặc theo quy trình nội bộ.
+Tác nhân chính
+Receptionist
+Tác nhân phụ
+Khách hàng (Customer)– nhận thông báo khi lịch hẹn được thay đổi hoặc hủy.
+Sự kiện kích hoạt
+Lễ tân cần xử lý lịch hẹn theo yêu cầu khách hàng hoặc quy trình.
+Tiền điều kiện
+Lịch hẹn cần xử lý phải tồn tại trong hệ thống.
+Hậu điều kiện
+– Trạng thái của lịch hẹn (AppointmentStatus) được cập nhật chính xác theo hành động đã chọn (Xác nhận / Hủy / Thay đổi).
+– Hệ thống gửi thông báo cập nhật lịch hẹn đến khách hàng liên quan.
+
+
+ Luồng chính
+Lễ tân đăng nhập hệ thống và truy cập mục “Quản lý lịch hẹn”.
+Hệ thống hiển thị danh sách lịch hẹn hiện có (bao gồm trạng thái, bác sĩ, khách hàng, thú cưng, thời gian).
+Lễ tân chọn một lịch hẹn cần thao tác.
+Lễ tân chọn hành động:
+– “Xác nhận” lịch hẹn
+– “Hủy” lịch hẹn, hoặc
+– “Thay đổi” thời gian khám.
+
+
+Hệ thống thực hiện cập nhật trạng thái tương ứng trong cơ sở dữ liệu.
+Hệ thống gửi thông báo đến khách hàng về thay đổi (qua SMS/Email hoặc giao diện người dùng).
+Hệ thống hiển thị thông báo: “Cập nhật lịch hẹn thành công.”
+Luồng thay thế
+Nếu lễ tân thay đổi giờ hẹn còn dưới 1 giờ trước giờ khám, hệ thống hiển thị thông báo lỗi và không cho phép lưu thay đổi..
+Các ngoại lệ
+Lỗi kết nối cơ sở dữ liệu hoặc lỗi dịch vụ gửi SMS/Email khiến không thể cập nhật hoặc thông báo lịch hẹn.
+Các quy tắc
+nghiệp vụ
+– Không cho phép thay đổi lịch hẹn nếu còn dưới 1 giờ trước giờ hẹn.
+– Trạng thái lịch hẹn phải được cập nhật đồng bộ trong hệ thống.
+Acceptance Criteria
+– Trạng thái lịch hẹn được cập nhật chính xác.
+– Hệ thống gửi thông báo thành công đến khách hàng.
+Test cases
+– TC1: Hủy lịch hợp lệ, hệ thống cập nhật thành công.
+ – TC2: Thay đổi giờ hẹn dưới 1 giờ, hệ thống báo lỗi.
+ – TC3: Lỗi gửi thông báo, hệ thống ghi log lỗi nhưng vẫn lưu thay đổi trạng thái.
+
+
+	1.5.2.3 Nhắc lịch tự động
+
+Số và tên UC
+UC2.3 – Nhắc lịch tự động
+Người tạo UC
+ 
+Ngày tạo UC
+ 
+Mô tả
+Hệ thống tự động gửi thông báo nhắc lịch hẹn cho khách hàng qua SMS hoặc Email vào thời điểm được cấu hình (trước 24h, 2h hoặc 30 phút so với giờ hẹn).
+Tác nhân chính
+ Hệ thống (Scheduler).
+Tác nhân phụ
+Khách hàng (Customer), Dịch vụ SMS/Email.
+Sự kiện kích hoạt
+Đến thời điểm nhắc lịch theo cấu hình.
+Tiền điều kiện
+– Lịch hẹn được tạo thành công (liên kết với UC2.1 – Đặt lịch hẹn).
+– Lịch hẹn còn hiệu lực và chưa bị hủy.
+Hậu điều kiện
+Khách hàng nhận nhắc lịch.
+
+
+ Luồng chính
+– Hệ thống quét danh sách các lịch hẹn hợp lệ.
+– Hệ thống kiểm tra thời gian còn lại đến giờ hẹn.
+– Nếu khớp với cấu hình (trước 24h, 2h hoặc 30 phút), hệ thống tạo nội dung nhắc lịch.
+– Hệ thống gửi thông báo qua SMS/Email đến khách hàng.
+– Hệ thống ghi log kết quả gửi nhắc lịch.
+Các ngoại lệ
+ Lỗi dịch vụ SMS/email..
+Các quy tắc
+nghiệp vụ
+– Mỗi lịch hẹn chỉ được gửi nhắc đúng số lần đã quy định.
+– Nếu lịch bị hủy thì không gửi nhắc lịch nữa.
+Acceptance Criteria
+– Tin nhắn/Email nhắc lịch được gửi đúng thời gian.
+– Nội dung nhắc lịch hiển thị thông tin lịch hẹn chính xác.
+– Hệ thống ghi nhận log gửi nhắc lịch đầy đủ.
+
+ Test cases
+– TC1: Lịch hẹn còn hiệu lực → Gửi nhắc lịch 24h trước thành công.
+– TC2: Lịch hẹn bị hủy → Không gửi nhắc lịch.
+– TC3: Lỗi dịch vụ SMS/Email → Hệ thống ghi log lỗi, bỏ qua gửi.
+
+
+	1.5.2.4 Quản lý ca làm việc bác sĩ
+
+Số và tên UC
+UC2.4 – Quản lý ca làm việc bác sĩ
+Người tạo UC
+ 
+Ngày tạo UC
+ 
+Mô tả
+Cho phép Admin hoặc bác sĩ thiết lập và quản lý ca làm việc, bao gồm các ngày và giờ làm việc cụ thể của từng bác sĩ. Thông tin này sẽ được sử dụng để kiểm tra tính khả dụng khi khách hàng đặt lịch hẹn.
+Tác nhân chính
+Admin, Bác sĩ
+Tác nhân phụ
+Hệ thống quản lý nhân sự, Khách hàng (gián tiếp sử dụng lịch khi đặt hẹn)
+Sự kiện kích hoạt
+Admin hoặc bác sĩ cần khai báo/điều chỉnh ca làm việc.
+Tiền điều kiện
+– Bác sĩ đã có hồ sơ nhân sự trong hệ thống.
+
+
+– Tài khoản Admin hoặc bác sĩ có quyền truy cập vào chức năng quản lý lịch làm việc.
+Hậu điều kiện
+– Ca làm việc của bác sĩ được lưu vào cơ sở dữ liệu và hiển thị chính xác trong giao diện đặt lịch của khách hàng.
+– Hệ thống cập nhật lịch làm việc để phục vụ cho các chức năng đặt lịch (UC2.1) và nhắc lịch (UC2.3).
+ 
+
+
+Luồng chính
+Admin chọn chức năng “Quản lý lịch bác sĩ”.
+
+
+Admin hoặc bác sĩ nhập thông tin ca làm việc (ngày, giờ bắt đầu, giờ kết thúc).
+
+
+Hệ thống kiểm tra tính hợp lệ của dữ liệu (trùng ca, thời gian hợp lý, định dạng hợp lệ).
+
+
+Hệ thống lưu thông tin ca làm việc vào cơ sở dữ liệu.
+
+
+Hệ thống cập nhật lịch hiển thị cho khách hàng trong chức năng đặt hẹn.
+Luồng thay thế
+Trường hợp ca làm việc bị trùng với ca đã tồn tại  hệ thống báo lỗi, yêu cầu chỉnh sửa.
+Các ngoại lệ
+Lỗi kết nối cơ sở dữ liệu hoặc nhập dữ liệu không hợp lệ
+Các quy tắc
+nghiệp vụ
+– Một bác sĩ không được có hai ca làm việc trùng nhau.
+– Ca làm việc phải được lưu trước khi khách hàng có thể đặt hẹn.
+
+ Acceptance Criteria
+– Lịch làm việc được lưu chính xác.
+– Hệ thống phản ánh đúng ca làm việc khi khách hàng đặt lịch.
+
+ Test cases
+– TC1: Nhập ca làm việc hợp lệ → lưu thành công.
+– TC2: Nhập ca trùng với lịch đã có → hệ thống báo lỗi.
+– TC3: Nhập giờ làm việc không hợp lệ (giờ kết thúc < giờ bắt đầu) → hệ thống báo lỗi.
+
+
+	1.5.3.1 Tạo hồ sơ khám bệnh
+
+
+Số và tên UC
+UC3.1 – Tạo hồ sơ khám bệnh
+Người tạo UC
+ 
+Ngày tạo UC
+ 
+Mô tả
+Use case này cho phép bác sĩ tạo mới hồ sơ khám bệnh (Medical Record) cho thú cưng dựa trên lịch hẹn đã có. Hồ sơ bao gồm các thông tin chẩn đoán, kết quả xét nghiệm (nếu có), và chỉ định điều trị.
+ Hồ sơ khám được lưu trữ trong hệ thống với MedicalRecordID duy nhất, phục vụ cho việc tra cứu, quản lý lịch sử bệnh và hỗ trợ tái khám sau này.
+Tác nhân chính
+Bác sĩ
+Tác nhân phụ
+– Khách hàng (Customer) (nhận kết quả khám sau khi lưu)
+– Hệ thống quản lý hồ sơ y tế (Medical Record System) (lưu trữ và đồng bộ dữ liệu)
+Sự kiện kích hoạt
+Bác sĩ thực hiện khám cho thú cưng theo lịch hẹn.
+Tiền điều kiện
+– Thú cưng có lịch hẹn được xác nhận trong hệ thống.
+– Bác sĩ có quyền truy cập vào hồ sơ lịch hẹn.
+– Phiên đăng nhập của bác sĩ còn hiệu lực.
+Hậu điều kiện
+Hồ sơ khám bệnh được lưu với MedicalRecordID duy nhất.
+
+
+ Luồng chính
+Bác sĩ mở lịch hẹn của thú cưng trong hệ thống.
+
+
+Hệ thống hiển thị form nhập thông tin khám bệnh (chẩn đoán, kết quả xét nghiệm, chỉ định điều trị, ghi chú).
+
+
+Bác sĩ nhập đầy đủ thông tin khám bệnh.
+
+
+Bác sĩ nhấn nút “Lưu”.
+
+
+Hệ thống kiểm tra tính hợp lệ của dữ liệu (các trường bắt buộc, định dạng, logic thời gian, v.v.).
+
+
+Hệ thống lưu hồ sơ vào cơ sở dữ liệu, sinh MedicalRecordID duy nhất và liên kết với lịch hẹn tương ứng.
+
+
+Hệ thống hiển thị thông báo “Tạo hồ sơ thành công” cùng MedicalRecordID.
+
+
+Luồng thay thế
+– Bác sĩ bỏ trống trường bắt buộc, hệ thống cảnh báo và yêu cầu nhập đủ thông tin.
+– Sau khi hoàn thiện thông tin, bác sĩ có thể lưu lại hồ sơ bình thường.
+Các ngoại lệ
+– Lỗi kết nối cơ sở dữ liệu khiến hồ sơ không thể lưu.
+– Phiên đăng nhập của bác sĩ hết hạn, hệ thống yêu cầu đăng nhập lại trước khi tiếp tục thao tác.
+Các quy tắc
+nghiệp vụ
+– Mỗi lần khám phải tạo một MedicalRecordID mới, gắn với lịch hẹn cụ thể.
+– Hồ sơ khám chỉ được ghi đè khi phiên bản cũ do chính bác sĩ đó tạo.
+– Một bác sĩ không thể sửa hồ sơ của người khác nếu không có quyền quản trị.
+
+ Acceptance Criteria
+– MedicalRecordID được tạo thành công và gắn với lịch hẹn chính xác.
+ – Thông tin chẩn đoán, kết quả, chỉ định được lưu đầy đủ và hiển thị đúng trong hệ thống.
+
+
+ Test cases
+– TC1: Bác sĩ nhập đầy đủ thông tin, nhấn “Lưu” → hồ sơ được tạo, MedicalRecordID sinh ra.
+– TC2: Bác sĩ bỏ trống trường chẩn đoán → hệ thống báo lỗi, không lưu.
+– TC3: Mất kết nối khi lưu → hệ thống báo lỗi, hồ sơ không được tạo.S
+
+
+	1.5.3.2 Kê đơn thuốc
+
+Số và tên UC
+UC3.2 – Kê đơn thuốc
+Người tạo UC
+ 
+Ngày tạo UC
+ 
+Mô tả
+– Cho phép bác sĩ lập đơn thuốc dựa trên hồ sơ khám bệnh, bao gồm nhập tên thuốc, liều lượng, số ngày điều trị.
+ – Đơn thuốc được lưu lại và đồng thời hệ thống tự động cập nhật tồn kho tương ứng.
+ – Chức năng này giúp kiểm soát chính xác lượng thuốc kê, hỗ trợ quản lý tồn kho và tránh sai sót khi cấp phát.
+Tác nhân chính
+Bác sĩ
+Tác nhân phụ
+Hệ thống quản lý kho thuốc, Khách hàng (nhận đơn thuốc)
+Sự kiện kích hoạt
+Bác sĩ cần kê đơn thuốc cho thú cưng sau khi hoàn tất chẩn đoán.
+Tiền điều kiện
+Hồ sơ khám bệnh hợp lệ đã tồn tại trong hệ thống.
+Hậu điều kiện
+– Đơn thuốc được lưu với PrescriptionID duy nhất.
+– Số lượng thuốc trong kho được trừ tương ứng theo đơn thuốc đã kê.
+
+
+ Luồng chính
+Bác sĩ mở hồ sơ khám bệnh (MedicalRecordID) của thú cưng.
+Bác sĩ chọn chức năng “Kê đơn”.
+Hệ thống hiển thị form nhập đơn thuốc (tên thuốc, liều lượng, số ngày điều trị).
+Bác sĩ nhập thông tin thuốc cần kê.
+Hệ thống kiểm tra số lượng tồn kho của từng loại thuốc.
+Nếu đủ tồn kho, hệ thống trừ số lượng thuốc tương ứng.
+Hệ thống lưu đơn thuốc, sinh PrescriptionID và liên kết với hồ sơ khám bệnh.
+Hệ thống hiển thị thông báo “Kê đơn thành công”.
+Luồng thay thế
+– Nếu thuốc không đủ tồn trong kho, hệ thống hiển thị thông báo lỗi và yêu cầu bác sĩ chọn thuốc khác hoặc điều chỉnh số lượng.
+– Sau khi điều chỉnh số lượng hợp lệ, bác sĩ có thể lưu đơn thuốc bình thường.
+– Nếu bác sĩ nhập sai định dạng (ví dụ: liều lượng âm, số ngày điều trị không hợp lệ), hệ thống báo lỗi định dạng và yêu cầu sửa lại.
+Các ngoại lệ
+– Lỗi kết nối cơ sở dữ liệu khi lưu đơn thuốc khiến dữ liệu không được ghi.
+– Lỗi hệ thống kho không phản hồi, không thể kiểm tra hoặc trừ kho.
+Các quy tắc
+nghiệp vụ
+–Mỗi lần kê đơn sinh ra một PrescriptionID mới.
+– Một hồ sơ khám có thể gắn với nhiều đơn thuốc (trong các lần điều chỉnh hoặc tái khám).
+– Không được kê thuốc vượt quá số lượng tồn kho.
+– Đơn thuốc phải được liên kết với MedicalRecordID tương ứng.
+– Thông tin đơn thuốc phải được lưu chính xác, phục vụ cho thống kê và xuất báo cáo.
+– Mọi thay đổi tồn kho phải được ghi log (người thao tác, thời gian, loại thuốc, số lượng trừ).
+
+
+
+ Acceptance Criteria
+– PrescriptionID được sinh ra và lưu thành công.
+– Thuốc trong kho được trừ chính xác.
+– Thông tin tên thuốc, liều lượng, số ngày điều trị hiển thị đúng và đầy đủ trong hệ thống.
+
+
+ Test cases
+– TC1: Kê đơn hợp lệ, thuốc đủ tồn → đơn được lưu, PrescriptionID sinh ra.
+– TC2: Thuốc không đủ tồn → hệ thống báo lỗi, đơn không lưu.
+– TC3: Lỗi kết nối cơ sở dữ liệu khi lưu → hệ thống báo lỗi, đơn không được tạo.
+
+
+	1.5.3.3 Lịch sử khám bệnh
+
+Số và tên UC
+UC3.3 – Lịch sử khám bệnh
+Người tạo UC
+ 
+Ngày tạo UC
+ 
+Mô tả
+Chức năng cho phép lễ tân, bác sĩ và admin tra cứu lại toàn bộ hồ sơ khám bệnh của thú cưng, bao gồm chẩn đoán, đơn thuốc, kết quả xét nghiệm và chỉ định điều trị trong các lần khám trước.
+ Mục tiêu giúp thuận tiện cho việc theo dõi tiến trình điều trị và hỗ trợ tư vấn cho khách hàng.
+Tác nhân chính
+Receptionist, Bác sĩ, Admin
+Tác nhân phụ
+Khách hàng (nhận thông tin khi được in/xuất lịch sử)
+Sự kiện kích hoạt
+Người dùng chọn chức năng xem lịch sử khám bệnh.
+Tiền điều kiện
+Thú cưng đã có ít nhất một hồ sơ khám bệnh trong hệ thống.
+Hậu điều kiện
+Lịch sử khám bệnh được hiển thị trên giao diện hoặc in/xuất file.
+
+
+ Luồng chính
+Người dùng (lễ tân/bác sĩ/admin) chọn chức năng “Lịch sử khám bệnh”.
+
+
+Hệ thống truy xuất dữ liệu hồ sơ khám bệnh của thú cưng.
+
+
+Hệ thống hiển thị danh sách hồ sơ theo thứ tự thời gian giảm dần (mới nhất → cũ nhất).
+
+
+Người dùng chọn một hồ sơ cụ thể để xem chi tiết (bao gồm chẩn đoán, đơn thuốc, kết quả xét nghiệm, chỉ định điều trị).
+
+
+Hệ thống hiển thị chi tiết đầy đủ thông tin của hồ sơ khám bệnh được chọn.
+Luồng thay thế
+Không tìm thấy hồ sơ khám bệnh nào thì hệ thống hiển thị thông báo “Chưa có lịch sử khám bệnh”.
+Các ngoại lệ
+Lỗi kết nối cơ sở dữ liệu, không truy xuất được hồ sơ.
+Các quy tắc
+nghiệp vụ
+– Lịch sử phải được sắp xếp theo ngày khám gần nhất → xa nhất.
+– Người dùng chỉ có quyền xem, không được chỉnh sửa trực tiếp từ chức năng này.
+Acceptance Criteria
+– Hệ thống hiển thị đúng và đầy đủ các lần khám bệnh.
+– Có thể xem chi tiết từng hồ sơ.
+
+
+ Test cases
+– TC1: Có nhiều hồ sơ khám → hiển thị danh sách đúng thứ tự thời gian.
+– TC2: Không có hồ sơ khám → hiển thị thông báo phù hợp.
+– TC3: Chọn 1 hồ sơ → hiển thị chi tiết đầy đủ.
+
+
+	1.5.4.1 Nhập kho theo lô
+
+Số và tên UC
+UC4.1 – Nhập kho theo lô
+Người tạo UC
+ 
+Ngày tạo UC
+ 
+Mô tả
+Admin hoặc Kế toán thực hiện nhập kho theo lô cho thuốc/vật tư y tế, bao gồm việc nhập thông tin chi tiết về lô hàng (tên thuốc, số lượng, hạn sử dụng, nhà cung cấp), tạo mã lô (BatchID) duy nhất, cập nhật số lượng tồn kho, và thông báo cho bác sĩ nếu có thuốc mới để cập nhật danh mục kê đơn.
+Tác nhân chính
+Admin, Kế toán
+Tác nhân phụ
+Veterinarian (nhận thông báo về thuốc mới để cập nhật danh mục kê đơn)
+Sự kiện kích hoạt
+Phòng khám nhận lô thuốc/vật tư mới từ nhà cung cấp hoặc cần bổ sung kho.
+Tiền điều kiện
+Hệ thống đã có danh mục thuốc cơ bản; người dùng (Admin/Kế toán) đã đăng nhập với quyền hợp lệ; lô hàng mới phải có giấy tờ nhập kho hợp lệ từ nhà cung cấp.
+Hậu điều kiện
+BatchID được tạo và liên kết với thuốc/vật tư, số lượng tồn kho được cập nhật chính xác, và thông báo về thuốc mới (nếu có) được gửi đến bác sĩ qua email hoặc trong hệ thống.
+
+
+ Luồng chính
+Tác nhân (Admin/Kế toán) truy cập menu “Quản lý kho” và chọn chức năng “Nhập kho theo lô”.
+Hệ thống hiển thị form nhập thông tin, bao gồm: tên thuốc, số lượng, hạn sử dụng, nhà cung cấp, và mã lô (nếu có).
+Tác nhân nhập đầy đủ thông tin và nhấn “Xác nhận nhập kho”.
+Hệ thống kiểm tra tính hợp lệ (hạn sử dụng > ngày hiện tại, số lượng > 0).
+Nếu hợp lệ, hệ thống tạo BatchID tự động (ví dụ: B001), cập nhật số lượng tồn kho, và ghi log giao dịch.
+Nếu thuốc mới (chưa có trong danh mục), hệ thống yêu cầu xác nhận tạo hồ sơ thuốc mới và gửi thông báo đến bác sĩ.
+Hệ thống hiển thị thông báo “Nhập kho thành công” cùng BatchID và cho phép xuất biên bản nhập kho (nếu cần).
+Luồng thay thế
+Nếu thuốc là mới và chưa có trong danh mục, hệ thống chuyển sang chế độ “Tạo hồ sơ thuốc mới” trước khi hoàn tất nhập kho. Tác nhân phải nhập thêm thông tin chi tiết (tác dụng, liều lượng tiêu chuẩn) trước khi tiếp tục.
+Các ngoại lệ
+Lỗi kết nối cơ sở dữ liệu (DB) dẫn đến không lưu được thông tin.
+Hạn sử dụng đã hết hoặc nhỏ hơn ngày hiện tại (10/10/2025), hệ thống từ chối và yêu cầu kiểm tra lại.
+Các quy tắc
+nghiệp vụ
+BatchID phải duy nhất trong hệ thống.
+Hạn sử dụng phải lớn hơn ngày hiện tại ít nhất 30 ngày để được chấp nhận.
+Mọi giao dịch nhập kho phải được ghi log với thời gian, người thực hiện, và số lượng.
+Thông báo thuốc mới chỉ gửi khi thuốc chưa tồn tại trong danh mục hiện tại.
+ Acceptance Criteria
+BatchID được tạo thành công và hiển thị trong giao diện quản lý kho.
+Số lượng tồn kho được cập nhật chính xác và phản ánh trong báo cáo kho
+
+
+ Test cases
+TC1: Nhập hợp lệ → Hệ thống tạo BatchID (B001), cập nhật kho, thông báo thành công.
+TC2: Hạn dùng hết → Hệ thống báo lỗi “Hạn sử dụng không hợp lệ”.
+TC3: Thuốc mới (chưa có trong danh mục) → Hệ thống yêu cầu tạo hồ sơ, sau đó nhập kho thành công.
+
+
+	1.5.4.2 Trừ tồn kho khi kê đơn
+Số và tên UC
+UC4.2 – Trừ tồn kho khi kê đơn
+Người tạo UC
+ 
+Ngày tạo UC
+ 
+Mô tả
+Hệ thống tự động trừ số lượng thuốc/vật tư từ kho sau khi bác sĩ kê đơn thuốc trong quá trình khám (UC3.2), đảm bảo không để tồn kho âm, và gửi thông báo đến kế toán để cập nhật sổ sách.
+Tác nhân chính
+System
+Tác nhân phụ
+ Veterinarian (kê đơn thuốc), Kế toán (nhận thông báo để kiểm tra)
+Sự kiện kích hoạt
+Đơn thuốc được lưu thành công trong hệ thống sau khi bác sĩ hoàn tất kê đơn.
+Tiền điều kiện
+Đơn thuốc hợp lệ với thông tin chi tiết (tên thuốc, liều lượng, số lượng); tồn kho hiện tại đủ để trừ.
+Hậu điều kiện
+Số lượng tồn kho giảm tương ứng với đơn thuốc, thông báo được gửi đến kế toán qua email hoặc giao diện hệ thống, và giao dịch được ghi log.
+
+
+ Luồng chính
+Sau khi đơn thuốc được lưu (UC3.2), hệ thống nhận thông tin đơn (tên thuốc, số lượng).
+Hệ thống kiểm tra số lượng tồn kho hiện tại của thuốc.
+Nếu đủ, hệ thống trừ số lượng từ kho và cập nhật BatchID liên quan.
+Gửi thông báo đến kế toán với chi tiết đơn thuốc (PrescriptionID, số lượng, thời gian).
+Ghi log giao dịch trừ kho để theo dõi.
+Luồng thay thế
+Nếu số lượng thuốc trong kho không đủ để trừ, hệ thống hiển thị thông báo lỗi và yêu cầu bác sĩ kiểm tra lại hoặc chọn thuốc thay thế.
+Các ngoại lệ
+Lỗi kết nối cơ sở dữ liệu dẫn đến không cập nhật được kho.
+Các quy tắc
+nghiệp vụ
+Không cho phép tồn kho âm; nếu không đủ, hệ thống từ chối và thông báo.
+Mỗi giao dịch trừ kho phải liên kết với PrescriptionID duy nhất.
+Thông báo phải bao gồm chi tiết (PrescriptionID, tên thuốc, số lượng) để kế toán đối chiếu.
+
+ Acceptance Criteria
+Số lượng kho giảm đúng theo đơn thuốc và không âm.
+Thông báo gửi đến kế toán chứa đầy đủ thông tin.
+
+
+ Test cases
+TC1: Thuốc đủ (100 đơn vị, kê 50) → Trừ thành công, kho còn 50, thông báo gửi kế toán.
+TC2: Thuốc không đủ (10 đơn vị, kê 20) → Báo lỗi “Không đủ số lượng”.
+TC3: Hủy đơn (sau khi trừ 50) → Hoàn lại 50 đơn vị vào kho, cập nhật log.
+
+
+	1.5.4.3 Cảnh báo kho
+
+
+Số và tên UC
+UC4.3 – Cảnh báo kho
+Người tạo UC
+ 
+  Ngày tạo UC
+ 
+Mô tả
+Hệ thống tự động quét kho định kỳ (mỗi ngày lúc 12:00 AM +07) hoặc sau mỗi giao dịch kho để phát hiện thuốc sắp hết hạn (hạn < 30 ngày) hoặc số lượng thấp (dưới ngưỡng 20 đơn vị), sau đó gửi cảnh báo đến Admin và Kế toán qua email hoặc giao diện hệ thống.
+Tác nhân chính
+System
+Tác nhân phụ
+Admin (xử lý cảnh báo), Kế toán (điều chỉnh nhập kho)
+Sự kiện kích hoạt
+Chạy định kỳ hàng ngày hoặc sau khi có giao dịch nhập/trừ kho.
+Tiền điều kiện
+Hệ thống có dữ liệu kho cập nhật; ngưỡng cảnh báo đã được cấu hình (mặc định: 20 đơn vị, 30 ngày).
+Hậu điều kiện
+Cảnh báo được hiển thị trong giao diện hoặc gửi email, log cảnh báo được ghi lại để theo dõi.
+
+
+ Luồng chính
+Hệ thống kích hoạt quy trình quét kho vào 12:00 AM +07 hoặc sau giao dịch.
+Kiểm tra từng mặt hàng: so sánh số lượng với ngưỡng (20 đơn vị) và hạn sử dụng với ngưỡng (30 ngày từ 10/10/2025).
+Nếu phát hiện thuốc thấp hoặc hết hạn, hệ thống tạo danh sách cảnh báo.
+Gửi email hoặc hiển thị thông báo trong giao diện cho Admin/Kế toán với chi tiết (tên thuốc, số lượng, hạn sử dụng).
+Ghi log cảnh báo để theo dõi lịch sử.
+Các ngoại lệ
+Lỗi kết nối cơ sở dữ liệu khiến quét kho thất bại.
+Lỗi gửi email do server không hoạt động, hệ thống chuyển sang hiển thị trong giao diện
+Các quy tắc
+nghiệp vụ
+Ngưỡng cảnh báo có thể được Admin điều chỉnh (tối thiểu 10 đơn vị, tối đa 50 đơn vị).
+Cảnh báo chỉ gửi khi số lượng < ngưỡng hoặc hạn < 30 ngày.
+ Acceptance Criteria
+Cảnh báo xuất hiện đúng khi số lượng thấp hoặc hạn gần hết.
+
+
+ Test cases
+TC1: Thuốc còn 15 đơn vị → Cảnh báo “Số lượng thấp” gửi email.
+TC2: Hạn sử dụng (<30 ngày) → Cảnh báo “Hết hạn gần” hiển thị.
+TC3: Lỗi email → Cảnh báo hiển thị trong giao diện, log ghi nhận.
+
+
+	1.5.5.1 Tạo hóa đơn
+
+Số và tên UC
+UC5.1 – Tạo hóa đơn
+Người tạo UC
+ 
+Ngày tạo UC
+ 
+Mô tả
+Lễ tân tạo hóa đơn dựa trên dịch vụ khám hoặc đơn thuốc đã kê, tính toán chi phí tự động, tạo mã hóa đơn (InvoiceID), và gửi hóa đơn cho khách hàng qua email hoặc in trực tiếp.
+Tác nhân chính
+Receptionist
+Tác nhân phụ
+Customer (nhận hóa đơn), System (tính toán)
+Sự kiện kích hoạt
+Sau khi hoàn tất khám (UC3.1) hoặc bán thuốc (UC3.2).
+Tiền điều kiện
+Có dữ liệu dịch vụ/đơn thuốc liên kết với CustomerID và PetID; lễ tân đã đăng nhập.
+Hậu điều kiện
+InvoiceID được tạo, hóa đơn được gửi hoặc in, và trạng thái hóa đơn đặt thành “Chờ thanh toán”.
+
+
+ Luồng chính
+Lễ tân truy cập menu “Quản lý hóa đơn” và chọn “Tạo hóa đơn”.
+Hệ thống hiển thị danh sách dịch vụ/đơn thuốc liên quan (từ UC3.1/UC3.2) để lựa chọn.
+Lễ tân chọn các mục và nhấn “Tạo hóa đơn”.
+Hệ thống tính tổng chi phí (bao gồm thuế nếu có) và tạo InvoiceID (ví dụ: I001).
+Hệ thống cho phép in hóa đơn hoặc gửi email đến khách hàng với chi tiết (CustomerID, PetID, tổng tiền).
+Hiển thị thông báo “Hóa đơn tạo thành công”.
+Luồng thay thế
+Nếu dữ liệu dịch vụ/đơn thuốc thiếu (ví dụ: không có giá), hệ thống yêu cầu lễ tân nhập thủ công hoặc báo lỗi.
+Các ngoại lệ
+Lỗi kết nối cơ sở dữ liệu dẫn đến không lưu hóa đơn.
+Lỗi in hóa đơn do máy in không hoạt động.
+Các quy tắc
+nghiệp vụ
+Mỗi hóa đơn phải có InvoiceID duy nhất.
+Tổng chi phí bao gồm thuế VAT 10% (nếu áp dụng).
+
+ Acceptance Criteria
+InvoiceID tạo thành công và hiển thị trong hệ thống.
+Hóa đơn hiển thị đúng chi tiết (tên dịch vụ, giá, tổng tiền).
+
+
+ Test cases
+TC1: Dịch vụ hợp lệ (khám 200.000 VNĐ, thuốc 100.000 VNĐ) → Tạo InvoiceID I001, tổng 330.000 VNĐ (cộng thuế), thành công.
+TC2: Dữ liệu thiếu (giá không có) → Báo lỗi “Vui lòng nhập giá”.
+TC3: Lỗi DB → Báo lỗi “Không thể tạo hóa đơn”.
+
+1.5.5.2 Thanh toán
+Số và tên UC
+UC5.2 – Thanh toán
+Người tạo UC
+ 
+   Ngày tạo UC
+ 
+Mô tả
+Lễ tân xử lý thanh toán cho hóa đơn, hỗ trợ nhiều phương thức (tiền mặt, thẻ, chuyển khoản), cập nhật trạng thái hóa đơn thành “Đã thanh toán”, và gửi biên lai cho khách hàng qua email hoặc in trực tiếp.
+Tác nhân chính
+Receptionist
+Tác nhân phụ
+Customer (thực hiện thanh toán), System (cập nhật)
+Sự kiện kích hoạt
+Khách hàng đến quầy để thanh toán hóa đơn.
+Tiền điều kiện
+Có InvoiceID hợp lệ với trạng thái “Chờ thanh toán”.
+Hậu điều kiện
+Trạng thái hóa đơn cập nhật thành “Đã thanh toán”, biên lai được gửi hoặc in, và thông báo gửi đến kế toán (nếu cần).
+
+
+ Luồng chính
+Lễ tân chọn hóa đơn từ danh sách “Chờ thanh toán”.
+Hệ thống hiển thị chi tiết hóa đơn và các phương thức thanh toán (tiền mặt, thẻ, chuyển khoản).
+Lễ tân chọn phương thức, nhập thông tin (nếu cần, ví dụ: số thẻ) và xác nhận thanh toán.
+Hệ thống cập nhật trạng thái thành “Đã thanh toán” và tạo biên lai.
+Biên lai được in hoặc gửi email đến khách hàng, kèm thông báo thành công.
+Các ngoại lệ
+Lỗi thẻ (sai số thẻ hoặc hết hạn) dẫn đến từ chối giao dịch.
+Lỗi in biên lai do máy in gặp sự cố, hệ thống lưu trạng thái nhưng không in.
+Các quy tắc
+nghiệp vụ
+Thanh toán phải khớp với tổng tiền hóa đơn.
+Biên lai phải bao gồm InvoiceID, ngày thanh toán, và phương thức.
+
+ Acceptance Criteria
+Trạng thái hóa đơn chuyển thành “Đã thanh toán” chính xác.
+Biên lai gửi hoặc in thành công với đầy đủ thông tin.
+Test cases
+TC1: Thanh toán tiền mặt (300.000 VNĐ) → Cập nhật trạng thái, in biên lai thành công.
+TC2: Lỗi thẻ (số thẻ sai) → Báo lỗi “Giao dịch thất bại”.
+TC3: Lỗi in → Trạng thái lưu, gửi email biên lai thành công.
+
+1.5.5.3 Báo cáo doanh thu
+Số và tên UC
+UC5.3 – Báo cáo doanh thu
+Người tạo UC
+ 
+Ngày tạo UC
+ 
+Mô tả
+Admin hoặc Kế toán xuất báo cáo doanh thu dựa trên hóa đơn thanh toán trong khoảng thời gian nhất định, hiển thị chi tiết (tổng tiền, số hóa đơn, dịch vụ/dược phẩm), và cho phép xuất file Excel/PDF để gửi cho quản lý.
+Tác nhân chính
+Admin, Kế toán
+Tác nhân phụ
+System (tính toán), Quản lý (nhận báo cáo)
+Sự kiện kích hoạt
+Yêu cầu từ quản lý hoặc cần tổng kết doanh thu định kỳ (hàng tuần/tháng).
+Tiền điều kiện
+Có ít nhất một hóa đơn đã thanh toán trong hệ thống.
+Hậu điều kiện
+Báo cáo được hiển thị trên giao diện hoặc xuất file, gửi email đến quản lý (nếu yêu cầu).
+
+
+  Luồng chính
+Tác nhân chọn “Báo cáo doanh thu” từ menu quản lý.
+Hệ thống hiển thị form nhập thời gian (từ ngày, đến ngày).
+Tác nhân nhập khoảng thời gian (ví dụ: 01/10/2025 - 10/10/2025) và nhấn “Tạo báo cáo”.
+Hệ thống tính tổng doanh thu, số hóa đơn, và chi tiết từng loại dịch vụ/thuốc, sau đó hiển thị trên giao diện.
+Tác nhân chọn “Xuất file” (Excel/PDF) để tải xuống hoặc gửi email.
+Luồng thay thế
+Nếu không có dữ liệu trong khoảng thời gian, hệ thống hiển thị thông báo “Không có dữ liệu để báo cáo”.
+Các ngoại lệ
+Lỗi kết nối cơ sở dữ liệu dẫn đến không tải được dữ liệu.
+Các quy tắc
+nghiệp vụ
+Báo cáo phải bao gồm tổng doanh thu, số lượng hóa đơn, và phân loại dịch vụ/thuốc.
+Xuất file phải giữ nguyên định dạng và dữ liệu.
+
+ Acceptance Criteria
+Báo cáo hiển thị chính xác theo thời gian chọn.
+File xuất ra có thể mở và chứa đầy đủ thông tin.
+
+
+ Test cases
+TC1: Có dữ liệu (3 hóa đơn, tổng 900.000 VNĐ) → Hiển thị đúng, xuất Excel thành công.
+TC2: Không dữ liệu → Hiển thị “Không có dữ liệu”.
+TC3: Xuất PDF → File tải xuống thành công.
+
+1.5.6.1 Quản lý nhân viên
+Số và tên UC
+UC6.1 – Quản lý nhân viên
+Người tạo UC
+ 
+  Ngày tạo UC
+ 
+Mô tả
+Admin quản lý thông tin nhân viên (thêm, chỉnh sửa, vô hiệu hóa), bao gồm họ tên, vai trò (lễ tân, bác sĩ, kế toán), và thông báo thay đổi đến các bộ phận liên quan (lễ tân, bác sĩ) để cập nhật danh sách làm việc.
+Tác nhân chính
+Admin
+Tác nhân phụ
+System (lưu trữ), Receptionist/Veterinarian (nhận thông báo)
+Sự kiện kích hoạt
+Cần bổ sung nhân sự mới, điều chỉnh thông tin, hoặc vô hiệu hóa nhân viên.
+Tiền điều kiện
+Admin đã đăng nhập với quyền quản trị.
+Hậu điều kiện
+Thông tin nhân viên được cập nhật, EmployeeID được tạo (nếu thêm mới), và thông báo gửi đến các bộ phận liên quan.
+
+
+ Luồng chính
+Admin chọn “Quản lý nhân viên” từ menu.
+Chọn hành động (Thêm mới/Chỉnh sửa/Vô hiệu hóa) và nhập thông tin (họ tên, vai trò, số điện thoại).
+Hệ thống kiểm tra tính hợp lệ (số điện thoại duy nhất) và lưu thông tin.
+Nếu thêm mới, tạo EmployeeID (ví dụ: E001).
+Gửi thông báo qua email hoặc giao diện đến lễ tân/bác sĩ về thay đổi.
+Các ngoại lệ
+Lỗi kết nối cơ sở dữ liệu dẫn đến không lưu được thông tin.
+Các quy tắc
+nghiệp vụ
+EmployeeID phải duy nhất trong hệ thống.
+Thông báo phải bao gồm họ tên, vai trò, và hành động (thêm/chỉnh sửa/vô hiệu hóa).
+
+ Acceptance Criteria
+EmployeeID tạo thành công khi thêm mới.
+Cập nhật hiển thị chính xác trên danh sách nhân viên.
+
+
+ Test cases
+TC1: Thêm hợp lệ (Nguyễn Hải Thành, lễ tân) → Tạo E001, thông báo thành công.
+TC2: Thiếu thông tin (không nhập số điện thoại) → Báo lỗi.
+TC3: Vô hiệu hóa (E001) → Cập nhật trạng thái, thông báo gửi.
+
+	1.5.6.2 Phân quyền RBAC
+Số và tên UC
+UC6.2 – Phân quyền RBAC
+Người tạo UC
+ 
+ Ngày tạo UC
+ 
+Mô tả
+Admin gán hoặc thu hồi quyền truy cập cho nhân viên thông qua vai trò (Role-Based Access Control), bao gồm các quyền như xem hồ sơ, kê đơn, quản lý kho, và ghi log thay đổi để theo dõi.
+Tác nhân chính
+Admin
+Tác nhân phụ
+System (quản lý quyền)
+Sự kiện kích hoạt
+Cần cấp quyền mới hoặc điều chỉnh quyền hiện có cho nhân viên.
+Tiền điều kiện
+Có danh sách vai trò (Admin, Receptionist, Veterinarian) và nhân viên đã được tạo (UC6.1).
+Hậu điều kiện
+Quyền được cập nhật, log thay đổi được ghi, và thông báo gửi đến nhân viên (nếu cần).
+
+
+ Luồng chính
+Admin mở “Phân quyền RBAC” từ menu quản trị.
+Chọn nhân viên và vai trò (ví dụ: Veterinarian), sau đó chọn quyền (xem hồ sơ, kê đơn).
+Hệ thống lưu thay đổi và ghi log (thời gian, người thay đổi, quyền mới).
+Gửi thông báo đến nhân viên về quyền mới (nếu có).
+Các ngoại lệ
+Lỗi kết nối cơ sở dữ liệu dẫn đến không cập nhật quyền.
+Các quy tắc
+nghiệp vụ
+Mỗi vai trò chỉ gán một tập quyền cố định (Admin: tất cả, Veterinarian: kê đơn).
+
+Log phải ghi chi tiết thay đổi quyền.
+
+ Acceptance Criteria
+Quyền cập nhật chính xác theo vai trò.
+Log ghi đầy đủ thông tin thay đổi..
+
+
+ Test cases
+–TC1: Gán quyền (E001 thành Veterinarian) → Cập nhật thành công, log ghi.
+–TC2: Thu hồi quyền (E001 mất kê đơn) → Cập nhật thành công, log ghi.
+–TC3: Lỗi DB → Báo lỗi “Không thể cập nhật quyền”.
+
+1.5.6.3 Lịch làm việc nhân viên
+
+Số và tên UC
+UC6.3 – Lịch làm việc nhân viên
+Người tạo UC
+ 
+ Ngày tạo UC
+ 
+Mô tả
+Admin gán ca làm việc cho nhân viên (lễ tân, bác sĩ, kế toán) với thời gian cụ thể, kiểm tra xung đột ca, và gửi thông báo đến nhân viên để xác nhận.
+Tác nhân chính
+Admin
+Tác nhân phụ
+System (kiểm tra xung đột), Nhân viên (nhận thông báo)
+Sự kiện kích hoạt
+Cần lập lịch làm việc hàng tuần hoặc điều chỉnh ca.
+Tiền điều kiện
+Nhân viên đã được tạo (UC6.1) và có lịch làm việc trước đó (nếu có).
+Hậu điều kiện
+Ca làm việc được lưu, lịch hiển thị trên giao diện, và thông báo gửi đến nhân viên
+
+
+ Luồng chính
+Admin chọn “Lịch làm việc nhân viên” từ menu.
+Chọn nhân viên (E001) và nhập ca (ví dụ: 08:00-16:00, 11/10/2025).
+Hệ thống kiểm tra xung đột ca với lịch hiện tại.
+Nếu không xung đột, lưu ca và gửi thông báo qua email hoặc giao diện.
+Luồng thay thế
+Nếu ca trùng (E001 đã có ca 08:00-12:00), hệ thống báo lỗi và yêu cầu điều chỉnh.
+Các ngoại lệ
+Lỗi kết nối cơ sở dữ liệu dẫn đến không lưu ca.
+Các quy tắc
+nghiệp vụ
+Một nhân viên không được gán hai ca trùng giờ.
+Thông báo phải bao gồm ngày, giờ, và yêu cầu xác nhận.
+Acceptance Criteria
+Ca lưu chính xác và không trùng lặp.
+
+
+ Test cases
+TC1: Gán ca hợp lệ (08:00-16:00) → Lưu thành công, thông báo gửi.
+TC2: Ca trùng (08:00-12:00) → Báo lỗi “Xung đột ca”.
+TC3: Thiếu thông tin (không nhập giờ) → Báo lỗi.
+
+1.5.7.1 Báo cáo số ca khám
+
+Số và tên UC
+UC7.1 – Báo cáo số ca khám
+Người tạo UC
+ 
+Ngày tạo UC
+ 
+Mô tả
+Chức năng cho phép Admin hoặc Bác sĩ tạo và xuất báo cáo tổng hợp số ca khám trong hệ thống, theo các tiêu chí như ngày, tháng, năm, bác sĩ phụ trách hoặc loại dịch vụ.
+Báo cáo giúp đánh giá hiệu suất làm việc, phân tích số liệu y tế, và hỗ trợ công tác quản lý vận hành phòng khám.
+Tác nhân chính
+Admin
+Tác nhân phụ
+Bác sĩ
+Sự kiện kích hoạt
+Quản trị viên hoặc bác sĩ chọn chức năng “Xuất báo cáo số ca khám” trên giao diện hệ thống.
+Tiền điều kiện
+– Hệ thống đã có dữ liệu hồ sơ khám bệnh hợp lệ trong cơ sở dữ liệu.
+– Người dùng có quyền truy cập chức năng báo cáo (Admin hoặc Bác sĩ).
+Hậu điều kiện
+Báo cáo được hiển thị và có thể xuất file (Excel/PDF).
+
+
+
+Luồng chính
+Admin chọn chức năng “Báo cáo số ca khám”.
+
+
+Hệ thống hiển thị form nhập điều kiện lọc, bao gồm:
+	– Thời gian (ngày/tháng/năm)
+
+
+– Bác sĩ phụ trách
+
+
+– Loại dịch vụ khám
+
+
+Admin nhập thông tin điều kiện và nhấn “Tạo báo cáo”.
+
+
+Hệ thống truy vấn cơ sở dữ liệu, tổng hợp số ca khám theo các tiêu chí đã chọn.
+
+
+Hệ thống hiển thị báo cáo tổng hợp trên màn hình (dạng bảng hoặc biểu đồ).
+
+
+Người dùng có thể chọn “Xuất file” để tải báo cáo dưới dạng Excel hoặc PDF.
+
+
+Luồng thay thế
+Không có dữ liệu → hệ thống báo “Không có ca khám nào trong khoảng thời gian này”. ( Ở gạch thứ 3 ) 
+Các ngoại lệ
+Lỗi truy vấn CSDL.
+Các quy tắc
+nghiệp vụ
+– Báo cáo phải hiển thị tối thiểu các thông tin:
+        + Tổng số ca khám
+        + Phân loại theo bác sĩ
+        + Phân loại theo loại dịch vụ
+– Người dùng chỉ có thể xuất báo cáo trong phạm vi quyền hạn của mình.
+– Báo cáo được tổng hợp theo dữ liệu thời gian thực từ hồ sơ khám bệnh (MedicalRecord).
+
+Acceptance Criteria 
+– Báo cáo chính xác, đầy đủ theo tiêu chí.
+– File export đúng định dạng.
+
+
+
+
+Test cases
+– TC1: Xuất báo cáo theo ngày có dữ liệu → hiển thị chính xác.
+– TC2: Xuất báo cáo tháng không có dữ liệu → thông báo “Không có ca khám”.
+– TC3: Export ra Excel → file hợp lệ.
+
+
+	1.5.7.2 Báo cáo doanh thu
+
+
+Số và tên UC
+UC7.2 – Báo cáo doanh thu
+Người tạo UC
+ 
+Ngày tạo UC
+ 
+Mô tả
+Chức năng cho phép Admin hoặc Kế toán xem và xuất báo cáo doanh thu theo khoảng thời gian (ngày, tuần, tháng hoặc năm).
+Báo cáo thể hiện tổng doanh thu và chi tiết theo từng dịch vụ, dựa trên các hóa đơn đã thanh toán, nhằm hỗ trợ phân tích tài chính và quản lý hiệu quả hoạt động của phòng khám.
+Tác nhân chính
+Admin, Kế toán
+Tiền điều kiện
+Hệ thống có dữ liệu hóa đơn đã thanh toán.
+Hậu điều kiện
+– Báo cáo doanh thu được hiển thị trên giao diện và có thể xuất ra file (Excel hoặc PDF).
+– Thông tin truy xuất được ghi log để phục vụ tra soát sau này.
+
+
+Luồng chính
+Admin hoặc Kế toán chọn chức năng “Báo cáo doanh thu”.
+
+
+Hệ thống hiển thị form nhập điều kiện lọc, bao gồm:
+– Khoảng thời gian (ngày, tháng, năm, hoặc tùy chọn)
+
+
+Người dùng nhập thông tin và nhấn “Tạo báo cáo”.
+
+
+Hệ thống truy vấn cơ sở dữ liệu, tổng hợp doanh thu dựa trên các hóa đơn có trạng thái “Đã thanh toán”.
+
+
+Hệ thống tính tổng doanh thu, phân loại chi tiết theo dịch vụ.
+
+
+Hệ thống hiển thị kết quả báo cáo trên màn hình.
+
+
+Người dùng có thể chọn “Xuất file” (Excel hoặc PDF) để tải báo cáo.
+Luồng thay thế
+Không có dữ liệu → thông báo “Không có giao dịch”. ( Ở gạch đầu thứ 2)
+Các ngoại lệ
+Lỗi kết nối DB.
+Các quy tắc nghiệp vụ
+
+Doanh thu chỉ tính những hóa đơn “Đã thanh toán”.
+
+Acceptance Criteria 
+Báo cáo hiển thị tổng, chi tiết.
+Có thể tải file.
+
+
+Test cases
+– TC1: Xuất báo cáo tuần → kết quả đúng.
+– TC2: Không có dữ liệu → báo lỗi.
+– TC3: Export PDF → thành công.
+
+	
+	1.5.7.3 Thống kê thuốc/dịch vụ
+
+
+Số và tên UC
+UC7.3 – Thống kê thuốc/dịch vụ sử dụng
+Người tạo UC
+ 
+Ngày tạo UC
+ 
+Mô tả
+ Chức năng cho phép Admin thống kê các loại thuốc và dịch vụ được sử dụng nhiều nhất trong hệ thống theo các tiêu chí thời gian, giúp theo dõi xu hướng tiêu thụ và quản lý kho hiệu quả.
+Tác nhân chính
+Admin
+Tiền điều kiện
+Hệ thống đã có dữ liệu về đơn thuốc hoặc hóa đơn ghi nhận việc sử dụng thuốc/dịch vụ.
+Hậu điều kiện
+– Hệ thống hiển thị bảng thống kê hoặc biểu đồ thể hiện danh sách thuốc/dịch vụ được sử dụng nhiều nhất theo điều kiện lọc đã chọn.
+– Cho phép xuất dữ liệu thống kê ra file (Excel/PDF).
+Luồng chính
+Admin chọn chức năng “Thống kê thuốc/dịch vụ sử dụng”.
+Hệ thống hiển thị biểu mẫu lọc (theo thời gian, loại dịch vụ, bác sĩ, v.v.).
+Admin nhập thông tin và nhấn “Thống kê”.
+Hệ thống xử lý dữ liệu, thống kê tần suất sử dụng thuốc/dịch vụ.
+Hệ thống hiển thị kết quả thống kê dưới dạng bảng hoặc biểu đồ.
+Admin có thể xuất file thống kê (Excel hoặc PDF).
+Luồng thay thế
+Không có dữ liệu → hiển thị trống.
+
+Acceptance Criteria 
+Thống kê hiển thị top thuốc/dịch vụ.
+Có thể export dữ liệu.
+
+
+Test cases
+TC1: Có dữ liệu → thống kê chính xác.
+TC2: Không có dữ liệu → kết quả rỗng.
+
+
+	1.5.8.1 Quản lý camera
+Số và tên UC
+UC8.1 – Quản lý kết nối camera
+Người tạo UC
+ 
+Ngày tạo UC
+ 
+Mô tả
+ Chức năng cho phép Admin hoặc Nhân viên lễ tân gán liên kết (link stream hoặc ID) camera cho thú cưng đang trong thời gian lưu trú tại phòng khám, giúp chủ thú cưng có thể theo dõi thú cưng từ xa thông qua liên kết bảo mật.
+Tác nhân chính
+Admin
+Tác nhân phụ
+Nhân viên lễ tân
+Tiền điều kiện
+– Thú cưng đang trong trạng thái lưu trú (boarding) tại phòng khám.
+– Hệ thống đã được cấu hình để quản lý camera.
+Hậu điều kiện
+Camera link được gắn với PetID và lưu trong hệ thống.
+
+
+
+Luồng chính
+Admin/Lễ tân chọn hồ sơ thú cưng đang lưu trú.
+Chọn chức năng “Gán camera”.
+Nhập link stream hoặc ID camera.
+Hệ thống kiểm tra tính hợp lệ của link camera.
+Nếu hợp lệ, hệ thống lưu liên kết và gán với PetID tương ứng.
+Hệ thống hiển thị thông báo xác nhận “Gán camera thành công”.
+Luồng thay thế
+– Link không hợp lệ: Hệ thống hiển thị thông báo lỗi “Liên kết camera không hợp lệ. Vui lòng kiểm tra lại.”
+– Lỗi kết nối hệ thống camera: Hệ thống thông báo “Không thể kết nối với hệ thống camera. Thử lại sau.”
+– Cố gán nhiều camera cho cùng PetID: Hệ thống ngăn thao tác và thông báo “Mỗi thú cưng chỉ được gán một camera tại một thời điểm.”
+
+Các quy tắc nghiệp vụ
+– Mỗi PetID chỉ có một camera được gán tại cùng thời điểm.
+– Link camera phải tuân thủ định dạng hợp lệ (URL hoặc ID do hệ thống cung cấp).
+– Dữ liệu camera phải được mã hóa và bảo mật.
+– Chỉ có Admin, Lễ tân, và chủ thú cưng mới được quyền xem livestream.
+
+Acceptance Criteria 
+Camera được gán thành công.
+Chủ pet có thể xem livestream bằng link bảo mật.
+
+
+Test cases
+TC1: Gán camera hợp lệ → thành công.
+TC2: Gán link không hợp lệ → báo lỗi.
+TC3: Gán 2 camera cho cùng PetID → không được.
+
+
+	1.5.8.2 Theo dõi trực tuyến
+
+
+Số và tên UC
+UC8.2 – Theo dõi trực tuyến
+Người tạo UC
+ 
+Ngày tạo UC
+ 
+Mô tả
+– Chức năng cho phép khách hàng xem livestream thú cưng của mình khi thú đang lưu trú tại phòng khám, thông qua liên kết camera bảo mật đã được gán trước đó.
+– Tính năng giúp khách hàng theo dõi tình trạng thú cưng theo thời gian thực một cách an toàn và thuận tiện.
+Tác nhân chính
+Khách hàng
+Tác nhân phụ
+Receptionist (hỗ trợ)
+Tiền điều kiện
+– Camera đã được gán cho thú cưng (thông qua UC8.1 – Quản lý kết nối camera).
+– Hệ thống hoạt động ổn định, có kết nối Internet.
+Hậu điều kiện
+Luồng video hiển thị trực tuyến trên web hoặc ứng dụng di động.
+
+
+
+Luồng chính
+Khách hàng đăng nhập vào hệ thống.
+Chọn thú cưng đang lưu trú tại phòng khám.
+Hệ thống hiển thị nút “Xem trực tuyến”.
+Khách hàng nhấn nút “Xem trực tuyến”, hệ thống kết nối đến link camera tương ứng.
+Luồng video livestream được hiển thị trên giao diện người dùng.
+
+
+Luồng thay thế
+Camera đang tạm ngưng → báo lỗi “Không thể kết nối”.    ( Ở gạch thứ 4 )
+Các ngoại lệ
+Lỗi mạng hoặc server camera quá tải.
+
+Các quy tắc nghiệp vụ
+Chỉ chủ thú cưng mới có quyền xem camera.
+Mỗi phiên xem tối đa X phút (theo cấu hình dịch vụ).
+
+Acceptance Criteria 
+Khách hàng xem được livestream rõ ràng, ổn định.
+Hệ thống ngắt sau khi hết thời gian quy định.
+
+
+Test cases
+– TC1: Khách hàng hợp lệ → xem được video.
+– TC2: Người khác cố gắng truy cập → bị từ chối.
+– TC3: Camera tạm ngưng → báo lỗi..
+
+
+
+
+
+
+
+
+
+2. PHÂN TÍCH TRƯỜNG HỢP SỬ DỤNG (USE-CASE ANALYSIS)
+2.1   Phân tích kiến trúc hệ thống
+2.1.1   Kiến trúc mức cao (High-level architecture)
+2.1.2  Các đối tượng trừu tượng chính của hệ thống (Key abstractions)
+2.2  Thực thi trường hợp sử dụng (Use-case relizations)	
+2.2.1  Các biểu đồ tuần tự (Sequence diagrams)
+2.2.2  Góc nhìn của các lớp trong hệ thống (Views of participating classes)
+ 
+
+ 
+
+
+
+
+
+
+
+3. THIẾT KẾ (USE-CASE DESGIN)
+3.1  Xác định các thành phần thiết kế (Identify design elements)
+3.1.1  Xác định các lớp (Identify classes)
+3.1.2  Xác định các hệ thống con và giao diện (Identify subsystems and interfaces)
+3.1.3  Xác định các gói (Identify packages)
+3.2  Thiết kế trường hợp sử dụng (Use-case design)
+3.2.1  Thiết kế các biểu đồ tuần tự (Design sequence diagrams)
+3.2.2  Thiết kế biểu đồ lớp (Class diagrams)
+3.3  Thiết kế cơ sở dữ liệu (Database design)
+3.3.1  Lược đồ cơ sở dữ liệu
+3.3.2 Chi tiết các bảng
+ 
+
+ 
+
+
+
+
+
+4.  CÀI ĐẶT (IMPLEMENTATION)
+4.1  Lựa chọn công nghệ
+
+4.2  Cấu trúc mã nguồn
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+5.  KẾT LUẬN
+
+
+
+ 
+TÀI LIỆU THAM KHẢO
+[1]
+Khoa HTTT, Slide bài giảng môn học Phân tích thiết kế phần mềm, 2024.
+
+ 
+
+
+

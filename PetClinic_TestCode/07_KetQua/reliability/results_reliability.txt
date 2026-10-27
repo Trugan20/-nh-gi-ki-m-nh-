@@ -1,0 +1,18 @@
+
+
+  Kiểm thử độ tin cậy và phục hồi
+    ✔ REL-TC001: Yêu cầu sai định dạng (JSON hỏng) được trả lỗi 4xx, ứng dụng không dừng (533ms)
+      khi CSDL dừng: HTTP 500, tiến trình ứng dụng vẫn chạy
+    ✔ REL-TC002: Mất kết nối CSDL – API báo lỗi có kiểm soát, ứng dụng không bị sập (5395ms)
+      phục hồi sau 1056 ms
+    ✔ REL-TC003: Tự phục hồi khi CSDL hoạt động trở lại (không cần khởi động lại ứng dụng) trong ≤ 30 giây (1361ms)
+      khởi động lại sau 834 ms, hồ sơ còn nguyên
+    ✔ REL-TC004: Dữ liệu đã ghi không mất khi ứng dụng bị tắt đột ngột (kill) (11117ms)
+    ✔ REL-TC005: Thời gian khởi động lại ứng dụng ≤ 10 giây
+Soak 180s                                  conn=  50  req=  61913  rps=  344  p50=  131ms  p99=  395ms  max=  595ms  lỗi=0%
+      RAM tiến trình: đầu 219 MB, cao nhất 335 MB, cuối 324 MB
+    ✔ REL-TC006: Chạy tải liên tục 180 giây (50 kết nối) – không lỗi, bộ nhớ ổn định (180463ms)
+
+
+  6 passing (3m)
+

@@ -1,0 +1,15 @@
+{
+  "name": "petclinic-reliability-test",
+  "version": "1.0.0",
+  "description": "Kiểm thử độ tin cậy và phục hồi – Mocha + autocannon",
+  "private": true,
+  "type": "commonjs",
+  "scripts": {
+    "test": "mocha reliability.test.js --reporter spec",
+    "test:reliability": "mocha reliability.test.js --reporter spec"
+  },
+  "dependencies": {
+    "autocannon": "^8.0.0",
+    "mocha": "^10.8.2"
+  }
+}

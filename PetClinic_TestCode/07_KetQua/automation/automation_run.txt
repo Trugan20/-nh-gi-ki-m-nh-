@@ -1,0 +1,268 @@
+
+
+  Pet Clinic – Kiểm thử tự động (Mocha + Selenium WebDriver / Microsoft Edge)
+    Chức năng của HỆ THỐNG
+      [32m✔[39m SYS-TC001: Truy cập trang chủ của hệ thống (1808ms)
+      [32m✔[39m SYS-TC002: Điều hướng tới các chức năng qua thanh menu bên trái (10689ms)
+      [32m✔[39m SYS-TC003: Truy cập đường dẫn không tồn tại (1064ms)
+      1) SYS-TC004: Truy cập chức năng quản lý khi chưa đăng nhập
+      [32m✔[39m SYS-TC005: Chuyển đổi giao diện sáng/tối (1772ms)
+    Chức năng của LỄ TÂN
+      [32m✔[39m UC1.1-TC001: Bỏ trống tất cả các trường và nhấn "Lưu khách hàng" (3297ms)
+      [32m✔[39m UC1.1-TC002: Bỏ trống Họ tên, các trường khác hợp lệ (3299ms)
+      [32m✔[39m UC1.1-TC003: Email sai định dạng (4353ms)
+      [32m✔[39m UC1.1-TC004: Kiểm thử giá trị biên: SĐT 9 chữ số (3339ms)
+      [32m✔[39m UC1.1-TC005: Kiểm thử giá trị biên: SĐT 11 chữ số (3361ms)
+      [32m✔[39m UC1.1-TC006: SĐT chứa ký tự chữ (3285ms)
+      [32m✔[39m UC1.1-TC007: Tất cả các trường nhập hợp lệ (3160ms)
+      2) UC1.1-TC008: SĐT trùng với khách hàng đã có
+      3) UC1.1-TC009: Email trùng với khách hàng đã có
+      4) UC1.1-TC010: Bỏ trống Địa chỉ (trường không bắt buộc), các trường khác hợp lệ
+      [32m✔[39m UC1.3-TC001: Cập nhật địa chỉ khách hàng hợp lệ (1998ms)
+      [32m✔[39m UC1.3-TC002: Cập nhật SĐT không hợp lệ (2085ms)
+      [32m✔[39m UC1.4-TC001: Tạm khóa khách hàng đang hoạt động (1989ms)
+      [32m✔[39m UC1.4-TC002: Duyệt lại khách hàng đang bị khóa (1215ms)
+      5) UC1.5-TC001: Tìm khách hàng theo tên
+      6) UC1.5-TC002: Tìm khách hàng theo số điện thoại
+      [32m✔[39m UC1.5-TC003: Tìm với từ khóa không tồn tại (3947ms)
+      [32m✔[39m UC1.5-TC004: Tìm thú cưng theo tên chủ nuôi (2423ms)
+      [32m✔[39m UC1.5-TC005: Lọc khách hàng theo trạng thái "Chờ duyệt" (3105ms)
+      [32m✔[39m UC1.5-TC006: Lọc khách hàng theo trạng thái "Đang hoạt động" (3103ms)
+      [32m✔[39m UC1.2-TC001: Bỏ trống Tên và Loài thú cưng (3287ms)
+      [32m✔[39m UC1.2-TC002: Nhập Tên, bỏ trống Loài (3306ms)
+      [32m✔[39m UC1.2-TC003: Thông tin thú cưng hợp lệ (4013ms)
+      7) UC1.2-TC004: Mã microchip trùng với thú cưng đã có
+      [32m✔[39m UC1.2-TC005: Kiểm thử giá trị biên: Tuổi âm (4423ms)
+      8) UC2.1-TC001: Bỏ trống tất cả các trường và nhấn "Lưu"
+      [32m✔[39m UC2.1-TC002: Đặt lịch hợp lệ (7154ms)
+      [32m✔[39m UC2.1-TC003: Đặt lịch trùng khung giờ của bác sĩ (7705ms)
+      [32m✔[39m UC2.1-TC004: Đặt lịch trùng khung giờ của thú cưng (6871ms)
+      9) UC2.1-TC005: Đặt lịch vào ngày trong quá khứ
+      [32m✔[39m UC2.2-TC001: Xác nhận lịch hẹn đang chờ (2060ms)
+      [32m✔[39m UC2.2-TC002: Hoàn thành lịch hẹn đã xác nhận (4755ms)
+      [32m✔[39m UC2.2-TC003: Hủy lịch hẹn còn trên 1 tiếng (2060ms)
+      10) UC2.2-TC004: Hủy lịch hẹn khi còn dưới 1 tiếng
+    Chức năng của BÁC SĨ
+      [32m✔[39m UC3.1-TC001: Bỏ trống tất cả các trường và nhấn "Lưu hồ sơ" (3135ms)
+      [32m✔[39m UC3.1-TC002: Bỏ trống Chẩn đoán (4776ms)
+      [32m✔[39m UC3.1-TC003: Nhập đầy đủ thông tin hồ sơ khám hợp lệ (4994ms)
+      [32m✔[39m UC3.3-TC001: Tìm hồ sơ theo chẩn đoán (2012ms)
+      [32m✔[39m UC3.3-TC002: Tìm hồ sơ với từ khóa không tồn tại (1139ms)
+      [32m✔[39m UC3.3-TC003: Tìm hồ sơ theo chẩn đoán có nhiều kết quả (1972ms)
+      [32m✔[39m UC3.3-TC004: Hiển thị toàn bộ lịch sử khám (1877ms)
+      [32m✔[39m UC2.4-TC001: Không chọn bác sĩ và ngày trực (2673ms)
+      [32m✔[39m UC2.4-TC002: Tạo ca trực hợp lệ (2786ms)
+      11) UC2.4-TC003: Giờ kết thúc sớm hơn giờ bắt đầu
+      12) UC2.4-TC004: Tạo ca trực trùng với ca đã có của bác sĩ
+      [32m✔[39m UC2.4-TC005: Xóa ca trực (1106ms)
+      [32m✔[39m UC8.2-TC001: Xem danh sách camera đang trực tuyến (2577ms)
+      13) UC8.2-TC002: Lọc camera theo trạng thái "Ngoại tuyến"
+      [32m✔[39m UC8.2-TC003: Tìm camera theo số phòng (3565ms)
+    Chức năng của QUẢN TRỊ VIÊN / KẾ TOÁN
+      14) UC6.1-TC001: Bỏ trống tất cả các trường và nhấn "Tạo bác sĩ"
+      [32m✔[39m UC6.1-TC002: Email bác sĩ sai định dạng (3734ms)
+      [32m✔[39m UC6.1-TC003: Thêm bác sĩ hợp lệ (3106ms)
+      [32m✔[39m UC6.1-TC004: Cập nhật chuyên khoa của bác sĩ (2129ms)
+      [32m✔[39m UC6.1-TC005: Đổi trạng thái nhận lịch của bác sĩ (1142ms)
+      [32m✔[39m UC6.1-TC006: Tìm bác sĩ theo chuyên khoa (2355ms)
+      15) UC4.1-TC001: Bỏ trống các trường bắt buộc
+      [32m✔[39m UC4.1-TC002: Kiểm thử giá trị biên: Tồn kho âm (4390ms)
+      [32m✔[39m UC4.1-TC003: Thêm vật tư hợp lệ kèm hạn sử dụng (4265ms)
+      16) UC4.1-TC004: Mã vật tư trùng với vật tư đã có
+      [32m✔[39m UC4.3-TC001: Vật tư có tồn kho dưới mức tối thiểu (6379ms)
+      [32m✔[39m UC4.3-TC002: Xem danh sách mặt hàng sắp hết (2303ms)
+      [32m✔[39m UC5.1-TC001: Không chọn khách hàng và thuốc (2807ms)
+      [32m✔[39m UC5.1-TC002: Tạo hóa đơn hợp lệ – tồn kho tự động trừ (5706ms)
+      17) UC5.1-TC003: Số lượng bán lớn hơn tồn kho
+      [32m✔[39m UC5.2-TC001: Xác nhận đã thu tiền cho hóa đơn chờ thanh toán (1154ms)
+      [32m✔[39m UC5.2-TC002: Tìm hóa đơn theo mã hóa đơn (1821ms)
+      18) UC5.2-TC003: Tìm hóa đơn theo trạng thái "Quá hạn"
+      [32m✔[39m UC7.2-TC001: Doanh thu trên Tổng quan khớp dữ liệu hóa đơn (1099ms)
+      [32m✔[39m UC7.2-TC002: Thẻ "Số đơn hàng" và "Mặt hàng thuốc" khớp dữ liệu (1083ms)
+
+
+  56 passing (4m)
+  18 failing
+
+  1) Pet Clinic – Kiểm thử tự động (Mocha + Selenium WebDriver / Microsoft Edge)
+       Chức năng của HỆ THỐNG
+         SYS-TC004: Truy cập chức năng quản lý khi chưa đăng nhập:
+     Error: Không có trang đăng nhập – truy cập thẳng được danh sách khách hàng
+      at fail (cases.js:20:13)
+      at expect (cases.js:25:14)
+      at Object.run (cases.js:227:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Context.<anonymous> (petclinic.spec.js:28:28)
+
+  2) Pet Clinic – Kiểm thử tự động (Mocha + Selenium WebDriver / Microsoft Edge)
+       Chức năng của LỄ TÂN
+         UC1.1-TC008: SĐT trùng với khách hàng đã có:
+     Error: Hệ thống vẫn lưu khách hàng có SĐT trùng 0911000001
+      at fail (cases.js:20:13)
+      at expect (cases.js:25:14)
+      at Object.run (cases.js:401:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Context.<anonymous> (petclinic.spec.js:28:28)
+
+  3) Pet Clinic – Kiểm thử tự động (Mocha + Selenium WebDriver / Microsoft Edge)
+       Chức năng của LỄ TÂN
+         UC1.1-TC009: Email trùng với khách hàng đã có:
+     Error: Hệ thống vẫn lưu khách hàng có email trùng
+      at fail (cases.js:20:13)
+      at expect (cases.js:25:14)
+      at Object.run (cases.js:419:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Context.<anonymous> (petclinic.spec.js:28:28)
+
+  4) Pet Clinic – Kiểm thử tự động (Mocha + Selenium WebDriver / Microsoft Edge)
+       Chức năng của LỄ TÂN
+         UC1.1-TC010: Bỏ trống Địa chỉ (trường không bắt buộc), các trường khác hợp lệ:
+     Error: Hiển thị "Không thể thêm khách hàng" kèm lỗi JSON: "String must contain at least 1 character(s)", path ["address"]
+      at fail (cases.js:20:13)
+      at expect (cases.js:25:14)
+      at Object.run (cases.js:437:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Context.<anonymous> (petclinic.spec.js:28:28)
+
+  5) Pet Clinic – Kiểm thử tự động (Mocha + Selenium WebDriver / Microsoft Edge)
+       Chức năng của LỄ TÂN
+         UC1.5-TC001: Tìm khách hàng theo tên:
+     Error: Ô tìm kiếm mất focus sau ký tự đầu – chỉ nhận "T", danh sách lọc sai
+      at fail (cases.js:20:13)
+      at expect (cases.js:25:14)
+      at Object.run (cases.js:530:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Context.<anonymous> (petclinic.spec.js:28:28)
+
+  6) Pet Clinic – Kiểm thử tự động (Mocha + Selenium WebDriver / Microsoft Edge)
+       Chức năng của LỄ TÂN
+         UC1.5-TC002: Tìm khách hàng theo số điện thoại:
+     Error: Ô tìm kiếm mất focus sau ký tự đầu – chỉ nhận "0", danh sách lọc sai
+      at fail (cases.js:20:13)
+      at expect (cases.js:25:14)
+      at Object.run (cases.js:540:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Context.<anonymous> (petclinic.spec.js:28:28)
+
+  7) Pet Clinic – Kiểm thử tự động (Mocha + Selenium WebDriver / Microsoft Edge)
+       Chức năng của LỄ TÂN
+         UC1.2-TC004: Mã microchip trùng với thú cưng đã có:
+     Error: Hệ thống vẫn lưu thú cưng có microchip trùng
+      at fail (cases.js:20:13)
+      at expect (cases.js:25:14)
+      at Object.run (cases.js:680:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Context.<anonymous> (petclinic.spec.js:28:28)
+
+  8) Pet Clinic – Kiểm thử tự động (Mocha + Selenium WebDriver / Microsoft Edge)
+       Chức năng của LỄ TÂN
+         UC2.1-TC001: Bỏ trống tất cả các trường và nhấn "Lưu":
+     Error: Form không gửi nhưng không hiển thị thông báo lỗi nào cho người dùng
+      at fail (cases.js:20:13)
+      at expect (cases.js:25:14)
+      at Object.run (cases.js:721:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Context.<anonymous> (petclinic.spec.js:28:28)
+
+  9) Pet Clinic – Kiểm thử tự động (Mocha + Selenium WebDriver / Microsoft Edge)
+       Chức năng của LỄ TÂN
+         UC2.1-TC005: Đặt lịch vào ngày trong quá khứ:
+     Error: Hệ thống vẫn tạo lịch hẹn ngày 2026-10-02
+      at fail (cases.js:20:13)
+      at expect (cases.js:25:14)
+      at Object.run (cases.js:794:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Context.<anonymous> (petclinic.spec.js:28:28)
+
+  10) Pet Clinic – Kiểm thử tự động (Mocha + Selenium WebDriver / Microsoft Edge)
+       Chức năng của LỄ TÂN
+         UC2.2-TC004: Hủy lịch hẹn khi còn dưới 1 tiếng:
+     Error: Lịch hẹn vẫn bị hủy dù chỉ còn 30 phút
+      at fail (cases.js:20:13)
+      at expect (cases.js:25:14)
+      at Object.run (cases.js:863:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Context.<anonymous> (petclinic.spec.js:28:28)
+
+  11) Pet Clinic – Kiểm thử tự động (Mocha + Selenium WebDriver / Microsoft Edge)
+       Chức năng của BÁC SĨ
+         UC2.4-TC003: Giờ kết thúc sớm hơn giờ bắt đầu:
+     Error: Ca trực 17:00 – 13:00 vẫn được tạo
+      at fail (cases.js:20:13)
+      at expect (cases.js:25:14)
+      at Object.run (cases.js:1043:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Context.<anonymous> (petclinic.spec.js:28:28)
+
+  12) Pet Clinic – Kiểm thử tự động (Mocha + Selenium WebDriver / Microsoft Edge)
+       Chức năng của BÁC SĨ
+         UC2.4-TC004: Tạo ca trực trùng với ca đã có của bác sĩ:
+     Error: Ca trực trùng giờ vẫn được tạo
+      at fail (cases.js:20:13)
+      at expect (cases.js:25:14)
+      at Object.run (cases.js:1064:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Context.<anonymous> (petclinic.spec.js:28:28)
+
+  13) Pet Clinic – Kiểm thử tự động (Mocha + Selenium WebDriver / Microsoft Edge)
+       Chức năng của BÁC SĨ
+         UC8.2-TC002: Lọc camera theo trạng thái "Ngoại tuyến":
+     Error: Danh sách trống – API /api/camera-streams chỉ trả về camera đang hoạt động nên bộ lọc "Ngoại tuyến" không bao giờ có kết quả
+      at fail (cases.js:20:13)
+      at expect (cases.js:25:14)
+      at Object.run (cases.js:1112:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Context.<anonymous> (petclinic.spec.js:28:28)
+
+  14) Pet Clinic – Kiểm thử tự động (Mocha + Selenium WebDriver / Microsoft Edge)
+       Chức năng của QUẢN TRỊ VIÊN / KẾ TOÁN
+         UC6.1-TC001: Bỏ trống tất cả các trường và nhấn "Tạo bác sĩ":
+     Error: Hiển thị "Không thể thêm bác sĩ" kèm chuỗi lỗi kỹ thuật (JSON của Zod), khó hiểu với người dùng
+      at fail (cases.js:20:13)
+      at expect (cases.js:25:14)
+      at Object.run (cases.js:1153:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Context.<anonymous> (petclinic.spec.js:28:28)
+
+  15) Pet Clinic – Kiểm thử tự động (Mocha + Selenium WebDriver / Microsoft Edge)
+       Chức năng của QUẢN TRỊ VIÊN / KẾ TOÁN
+         UC4.1-TC001: Bỏ trống các trường bắt buộc:
+     Error: Form không lưu, nhưng thiếu thông báo: "Giá là bắt buộc"
+      at fail (cases.js:20:13)
+      at expect (cases.js:25:14)
+      at Object.run (cases.js:1250:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Context.<anonymous> (petclinic.spec.js:28:28)
+
+  16) Pet Clinic – Kiểm thử tự động (Mocha + Selenium WebDriver / Microsoft Edge)
+       Chức năng của QUẢN TRỊ VIÊN / KẾ TOÁN
+         UC4.1-TC004: Mã vật tư trùng với vật tư đã có:
+     Error: Vẫn tạo vật tư thứ hai có mã MED-085746
+      at fail (cases.js:20:13)
+      at expect (cases.js:25:14)
+      at Object.run (cases.js:1309:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Context.<anonymous> (petclinic.spec.js:28:28)
+
+  17) Pet Clinic – Kiểm thử tự động (Mocha + Selenium WebDriver / Microsoft Edge)
+       Chức năng của QUẢN TRỊ VIÊN / KẾ TOÁN
+         UC5.1-TC003: Số lượng bán lớn hơn tồn kho:
+     Error: Có báo lỗi nhưng vẫn phát sinh 1 hóa đơn rỗng 0 VND ở trạng thái chờ thanh toán
+      at fail (cases.js:20:13)
+      at expect (cases.js:25:14)
+      at Object.run (cases.js:1408:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Context.<anonymous> (petclinic.spec.js:28:28)
+
+  18) Pet Clinic – Kiểm thử tự động (Mocha + Selenium WebDriver / Microsoft Edge)
+       Chức năng của QUẢN TRỊ VIÊN / KẾ TOÁN
+         UC5.2-TC003: Tìm hóa đơn theo trạng thái "Quá hạn":
+     Error: Hiển thị 0 hóa đơn – bộ lọc chỉ so khớp mã trạng thái tiếng Anh (overdue), không khớp nhãn tiếng Việt
+      at fail (cases.js:20:13)
+      at expect (cases.js:25:14)
+      at Object.run (cases.js:1453:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Context.<anonymous> (petclinic.spec.js:28:28)
+
+
+

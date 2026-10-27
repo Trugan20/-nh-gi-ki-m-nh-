@@ -1,0 +1,15 @@
+{
+  "name": "petclinic-integrity-test",
+  "version": "1.0.0",
+  "description": "Kiểm thử toàn vẹn dữ liệu – Mocha + mysql2",
+  "private": true,
+  "type": "commonjs",
+  "scripts": {
+    "test": "mocha integrity.test.js --reporter spec",
+    "test:integrity": "mocha integrity.test.js --reporter spec"
+  },
+  "dependencies": {
+    "mocha": "^10.8.2",
+    "mysql2": "^3.11.0"
+  }
+}

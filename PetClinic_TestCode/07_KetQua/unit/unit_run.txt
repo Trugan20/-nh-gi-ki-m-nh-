@@ -1,0 +1,130 @@
+
+> rest-express@1.0.0 test:unit
+> mocha --import=tsx "tests/unit/**/*.test.ts"
+
+
+
+  UT-SCH: insertCustomerSchema
+    ✔ UT-SCH-01: chấp nhận dữ liệu khách hàng hợp lệ và gán isActive mặc định = true
+    ✔ UT-SCH-02: từ chối email sai định dạng
+    ✔ UT-SCH-03: từ chối họ tên rỗng
+    1) UT-SCH-04: chấp nhận địa chỉ rỗng vì đây là trường không bắt buộc
+    2) UT-SCH-05: từ chối số điện thoại không đủ 10 chữ số (quy tắc nghiệp vụ UC1.1)
+
+  UT-SCH: insertPetSchema
+    ✔ UT-SCH-06: chuyển cân nặng kiểu số sang chuỗi (decimal)
+    ✔ UT-SCH-07: từ chối tuổi âm
+    ✔ UT-SCH-08: từ chối thú cưng thiếu loài
+
+  UT-SCH: insertAppointmentSchema
+    ✔ UT-SCH-09: chuyển chuỗi ngày giờ thành đối tượng Date, trạng thái mặc định pending
+    ✔ UT-SCH-10: từ chối trạng thái không thuộc danh sách cho phép
+    ✔ UT-SCH-11: từ chối ngày giờ không hợp lệ
+
+  UT-SCH: kho, hóa đơn, thanh toán, ca trực
+    ✔ UT-SCH-12: từ chối vật tư có tồn kho âm
+    ✔ UT-SCH-13: từ chối lô hàng có số lượng 0
+    ✔ UT-SCH-14: từ chối dòng hóa đơn có số lượng 0
+    ✔ UT-SCH-15: chỉ chấp nhận phương thức thanh toán cash, card, bank_transfer, e_wallet
+    3) UT-SCH-16: từ chối ca trực có giờ kết thúc trước giờ bắt đầu
+
+  UT-STO: DatabaseStorage
+    Lịch hẹn (UC2.1, UC2.2)
+      ✔ UT-STO-01: tạo lịch hẹn hợp lệ với trạng thái mặc định pending
+      ✔ UT-STO-02: từ chối lịch hẹn trùng khung giờ của bác sĩ
+      ✔ UT-STO-03: từ chối lịch hẹn trùng khung giờ của thú cưng
+      ✔ UT-STO-04: hủy lịch hẹn là xóa mềm (status = cancelled), khung giờ được giải phóng
+      4) UT-STO-05: từ chối lịch hẹn có ngày trong quá khứ
+    Kho thuốc và hóa đơn (UC4, UC5)
+      ✔ UT-STO-06: điều chỉnh tồn kho cộng/trừ đúng số lượng
+      ✔ UT-STO-07: từ chối điều chỉnh làm tồn kho âm
+      ✔ UT-STO-08: thêm dòng hóa đơn tự trừ tồn kho và cập nhật tổng tiền hóa đơn
+      ✔ UT-STO-09: từ chối dòng hóa đơn vượt tồn kho, không thay đổi tồn kho (transaction rollback)
+      ✔ UT-STO-10: vật tư có tồn kho <= tồn tối thiểu nằm trong danh sách sắp hết
+      ✔ UT-STO-11: lô hàng hết hạn trong 30 ngày nằm trong danh sách sắp hết hạn
+      5) UT-STO-12: nhập lô hàng mới làm tăng tồn kho của vật tư (R4.1)
+    Khách hàng (UC1.1)
+      6) UT-STO-13: từ chối tạo khách hàng trùng số điện thoại
+      ✔ UT-STO-14: tìm kiếm khách hàng theo số điện thoại
+
+
+  24 passing (100ms)
+  6 failing
+
+  1) UT-SCH: insertCustomerSchema
+       UT-SCH-04: chấp nhận địa chỉ rỗng vì đây là trường không bắt buộc:
+
+      AssertionError [ERR_ASSERTION]: address = "" bị từ chối: String must contain at least 1 character(s)
+
+false !== true
+
+      + expected - actual
+
+      -false
+      +true
+      
+      at Context.<anonymous> (tests\unit\schema.test.ts:41:12)
+      at process.processImmediate (node:internal/timers:534:21)
+
+  2) UT-SCH: insertCustomerSchema
+       UT-SCH-05: từ chối số điện thoại không đủ 10 chữ số (quy tắc nghiệp vụ UC1.1):
+
+      AssertionError [ERR_ASSERTION]: Schema phía server chấp nhận SĐT "123"
+
+true !== false
+
+      + expected - actual
+
+      -true
+      +false
+      
+      at Context.<anonymous> (tests\unit\schema.test.ts:46:12)
+      at process.processImmediate (node:internal/timers:534:21)
+
+  3) UT-SCH: kho, hóa đơn, thanh toán, ca trực
+       UT-SCH-16: từ chối ca trực có giờ kết thúc trước giờ bắt đầu:
+
+      AssertionError [ERR_ASSERTION]: Schema chấp nhận ca 17:00 – 13:00
+
+true !== false
+
+      + expected - actual
+
+      -true
+      +false
+      
+      at Context.<anonymous> (tests\unit\schema.test.ts:112:12)
+      at process.processImmediate (node:internal/timers:534:21)
+
+  4) UT-STO: DatabaseStorage
+       Lịch hẹn (UC2.1, UC2.2)
+         UT-STO-05: từ chối lịch hẹn có ngày trong quá khứ:
+     AssertionError [ERR_ASSERTION]: Missing expected rejection: Lịch hẹn trong quá khứ vẫn được tạo
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Context.<anonymous> (tests\unit\storage.test.ts:72:7)
+
+  5) UT-STO: DatabaseStorage
+       Kho thuốc và hóa đơn (UC4, UC5)
+         UT-STO-12: nhập lô hàng mới làm tăng tồn kho của vật tư (R4.1):
+
+      AssertionError [ERR_ASSERTION]: Tồn kho không đổi (2 → 2) sau khi nhập lô 20
+
+2 !== 22
+
+      + expected - actual
+
+      -2
+      +22
+      
+      at Context.<anonymous> (tests\unit\storage.test.ts:132:14)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+
+  6) UT-STO: DatabaseStorage
+       Khách hàng (UC1.1)
+         UT-STO-13: từ chối tạo khách hàng trùng số điện thoại:
+     AssertionError [ERR_ASSERTION]: Missing expected rejection: Khách hàng trùng SĐT vẫn được tạo
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Context.<anonymous> (tests\unit\storage.test.ts:138:7)
+
+
+

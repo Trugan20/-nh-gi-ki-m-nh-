@@ -1,0 +1,11 @@
+
+
+  Hiệu năng tìm kiếm trên 10.000 khách hàng
+    10030 khách hàng – trung bình 26 ms, p95 36 ms, max 99 ms
+    ✔ PERF-TC001: Một người dùng – tìm theo tên, SĐT, email (50 lượt) (1299ms)
+Tìm kiếm đồng thời trên 10.000 KH          conn=  50  req=  47376  rps= 2369  p50=   20ms  p99=   33ms  max=   86ms  lỗi=0%
+    ✔ PERF-TC002: 50 người dùng tìm kiếm đồng thời trong 20 giây (20058ms)
+
+
+  2 passing (22s)
+

@@ -1,0 +1,372 @@
+{
+  "SYS-TC001": {
+    "status": "Pass",
+    "actual": "Trang Tổng quan hiển thị đầy đủ 6 thẻ thống kê",
+    "ms": 1545
+  },
+  "SYS-TC002": {
+    "status": "Pass",
+    "actual": "Cả 8 mục menu mở đúng trang",
+    "ms": 10519
+  },
+  "SYS-TC003": {
+    "status": "Pass",
+    "actual": "Hiển thị trang 404",
+    "ms": 979
+  },
+  "SYS-TC004": {
+    "status": "Fail",
+    "actual": "Không có trang đăng nhập – truy cập thẳng được danh sách khách hàng",
+    "ms": 1030
+  },
+  "SYS-TC005": {
+    "status": "Pass",
+    "actual": "Giao diện đổi sáng ↔ tối đúng",
+    "ms": 1700
+  },
+  "UC1.1-TC001": {
+    "status": "Pass",
+    "actual": "Hiển thị đủ 3 thông báo lỗi, không lưu dữ liệu",
+    "ms": 2803
+  },
+  "UC1.1-TC002": {
+    "status": "Pass",
+    "actual": "Hiển thị \"Họ tên là bắt buộc\"",
+    "ms": 2891
+  },
+  "UC1.1-TC003": {
+    "status": "Pass",
+    "actual": "Form không được gửi, trình duyệt báo: \"Vui lòng bao gồm '@' trong địa chỉ email. 'leminh.gmail.com' đang thiếu một '@'.\"",
+    "ms": 3940
+  },
+  "UC1.1-TC004": {
+    "status": "Pass",
+    "actual": "Hiển thị lỗi SĐT",
+    "ms": 2946
+  },
+  "UC1.1-TC005": {
+    "status": "Pass",
+    "actual": "Hiển thị lỗi SĐT",
+    "ms": 2846
+  },
+  "UC1.1-TC006": {
+    "status": "Pass",
+    "actual": "Hiển thị lỗi SĐT",
+    "ms": 2851
+  },
+  "UC1.1-TC007": {
+    "status": "Pass",
+    "actual": "Thông báo thành công, khách hàng có trong danh sách",
+    "ms": 2925
+  },
+  "UC1.1-TC008": {
+    "status": "Fail",
+    "actual": "Hệ thống vẫn lưu khách hàng có SĐT trùng 0911000001",
+    "ms": 2909
+  },
+  "UC1.1-TC009": {
+    "status": "Fail",
+    "actual": "Hệ thống vẫn lưu khách hàng có email trùng",
+    "ms": 2899
+  },
+  "UC1.1-TC010": {
+    "status": "Fail",
+    "actual": "Hiển thị \"Không thể thêm khách hàng\" kèm lỗi JSON: \"String must contain at least 1 character(s)\", path [\"address\"]",
+    "ms": 5964
+  },
+  "UC1.3-TC001": {
+    "status": "Pass",
+    "actual": "Cập nhật thành công, địa chỉ mới hiển thị",
+    "ms": 1960
+  },
+  "UC1.3-TC002": {
+    "status": "Pass",
+    "actual": "Hiển thị lỗi SĐT, không lưu",
+    "ms": 1624
+  },
+  "UC1.4-TC001": {
+    "status": "Pass",
+    "actual": "Trạng thái chuyển sang \"Chờ duyệt\"",
+    "ms": 1891
+  },
+  "UC1.4-TC002": {
+    "status": "Pass",
+    "actual": "Khách hàng được duyệt",
+    "ms": 1078
+  },
+  "UC1.5-TC001": {
+    "status": "Fail",
+    "actual": "Ô tìm kiếm mất focus sau ký tự đầu – chỉ nhận \"T\", danh sách lọc sai",
+    "ms": 3639
+  },
+  "UC1.5-TC002": {
+    "status": "Fail",
+    "actual": "Ô tìm kiếm mất focus sau ký tự đầu – chỉ nhận \"0\", danh sách lọc sai",
+    "ms": 3927
+  },
+  "UC1.5-TC003": {
+    "status": "Pass",
+    "actual": "Hiển thị \"Không có khách hàng phù hợp.\" (ô tìm kiếm chỉ nhận \"z\")",
+    "ms": 4002
+  },
+  "UC1.5-TC004": {
+    "status": "Pass",
+    "actual": "Hiển thị Nau, Bun",
+    "ms": 2305
+  },
+  "UC1.5-TC005": {
+    "status": "Fail",
+    "actual": "Danh sách lọc sai",
+    "ms": 3024
+  },
+  "UC1.5-TC006": {
+    "status": "Pass",
+    "actual": "Hiển thị 11 khách hàng đang hoạt động",
+    "ms": 3003
+  },
+  "UC1.2-TC001": {
+    "status": "Pass",
+    "actual": "Hiển thị 2 thông báo lỗi",
+    "ms": 2873
+  },
+  "UC1.2-TC002": {
+    "status": "Pass",
+    "actual": "Hiển thị lỗi Loài",
+    "ms": 2926
+  },
+  "UC1.2-TC003": {
+    "status": "Pass",
+    "actual": "Thêm thú cưng thành công",
+    "ms": 3765
+  },
+  "UC1.2-TC004": {
+    "status": "Fail",
+    "actual": "Hệ thống vẫn lưu thú cưng có microchip trùng",
+    "ms": 3748
+  },
+  "UC1.2-TC005": {
+    "status": "Pass",
+    "actual": "Hiển thị \"Không thể thêm thú cưng\"",
+    "ms": 3687
+  },
+  "UC2.1-TC001": {
+    "status": "Fail",
+    "actual": "Form không gửi nhưng không hiển thị thông báo lỗi nào cho người dùng",
+    "ms": 2674
+  },
+  "UC2.1-TC002": {
+    "status": "Pass",
+    "actual": "Đặt lịch thành công",
+    "ms": 6945
+  },
+  "UC2.1-TC003": {
+    "status": "Pass",
+    "actual": "Hiển thị \"Không thể đặt lịch\" (Veterinarian already has an appointment in this timeslot)",
+    "ms": 6867
+  },
+  "UC2.1-TC004": {
+    "status": "Pass",
+    "actual": "Hiển thị \"Không thể đặt lịch\" (Pet already has an appointment in this timeslot)",
+    "ms": 6070
+  },
+  "UC2.1-TC005": {
+    "status": "Fail",
+    "actual": "Hệ thống vẫn tạo lịch hẹn ngày 2026-10-26",
+    "ms": 6078
+  },
+  "UC2.2-TC001": {
+    "status": "Pass",
+    "actual": "Lịch hẹn chuyển \"Đã xác nhận\" (confirmed)",
+    "ms": 2143
+  },
+  "UC2.2-TC002": {
+    "status": "Pass",
+    "actual": "Lịch hẹn hoàn thành, nút Hủy lịch bị khóa",
+    "ms": 4758
+  },
+  "UC2.2-TC003": {
+    "status": "Pass",
+    "actual": "Lịch hẹn đã hủy",
+    "ms": 2159
+  },
+  "UC2.2-TC004": {
+    "status": "Fail",
+    "actual": "Lịch hẹn vẫn bị hủy dù chỉ còn 30 phút",
+    "ms": 2133
+  },
+  "UC3.1-TC001": {
+    "status": "Pass",
+    "actual": "Hiển thị đủ 5 thông báo lỗi",
+    "ms": 2913
+  },
+  "UC3.1-TC002": {
+    "status": "Pass",
+    "actual": "Hiển thị lỗi chẩn đoán",
+    "ms": 4550
+  },
+  "UC3.1-TC003": {
+    "status": "Pass",
+    "actual": "Lưu hồ sơ khám thành công",
+    "ms": 4646
+  },
+  "UC3.3-TC001": {
+    "status": "Pass",
+    "actual": "Hiển thị 1 hồ sơ đúng chẩn đoán",
+    "ms": 1873
+  },
+  "UC3.3-TC002": {
+    "status": "Pass",
+    "actual": "Hiển thị thông báo không tìm thấy",
+    "ms": 1058
+  },
+  "UC3.3-TC003": {
+    "status": "Fail",
+    "actual": "Kết quả sai (0 dòng khớp)",
+    "ms": 1877
+  },
+  "UC3.3-TC004": {
+    "status": "Pass",
+    "actual": "Hiển thị đủ 7 hồ sơ",
+    "ms": 1809
+  },
+  "UC2.4-TC001": {
+    "status": "Pass",
+    "actual": "Hiển thị thông báo lỗi",
+    "ms": 1946
+  },
+  "UC2.4-TC002": {
+    "status": "Pass",
+    "actual": "Tạo ca trực thành công",
+    "ms": 2717
+  },
+  "UC2.4-TC003": {
+    "status": "Fail",
+    "actual": "Ca trực 17:00 – 13:00 vẫn được tạo",
+    "ms": 2791
+  },
+  "UC2.4-TC004": {
+    "status": "Fail",
+    "actual": "Ca trực trùng giờ vẫn được tạo",
+    "ms": 2685
+  },
+  "UC2.4-TC005": {
+    "status": "Pass",
+    "actual": "Xóa ca trực thành công",
+    "ms": 1249
+  },
+  "UC8.2-TC001": {
+    "status": "Fail",
+    "actual": "Chỉ hiển thị 5/12 camera",
+    "ms": 2526
+  },
+  "UC8.2-TC002": {
+    "status": "Fail",
+    "actual": "Danh sách trống – API /api/camera-streams chỉ trả về camera đang hoạt động nên bộ lọc \"Ngoại tuyến\" không bao giờ có kết quả",
+    "ms": 3631
+  },
+  "UC8.2-TC003": {
+    "status": "Fail",
+    "actual": "Hiển thị thêm: ",
+    "ms": 3228
+  },
+  "UC6.1-TC001": {
+    "status": "Fail",
+    "actual": "Hiển thị \"Không thể thêm bác sĩ\" kèm chuỗi lỗi kỹ thuật (JSON của Zod), khó hiểu với người dùng",
+    "ms": 3505
+  },
+  "UC6.1-TC002": {
+    "status": "Pass",
+    "actual": "Hiển thị \"Không thể thêm bác sĩ\"",
+    "ms": 3027
+  },
+  "UC6.1-TC003": {
+    "status": "Pass",
+    "actual": "Đã thêm bác sĩ mới",
+    "ms": 3019
+  },
+  "UC6.1-TC004": {
+    "status": "Pass",
+    "actual": "Cập nhật thành công",
+    "ms": 2071
+  },
+  "UC6.1-TC005": {
+    "status": "Pass",
+    "actual": "Trạng thái đổi thành bận",
+    "ms": 1246
+  },
+  "UC6.1-TC006": {
+    "status": "Pass",
+    "actual": "Hiển thị BS. Kiểm Thử 616037",
+    "ms": 2283
+  },
+  "UC4.1-TC001": {
+    "status": "Fail",
+    "actual": "Form không lưu, nhưng thiếu thông báo: \"Giá là bắt buộc\"",
+    "ms": 2453
+  },
+  "UC4.1-TC002": {
+    "status": "Pass",
+    "actual": "Trình duyệt chặn: \"Giá trị phải lớn hơn hoặc bằng 0.\"",
+    "ms": 3985
+  },
+  "UC4.1-TC003": {
+    "status": "Pass",
+    "actual": "Thêm vật tư thành công, 1 lô hàng được tạo",
+    "ms": 4004
+  },
+  "UC4.1-TC004": {
+    "status": "Fail",
+    "actual": "Vẫn tạo vật tư thứ hai có mã MED-616037",
+    "ms": 3951
+  },
+  "UC4.3-TC001": {
+    "status": "Pass",
+    "actual": "Cảnh báo tăng từ 5 lên 6 mặt hàng",
+    "ms": 5965
+  },
+  "UC4.3-TC002": {
+    "status": "Fail",
+    "actual": "Thiếu: Doxycycline, Thuốc nhỏ mắt, Vaccine mèo 4 bệnh, Ống truyền dịch",
+    "ms": 2298
+  },
+  "UC5.1-TC001": {
+    "status": "Pass",
+    "actual": "Hiển thị thông báo lỗi",
+    "ms": 2055
+  },
+  "UC5.1-TC002": {
+    "status": "Pass",
+    "actual": "Tạo hóa đơn thành công, tồn kho còn 16, tổng 180.000 VND",
+    "ms": 5442
+  },
+  "UC5.1-TC003": {
+    "status": "Fail",
+    "actual": "Có báo lỗi nhưng vẫn phát sinh 1 hóa đơn rỗng 0 VND ở trạng thái chờ thanh toán",
+    "ms": 5470
+  },
+  "UC5.2-TC001": {
+    "status": "Pass",
+    "actual": "Thanh toán thành công, trạng thái paid",
+    "ms": 1251
+  },
+  "UC5.2-TC002": {
+    "status": "Fail",
+    "actual": "Hiển thị 0 dòng",
+    "ms": 1684
+  },
+  "UC5.2-TC003": {
+    "status": "Fail",
+    "actual": "Hiển thị 0 hóa đơn – bộ lọc chỉ so khớp mã trạng thái tiếng Anh (overdue), không khớp nhãn tiếng Việt",
+    "ms": 1659
+  },
+  "UC7.2-TC001": {
+    "status": "Pass",
+    "actual": "Tổng doanh thu 1.500.500 VND khớp dữ liệu",
+    "ms": 1012
+  },
+  "UC7.2-TC002": {
+    "status": "Pass",
+    "actual": "Số đơn hàng 18, mặt hàng thuốc 49 – khớp dữ liệu",
+    "ms": 1005
+  }
+}

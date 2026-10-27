@@ -1,0 +1,19 @@
+
+
+  Kiểm thử chịu tải – tăng dần 50 → 100 → 200 → 400 → 800 → 1200 → 1600 kết nối, 15s/mức
+Mức 50 kết nối                             conn=  50  req=   6202  rps=  413  p50=  109ms  p99=  300ms  max=  444ms  lỗi=0%
+Mức 100 kết nối                            conn= 100  req=   6312  rps=  421  p50=  226ms  p99=  506ms  max=  937ms  lỗi=0%
+Mức 200 kết nối                            conn= 200  req=   6051  rps=  403  p50=  468ms  p99=  968ms  max= 1939ms  lỗi=0%
+Mức 400 kết nối                            conn= 400  req=   6000  rps=  400  p50=  947ms  p99= 1894ms  max= 2454ms  lỗi=0%
+Mức 800 kết nối                            conn= 800  req=   5915  rps=  394  p50= 1830ms  p99= 3717ms  max= 3856ms  lỗi=0%
+Mức 1200 kết nối                           conn=1200  req=   4962  rps=  331  p50= 6006ms  p99=11762ms  max=11920ms  lỗi=27.39%
+Mức 1600 kết nối                           conn=1600  req=   5183  rps=  346  p50= 3602ms  p99= 7466ms  max= 7501ms  lỗi=3.41%
+  → Ngưỡng quá tải: 800 kết nối
+    ✔ STRESS-TC001: Tăng dần tải và xác định ngưỡng quá tải (107252ms)
+    ✔ STRESS-TC002: Máy chủ không bị sập khi quá tải (2010ms)
+Sau quá tải – 50 kết nối                   conn=  50  req=   4173  rps=  417  p50=  102ms  p99=  316ms  max=  409ms  lỗi=0%
+    ✔ STRESS-TC003: Hồi phục sau quá tải – trở lại 50 kết nối (15034ms)
+
+
+  3 passing (2m)
+

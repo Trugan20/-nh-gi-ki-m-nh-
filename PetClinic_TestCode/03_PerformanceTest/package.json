@@ -1,0 +1,18 @@
+{
+  "name": "petclinic-performance-test",
+  "version": "1.0.0",
+  "description": "Kiểm thử hiệu năng: tải, chịu tải, tìm kiếm 10.000 bản ghi – autocannon + Mocha",
+  "private": true,
+  "type": "commonjs",
+  "scripts": {
+    "test:load": "mocha load.test.js --reporter spec",
+    "test:search": "mocha search10k.test.js --reporter spec",
+    "test:stress": "mocha stress.test.js --reporter spec",
+    "test": "mocha load.test.js search10k.test.js stress.test.js --reporter spec"
+  },
+  "dependencies": {
+    "autocannon": "^8.0.0",
+    "mocha": "^10.8.2",
+    "mysql2": "^3.11.0"
+  }
+}

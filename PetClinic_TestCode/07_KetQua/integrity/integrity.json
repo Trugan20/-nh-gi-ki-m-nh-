@@ -1,0 +1,289 @@
+{
+  "stats": {
+    "suites": 4,
+    "tests": 11,
+    "passes": 7,
+    "pending": 0,
+    "failures": 4,
+    "start": "2026-10-03T01:55:23.771Z",
+    "end": "2026-10-03T01:55:24.272Z",
+    "duration": 501
+  },
+  "tests": [
+    {
+      "title": "DI-TC001: 20 giao dịch bán đồng thời, tồn kho 10 – không bán vượt tồn, tồn kho không âm",
+      "fullTitle": "Kiểm thử toàn vẹn dữ liệu Thao tác đồng thời (race condition) DI-TC001: 20 giao dịch bán đồng thời, tồn kho 10 – không bán vượt tồn, tồn kho không âm",
+      "file": "C:\\Users\\ASUS\\Desktop\\Code\\Testing\\PetClinic\\TestingDoc\\nonfunctional\\integrity\\integrity.test.js",
+      "duration": 199,
+      "currentRetry": 0,
+      "err": {
+        "stack": "AssertionError [ERR_ASSERTION]: Số đã bán (20) + tồn (8) ≠ 10 – bán vượt tồn kho\n\n20 !== 2\n\n    at Context.<anonymous> (integrity\\integrity.test.js:43:14)\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)",
+        "message": "Số đã bán (20) + tồn (8) ≠ 10 – bán vượt tồn kho\n\n20 !== 2\n",
+        "generatedMessage": false,
+        "name": "AssertionError",
+        "code": "ERR_ASSERTION",
+        "actual": "20",
+        "expected": "2",
+        "operator": "strictEqual",
+        "diff": "simple"
+      }
+    },
+    {
+      "title": "DI-TC002: 10 yêu cầu đặt cùng bác sĩ, cùng khung giờ đồng thời – chỉ 1 lịch được tạo",
+      "fullTitle": "Kiểm thử toàn vẹn dữ liệu Thao tác đồng thời (race condition) DI-TC002: 10 yêu cầu đặt cùng bác sĩ, cùng khung giờ đồng thời – chỉ 1 lịch được tạo",
+      "file": "C:\\Users\\ASUS\\Desktop\\Code\\Testing\\PetClinic\\TestingDoc\\nonfunctional\\integrity\\integrity.test.js",
+      "duration": 62,
+      "currentRetry": 0,
+      "err": {
+        "stack": "AssertionError [ERR_ASSERTION]: Có 10 lịch hẹn cùng bác sĩ, cùng khung giờ\n\n10 !== 1\n\n    at Context.<anonymous> (integrity\\integrity.test.js:58:14)\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)",
+        "message": "Có 10 lịch hẹn cùng bác sĩ, cùng khung giờ\n\n10 !== 1\n",
+        "generatedMessage": false,
+        "name": "AssertionError",
+        "code": "ERR_ASSERTION",
+        "actual": "10",
+        "expected": "1",
+        "operator": "strictEqual",
+        "diff": "simple"
+      }
+    },
+    {
+      "title": "DI-TC003: Tổng tiền mọi hóa đơn bằng tổng các dòng hóa đơn",
+      "fullTitle": "Kiểm thử toàn vẹn dữ liệu Nhất quán giữa các bảng DI-TC003: Tổng tiền mọi hóa đơn bằng tổng các dòng hóa đơn",
+      "file": "C:\\Users\\ASUS\\Desktop\\Code\\Testing\\PetClinic\\TestingDoc\\nonfunctional\\integrity\\integrity.test.js",
+      "duration": 2,
+      "currentRetry": 0,
+      "speed": "fast",
+      "err": {}
+    },
+    {
+      "title": "DI-TC004: Không có vật tư nào tồn kho âm",
+      "fullTitle": "Kiểm thử toàn vẹn dữ liệu Nhất quán giữa các bảng DI-TC004: Không có vật tư nào tồn kho âm",
+      "file": "C:\\Users\\ASUS\\Desktop\\Code\\Testing\\PetClinic\\TestingDoc\\nonfunctional\\integrity\\integrity.test.js",
+      "duration": 1,
+      "currentRetry": 0,
+      "speed": "fast",
+      "err": {}
+    },
+    {
+      "title": "DI-TC005: Ràng buộc khóa ngoại – không tạo được thú cưng cho khách hàng không tồn tại",
+      "fullTitle": "Kiểm thử toàn vẹn dữ liệu Nhất quán giữa các bảng DI-TC005: Ràng buộc khóa ngoại – không tạo được thú cưng cho khách hàng không tồn tại",
+      "file": "C:\\Users\\ASUS\\Desktop\\Code\\Testing\\PetClinic\\TestingDoc\\nonfunctional\\integrity\\integrity.test.js",
+      "duration": 8,
+      "currentRetry": 0,
+      "speed": "fast",
+      "err": {}
+    },
+    {
+      "title": "DI-TC006: Hóa đơn chỉ chuyển \"Đã thanh toán\" khi thu đủ tiền",
+      "fullTitle": "Kiểm thử toàn vẹn dữ liệu Nhất quán giữa các bảng DI-TC006: Hóa đơn chỉ chuyển \"Đã thanh toán\" khi thu đủ tiền",
+      "file": "C:\\Users\\ASUS\\Desktop\\Code\\Testing\\PetClinic\\TestingDoc\\nonfunctional\\integrity\\integrity.test.js",
+      "duration": 40,
+      "currentRetry": 0,
+      "err": {
+        "stack": "AssertionError [ERR_ASSERTION]: Đã thu đủ 300.000đ qua 2 lần nhưng hóa đơn vẫn \"pending\"\n\n'pending' !== 'paid'\n\n    at Context.<anonymous> (integrity\\integrity.test.js:92:14)\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)",
+        "message": "Đã thu đủ 300.000đ qua 2 lần nhưng hóa đơn vẫn \"pending\"\n\n'pending' !== 'paid'\n",
+        "generatedMessage": false,
+        "name": "AssertionError",
+        "code": "ERR_ASSERTION",
+        "actual": "pending",
+        "expected": "paid",
+        "operator": "strictEqual",
+        "diff": "simple"
+      }
+    },
+    {
+      "title": "DI-TC007: Từ chối thanh toán vượt số tiền hóa đơn",
+      "fullTitle": "Kiểm thử toàn vẹn dữ liệu Nhất quán giữa các bảng DI-TC007: Từ chối thanh toán vượt số tiền hóa đơn",
+      "file": "C:\\Users\\ASUS\\Desktop\\Code\\Testing\\PetClinic\\TestingDoc\\nonfunctional\\integrity\\integrity.test.js",
+      "duration": 25,
+      "currentRetry": 0,
+      "err": {
+        "stack": "AssertionError [ERR_ASSERTION]: Thanh toán 5.000.000đ cho hóa đơn 200.000đ được chấp nhận (HTTP 201)\n\n201 !== 400\n\n    at Context.<anonymous> (integrity\\integrity.test.js:99:14)\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)",
+        "message": "Thanh toán 5.000.000đ cho hóa đơn 200.000đ được chấp nhận (HTTP 201)\n\n201 !== 400\n",
+        "generatedMessage": false,
+        "name": "AssertionError",
+        "code": "ERR_ASSERTION",
+        "actual": "201",
+        "expected": "400",
+        "operator": "strictEqual",
+        "diff": "simple"
+      }
+    },
+    {
+      "title": "DI-TC008: Tiếng Việt có dấu, emoji, ký tự HTML được lưu và đọc lại nguyên vẹn",
+      "fullTitle": "Kiểm thử toàn vẹn dữ liệu Dữ liệu đặc biệt và dữ liệu độc hại DI-TC008: Tiếng Việt có dấu, emoji, ký tự HTML được lưu và đọc lại nguyên vẹn",
+      "file": "C:\\Users\\ASUS\\Desktop\\Code\\Testing\\PetClinic\\TestingDoc\\nonfunctional\\integrity\\integrity.test.js",
+      "duration": 16,
+      "currentRetry": 0,
+      "speed": "fast",
+      "err": {}
+    },
+    {
+      "title": "DI-TC009: Chuỗi SQL Injection trong ô tìm kiếm không làm lỗi hay thay đổi dữ liệu",
+      "fullTitle": "Kiểm thử toàn vẹn dữ liệu Dữ liệu đặc biệt và dữ liệu độc hại DI-TC009: Chuỗi SQL Injection trong ô tìm kiếm không làm lỗi hay thay đổi dữ liệu",
+      "file": "C:\\Users\\ASUS\\Desktop\\Code\\Testing\\PetClinic\\TestingDoc\\nonfunctional\\integrity\\integrity.test.js",
+      "duration": 30,
+      "currentRetry": 0,
+      "speed": "fast",
+      "err": {}
+    },
+    {
+      "title": "DI-TC010: Họ tên rất dài (5.000 ký tự) bị từ chối hoặc lưu nguyên vẹn, không lỗi máy chủ",
+      "fullTitle": "Kiểm thử toàn vẹn dữ liệu Dữ liệu đặc biệt và dữ liệu độc hại DI-TC010: Họ tên rất dài (5.000 ký tự) bị từ chối hoặc lưu nguyên vẹn, không lỗi máy chủ",
+      "file": "C:\\Users\\ASUS\\Desktop\\Code\\Testing\\PetClinic\\TestingDoc\\nonfunctional\\integrity\\integrity.test.js",
+      "duration": 12,
+      "currentRetry": 0,
+      "speed": "fast",
+      "err": {}
+    },
+    {
+      "title": "DI-TC011: Cập nhật một trường không làm mất các trường khác của hồ sơ",
+      "fullTitle": "Kiểm thử toàn vẹn dữ liệu Dữ liệu đặc biệt và dữ liệu độc hại DI-TC011: Cập nhật một trường không làm mất các trường khác của hồ sơ",
+      "file": "C:\\Users\\ASUS\\Desktop\\Code\\Testing\\PetClinic\\TestingDoc\\nonfunctional\\integrity\\integrity.test.js",
+      "duration": 20,
+      "currentRetry": 0,
+      "speed": "fast",
+      "err": {}
+    }
+  ],
+  "pending": [],
+  "failures": [
+    {
+      "title": "DI-TC001: 20 giao dịch bán đồng thời, tồn kho 10 – không bán vượt tồn, tồn kho không âm",
+      "fullTitle": "Kiểm thử toàn vẹn dữ liệu Thao tác đồng thời (race condition) DI-TC001: 20 giao dịch bán đồng thời, tồn kho 10 – không bán vượt tồn, tồn kho không âm",
+      "file": "C:\\Users\\ASUS\\Desktop\\Code\\Testing\\PetClinic\\TestingDoc\\nonfunctional\\integrity\\integrity.test.js",
+      "duration": 199,
+      "currentRetry": 0,
+      "err": {
+        "stack": "AssertionError [ERR_ASSERTION]: Số đã bán (20) + tồn (8) ≠ 10 – bán vượt tồn kho\n\n20 !== 2\n\n    at Context.<anonymous> (integrity\\integrity.test.js:43:14)\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)",
+        "message": "Số đã bán (20) + tồn (8) ≠ 10 – bán vượt tồn kho\n\n20 !== 2\n",
+        "generatedMessage": false,
+        "name": "AssertionError",
+        "code": "ERR_ASSERTION",
+        "actual": "20",
+        "expected": "2",
+        "operator": "strictEqual",
+        "diff": "simple"
+      }
+    },
+    {
+      "title": "DI-TC002: 10 yêu cầu đặt cùng bác sĩ, cùng khung giờ đồng thời – chỉ 1 lịch được tạo",
+      "fullTitle": "Kiểm thử toàn vẹn dữ liệu Thao tác đồng thời (race condition) DI-TC002: 10 yêu cầu đặt cùng bác sĩ, cùng khung giờ đồng thời – chỉ 1 lịch được tạo",
+      "file": "C:\\Users\\ASUS\\Desktop\\Code\\Testing\\PetClinic\\TestingDoc\\nonfunctional\\integrity\\integrity.test.js",
+      "duration": 62,
+      "currentRetry": 0,
+      "err": {
+        "stack": "AssertionError [ERR_ASSERTION]: Có 10 lịch hẹn cùng bác sĩ, cùng khung giờ\n\n10 !== 1\n\n    at Context.<anonymous> (integrity\\integrity.test.js:58:14)\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)",
+        "message": "Có 10 lịch hẹn cùng bác sĩ, cùng khung giờ\n\n10 !== 1\n",
+        "generatedMessage": false,
+        "name": "AssertionError",
+        "code": "ERR_ASSERTION",
+        "actual": "10",
+        "expected": "1",
+        "operator": "strictEqual",
+        "diff": "simple"
+      }
+    },
+    {
+      "title": "DI-TC006: Hóa đơn chỉ chuyển \"Đã thanh toán\" khi thu đủ tiền",
+      "fullTitle": "Kiểm thử toàn vẹn dữ liệu Nhất quán giữa các bảng DI-TC006: Hóa đơn chỉ chuyển \"Đã thanh toán\" khi thu đủ tiền",
+      "file": "C:\\Users\\ASUS\\Desktop\\Code\\Testing\\PetClinic\\TestingDoc\\nonfunctional\\integrity\\integrity.test.js",
+      "duration": 40,
+      "currentRetry": 0,
+      "err": {
+        "stack": "AssertionError [ERR_ASSERTION]: Đã thu đủ 300.000đ qua 2 lần nhưng hóa đơn vẫn \"pending\"\n\n'pending' !== 'paid'\n\n    at Context.<anonymous> (integrity\\integrity.test.js:92:14)\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)",
+        "message": "Đã thu đủ 300.000đ qua 2 lần nhưng hóa đơn vẫn \"pending\"\n\n'pending' !== 'paid'\n",
+        "generatedMessage": false,
+        "name": "AssertionError",
+        "code": "ERR_ASSERTION",
+        "actual": "pending",
+        "expected": "paid",
+        "operator": "strictEqual",
+        "diff": "simple"
+      }
+    },
+    {
+      "title": "DI-TC007: Từ chối thanh toán vượt số tiền hóa đơn",
+      "fullTitle": "Kiểm thử toàn vẹn dữ liệu Nhất quán giữa các bảng DI-TC007: Từ chối thanh toán vượt số tiền hóa đơn",
+      "file": "C:\\Users\\ASUS\\Desktop\\Code\\Testing\\PetClinic\\TestingDoc\\nonfunctional\\integrity\\integrity.test.js",
+      "duration": 25,
+      "currentRetry": 0,
+      "err": {
+        "stack": "AssertionError [ERR_ASSERTION]: Thanh toán 5.000.000đ cho hóa đơn 200.000đ được chấp nhận (HTTP 201)\n\n201 !== 400\n\n    at Context.<anonymous> (integrity\\integrity.test.js:99:14)\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)",
+        "message": "Thanh toán 5.000.000đ cho hóa đơn 200.000đ được chấp nhận (HTTP 201)\n\n201 !== 400\n",
+        "generatedMessage": false,
+        "name": "AssertionError",
+        "code": "ERR_ASSERTION",
+        "actual": "201",
+        "expected": "400",
+        "operator": "strictEqual",
+        "diff": "simple"
+      }
+    }
+  ],
+  "passes": [
+    {
+      "title": "DI-TC003: Tổng tiền mọi hóa đơn bằng tổng các dòng hóa đơn",
+      "fullTitle": "Kiểm thử toàn vẹn dữ liệu Nhất quán giữa các bảng DI-TC003: Tổng tiền mọi hóa đơn bằng tổng các dòng hóa đơn",
+      "file": "C:\\Users\\ASUS\\Desktop\\Code\\Testing\\PetClinic\\TestingDoc\\nonfunctional\\integrity\\integrity.test.js",
+      "duration": 2,
+      "currentRetry": 0,
+      "speed": "fast",
+      "err": {}
+    },
+    {
+      "title": "DI-TC004: Không có vật tư nào tồn kho âm",
+      "fullTitle": "Kiểm thử toàn vẹn dữ liệu Nhất quán giữa các bảng DI-TC004: Không có vật tư nào tồn kho âm",
+      "file": "C:\\Users\\ASUS\\Desktop\\Code\\Testing\\PetClinic\\TestingDoc\\nonfunctional\\integrity\\integrity.test.js",
+      "duration": 1,
+      "currentRetry": 0,
+      "speed": "fast",
+      "err": {}
+    },
+    {
+      "title": "DI-TC005: Ràng buộc khóa ngoại – không tạo được thú cưng cho khách hàng không tồn tại",
+      "fullTitle": "Kiểm thử toàn vẹn dữ liệu Nhất quán giữa các bảng DI-TC005: Ràng buộc khóa ngoại – không tạo được thú cưng cho khách hàng không tồn tại",
+      "file": "C:\\Users\\ASUS\\Desktop\\Code\\Testing\\PetClinic\\TestingDoc\\nonfunctional\\integrity\\integrity.test.js",
+      "duration": 8,
+      "currentRetry": 0,
+      "speed": "fast",
+      "err": {}
+    },
+    {
+      "title": "DI-TC008: Tiếng Việt có dấu, emoji, ký tự HTML được lưu và đọc lại nguyên vẹn",
+      "fullTitle": "Kiểm thử toàn vẹn dữ liệu Dữ liệu đặc biệt và dữ liệu độc hại DI-TC008: Tiếng Việt có dấu, emoji, ký tự HTML được lưu và đọc lại nguyên vẹn",
+      "file": "C:\\Users\\ASUS\\Desktop\\Code\\Testing\\PetClinic\\TestingDoc\\nonfunctional\\integrity\\integrity.test.js",
+      "duration": 16,
+      "currentRetry": 0,
+      "speed": "fast",
+      "err": {}
+    },
+    {
+      "title": "DI-TC009: Chuỗi SQL Injection trong ô tìm kiếm không làm lỗi hay thay đổi dữ liệu",
+      "fullTitle": "Kiểm thử toàn vẹn dữ liệu Dữ liệu đặc biệt và dữ liệu độc hại DI-TC009: Chuỗi SQL Injection trong ô tìm kiếm không làm lỗi hay thay đổi dữ liệu",
+      "file": "C:\\Users\\ASUS\\Desktop\\Code\\Testing\\PetClinic\\TestingDoc\\nonfunctional\\integrity\\integrity.test.js",
+      "duration": 30,
+      "currentRetry": 0,
+      "speed": "fast",
+      "err": {}
+    },
+    {
+      "title": "DI-TC010: Họ tên rất dài (5.000 ký tự) bị từ chối hoặc lưu nguyên vẹn, không lỗi máy chủ",
+      "fullTitle": "Kiểm thử toàn vẹn dữ liệu Dữ liệu đặc biệt và dữ liệu độc hại DI-TC010: Họ tên rất dài (5.000 ký tự) bị từ chối hoặc lưu nguyên vẹn, không lỗi máy chủ",
+      "file": "C:\\Users\\ASUS\\Desktop\\Code\\Testing\\PetClinic\\TestingDoc\\nonfunctional\\integrity\\integrity.test.js",
+      "duration": 12,
+      "currentRetry": 0,
+      "speed": "fast",
+      "err": {}
+    },
+    {
+      "title": "DI-TC011: Cập nhật một trường không làm mất các trường khác của hồ sơ",
+      "fullTitle": "Kiểm thử toàn vẹn dữ liệu Dữ liệu đặc biệt và dữ liệu độc hại DI-TC011: Cập nhật một trường không làm mất các trường khác của hồ sơ",
+      "file": "C:\\Users\\ASUS\\Desktop\\Code\\Testing\\PetClinic\\TestingDoc\\nonfunctional\\integrity\\integrity.test.js",
+      "duration": 20,
+      "currentRetry": 0,
+      "speed": "fast",
+      "err": {}
+    }
+  ]
+}

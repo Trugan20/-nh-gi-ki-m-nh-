@@ -1,0 +1,44 @@
+version: "3.9"
+
+services:
+  db:
+    image: mysql:8.4
+    container_name: petclinic-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: petclinic
+      MYSQL_USER: petclinic
+      MYSQL_PASSWORD: petclinic
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-proot"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: petclinic-app
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      PORT: 5000
+      NODE_ENV: production
+      DATABASE_URL: mysql://petclinic:petclinic@db:3306/petclinic
+      ENABLE_AUTO_REMINDER: "true"
+      REMINDER_WINDOW_MINUTES: 60
+      REMINDER_INTERVAL_SECONDS: 60
+    ports:
+      - "5000:5000"
+    command: sh -c "npm run db:push && npm run db:seed && npm run start"
+
+volumes:
+  mysql_data:
