@@ -1,3 +1,32 @@
+# 🐾 DỰ ÁN KIỂM THỬ PHẦN MỀM PETCLINIC
+
+## 1. Giới thiệu dự án
+
+Dự án được thực hiện nhằm kiểm thử hệ thống quản lý phòng khám thú cưng PetClinic Pro, đánh giá chất lượng và khả năng hoạt động của hệ thống thông qua các phương pháp kiểm thử phần mềm.
+
+### Mục tiêu
+- Kiểm thử các chức năng của hệ thống.
+- Thực hiện kiểm thử đơn vị và kiểm thử tự động giao diện.
+- Đánh giá hiệu năng và khả năng chịu tải.
+- Kiểm tra tính toàn vẹn dữ liệu.
+- Đánh giá độ tin cậy và khả năng phục hồi của hệ thống.
+
+## 2. Thành viên nhóm
+
+| STT | Họ và tên | Mã sinh viên | Lớp |
+|---|---|---|---|
+| 1 | Lữ Trung Anh | 23010339 | K17-CNTTVJ |
+| 2 | Đỗ Quỳnh Chi | 23010618 | K17-CNTTVJ |
+| 3 | Đỗ Vân Khánh | 23013929 | K17-CNTTVJ |
+
+## 3. Công nghệ sử dụng
+
+- **Node.js:** Môi trường chạy JavaScript.
+- **Mocha:** Framework kiểm thử.
+- **Selenium WebDriver:** Tự động hóa kiểm thử giao diện.
+- **MySQL:** Hệ quản trị cơ sở dữ liệu.
+- **Git và GitHub:** Quản lý mã nguồn và lưu trữ dự án.
+
 # Bộ mã kiểm thử – Phần mềm quản lý phòng khám thú cưng (Pet Clinic)
 
 Gói này chứa toàn bộ mã kiểm thử, dữ liệu mẫu và kết quả kiểm thử dùng trong báo cáo `Nhóm12_PetClinic_KiemThu.docx`.
