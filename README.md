@@ -36,6 +36,10 @@ Video giới thiệu và chạy thử hệ thống PetClinic:
 
 [📹 Xem video demo](video-demo/Meeting%20in%20General-20261028_161227-Meeting%20Recording.mp4)
 
+- **Link video demo dự phòng trên Google Drive:** [Xem video demo trên Google Drive](https://drive.google.com/file/d/11XjVatHKS41jBJI7mB83azTU1lZNANjr/view?usp=sharing)
+
+*Nếu video trên GitHub không phát được, vui lòng sử dụng link dự phòng trên Google Drive.*
+
 **Đọc trước:**
 - `HuongDan_KiemThu_PetClinic.docx` – hướng dẫn từng bước: chuẩn bị, chạy từng loại test, đọc kết quả, xử lý lỗi thường gặp.
 - `PetClinic_BaoCaoKiemThu.xlsx` – báo cáo kiểm thử dạng bảng: Tổng quan, test case chức năng, unit test, test case phi chức năng, danh sách lỗi.
