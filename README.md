@@ -1,6 +1,11 @@
 # Bộ mã kiểm thử – Phần mềm quản lý phòng khám thú cưng (Pet Clinic)
 
 Gói này chứa toàn bộ mã kiểm thử, dữ liệu mẫu và kết quả kiểm thử dùng trong báo cáo `Nhóm12_PetClinic_KiemThu.docx`.
+## Video demo
+
+Video giới thiệu và chạy thử hệ thống PetClinic:
+
+[📹 Xem video demo](video-demo/Meeting%20in%20General-20261028_161227-Meeting%20Recording.mp4)
 
 **Đọc trước:**
 - `HuongDan_KiemThu_PetClinic.docx` – hướng dẫn từng bước: chuẩn bị, chạy từng loại test, đọc kết quả, xử lý lỗi thường gặp.
